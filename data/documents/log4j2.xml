@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout pattern="%d{MM-dd HH:mm:ss.SSS} [%t] [%-2p]  %c {%F:%L} - %m%n" />
+		</Console>
+		<File name="file" fileName="dist/my.log">
+			<PatternLayout pattern="%m%n" />
+		</File>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="mh.sample2.Log4jTest2" level="INFO">
+			<AppenderRef ref="file" />
+		</Logger>
+		<Root level="INFO">
+			<AppenderRef ref="console" />
+		</Root>
+	</Loggers>
+</Configuration>

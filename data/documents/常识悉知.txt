@@ -1,0 +1,192 @@
+Java内不同进制的数据表现：
+二进制：由0，1组成。以0b开头。
+八进制：由0,1,...7组成。以0开头。
+十进制：由0,1,...9组成。默认整数是十进制。
+十六进制：由0,1,...9,a,b,c,d,e,f(大小写均可)组成。以0x开头。
+
+// js代码 下拉框:
+readonly 只读属性
+disabled 不可用 参数值无法修改且无法提交
+
+// js刷新当前页面 
+http://www.jb51.net/article/44764.htm
+语法：location.reload([bForceGet])
+参数：bForceGet， 可选参数， 默认为 false，从客户端缓存里取当前页。true, 则以 GET 方式，从服务端取最新的页面, 相当于客户端点击 F5("刷新")
+
+(page-1) * pagesize 分页公式mysql (4-1)*10=30, limit (page-1) * pagesize, pagesize 从第31个开始到40.s
+
+// linux下启动jar包
+setsid java -jar /sunyard/service/sunpls-service-hycf.jar >> /sunyard/service/sunpls-hycf.log &
+setsid java -jar -Dfile.encoding=UTF-8 jar包地址 >> 日志地址 &
+// linux下查看日志
+tail -200f /sunyard/service/sunpls-hycf.log
+
+rd是研发（研究与开发），fe前端研发，qa是测试，ue用户体验，op是运维。
+另外，ui 就是用户设计，db数据库，pm产品经理
+1.PM: Product Manager，产品经理，又称品牌经理（Brand Manager）。
+2.RD: Research and Development engineer，研发工程师，
+3.FE: FE有多种解释，在实体经济中，FE可以指Facility Engineer，厂务工程师，主要负责工厂的外围的一些支持系统。在网络经济中，FE可以指Front-End Development，前端开发，新新职业。
+4.QA: Qualtiy Assurance，品质保证。QA的主要职责就是质量保证工作。
+5.OP: Operator，操作员，管理员。
+
+
+
+#------String.join(File.separator, ${value}.split(","))------
+encrypt.dir.organ=bill,organ,encrypt
+Stirng dir = String.join(File.separator, ResourceUtils.getSftpProperty("encrypt.dir.organ").split(","));
+
+
+
+Oracle:
+order by colum asc 时，null默认被放在最后
+order by colum desc 时，null默认被放在最前
+nulls first 时，强制null放在最前，不为null的按声明顺序[asc|desc]进行排序
+nulls last 时，强制null放在最后，不为null的按声明顺序[asc|desc]进行排序
+
+MySQL:
+order by colum asc 时，null默认被放在最前
+order by colum desc 时，null默认被放在最后
+ORDER BY IF(ISNULL(update_date),0,1) null被强制放在最前，不为null的按声明顺序[asc|desc]进行排序
+ORDER BY IF(ISNULL(update_date),1,0) null被强制放在最后，不为null的按声明顺序[asc|desc]进行排序
+
+// windos查看端口号 dos窗口(cmd里面)
+netstat -ano
+
+
+// mybatis
+<trim suffix="当标签中不为空时添加后缀" suffixOverrides="当标签中不为空时去除第一个后缀" prefix="当标签中不为空时添加前缀" prefixOverrides="当标签中不为空时去除第一个前缀">
+<trim>
+
+<resultMap type>
+<!-- id是主键的映射property时候pojo中主键的属性,column:返回结果中主键的列 -->
+
+// 迭代器使用
+Iterator<Entry<String, String>> iterator = new HashMap<String, String>() {
+		    {
+		        put("name", "test");  
+		        put("age", "20"); 
+		    }
+		}.entrySet().iterator();
+		while (iterator.hasNext()) {
+			java.util.Map.Entry entry = (java.util.Map.Entry) iterator.next();
+			String key = (String) entry.getKey();
+			System.out.println(key);
+		}
+
+// Quartz-Trigger详解
+https://blog.csdn.net/yangshangwei/article/details/78172788#trigger%E5%AE%9E%E7%8E%B0%E7%B1%BB
+
+CronTrigger
+  1)Cron表达式取值
+  字段名	允许的值	允许的特殊字符
+  秒		0-59		,-*/
+  分		0-59		,-*/
+  小时		0-23		,-*/
+  日		1-31		,-*/ L W C
+  月		1-12 or JAN-DEC	,-*/
+  周几		1-7 or SUN-SAT	,-*/ L C #
+  年(可选字段)	empty,1970-2099	,-*/
+
+  *代表每个可能的值,?代表没有指定值,/代表每个多久
+  一个cron表达式的例子字符串为"0 0 12 ? * WED",这表示"每周三的中午 12:00".
+  月中的天 和 周中的天 不能同时为*
+  day-of-month 和 day-of-week 只能设置一个值,另一个值写?
+  /增加幅度
+  ,以段为单位 取个数
+  "50,53,55 10 11 24 8 ?"
+  -范围
+  "20-59 10 11 24 8 ?" 20-59秒一直会执行
+
+// StringUtils用org.apache.commons.lang3.StringUtils
+// null或空串或空格是true
+StringUtils.isBlank()
+// null或空串是true
+StringUtils.isEmpty()
+
+// mvc 输出 或  接收的时候 的 head 请求头 
+produces={"application/xml; charset=UTF-8"})
+consumes="application/xml"
+@RequestMapping(value = "/notify", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded;charset=UTF-8", produces = "application/json")
+	@ResponseBody
+	public BaiduDataModel notify(BaiduDataModel baiduDataModel, HttpServletRequest request) throws Exception {}
+
+// java.math.BigDecimal.setScale(int newScale, int roundingMode)枚举值说明
+// 0.01 => 0.1, -0.01 => 0.1 舍入远离零的舍入模式
+setScale(0, BigDecimal.ROUND_UP);
+// 0.01 => 0.1, -0.01 => 0.0 接近正无穷大的舍入模式
+setScale(1, BigDecimal.ROUND_CEILING)
+// 0.01 => 0.0, -0.01 => 0.0 接近零的舍入模式
+setScale(1, BigDecimal.ROUND_DOWN)
+// 0.01 => 0.0, -0.01 => -0.1 接近负无穷大的舍入模式
+setScale(1, BigDecimal.ROUND_FLOOR)
+// 0.04 => 0.0, 0.05 => 0.1, -0.04 => 0.0, -0.05 => -0.1
+// 四舍五入,向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则为向上舍入的舍入模式。
+setScale(1, BigDecimal.ROUND_HALF_UP)
+// 0.04 => 0.0,  0.05 => 0.0, 0.06 => 0.1, -0.04 => 0.0, -0.05 => 0.0, -0.06 => -0.1
+// 四舍五入不包括5,5是舍,向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则为上舍入的舍入模式。
+setScale(1, BigDecimal.ROUND_HALF_DOWN)
+// 0.15 => 0.2, 0.25 => 0.2
+// 是5则看前1位是奇数则进1,是偶数则舍去,向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则向相邻的偶数舍入。如果舍弃部分左边的数字为奇数，则舍入行为与 ROUND_HALF_UP 相同;如果为偶数，则舍入行为与 ROUND_HALF_DOWN 相同。
+setScale(1, BigDecimal.ROUND_HALF_EVEN)
+// BigDecimal.ROUND_UNNECESSARY 断言请求的操作具有精确的结果，因此不需要舍入。如果对获得精确结果的操作指定此舍入模式，则抛出ArithmeticException。
+// 1 => 1.0, 0.1 => 0.1, 0.01 => java.lang.ArithmeticException: Rounding necessary
+setScale(1, BigDecimal.ROUND_UNNECESSARY)
+
+// 打开win系统的远程协助功能 mstsc 远程协助软件 teamviewer
+
+// 手动将jar包安装到maven仓库
+http://blog.csdn.net/two_people/article/details/62237554
+mvn install:install-file -Dfile=org.json.jar -DgroupId=org.json -DartifactId=org.json -Dversion=2.0 -Dpackaging=jar 
+// 安装解密demo的jar包,pom文件需要把压缩包里的pom解压出来指定一下路径
+mvn install:install-file -Dfile=unionloan-encipher-sdk-1.0.0-SNAPSHOT.jar -DgroupId=com.baidu.unionloan -DartifactId=unionloan-encipher-sdk -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -DpomFile=META-INF/maven/com.baidu.unionloan/unionloan-encipher-sdk/pom.xml
+
+
+
+// PageHelper 分页助手
+https://github.com/pagehelper/Mybatis-PageHelper
+// 获取第1页，10条内容，默认查询总数count
+PageHelper.startPage(1, 10);
+// 紧跟着的第一个select方法会被分页
+List<Country> list = countryMapper.selectIf(1);
+assertEquals(2, list.get(0).getId());
+assertEquals(10, list.size());
+// 分页时，实际返回的结果list类型是Page<E>，如果想取出分页信息，需要强制转换为Page<E>
+assertEquals(182, ((Page) list).getTotal());
+
+// 使用 EXPLAIN 关键字 检查SQL语句效率
+http://blog.csdn.net/xm1331305/article/details/25795657
+
+// 使用explain语句查看sql性能
+http://database.51cto.com/art/201108/284783.htm
+
+// gitk 设置编码
+git config --global gui.encoding utf-8
+
+// git 回退到某个历史版本
+http://blog.csdn.net/newjueqi/article/details/49098123
+git reset --hard 版本id
+
+// vue项目运行流程
+http://www.cnblogs.com/pengjunhao/p/6762141.html
+
+// [vue]webpack打包vue项目并且运行在Tomcat里面
+https://yq.aliyun.com/articles/201155
+
+// vue一些相关的日志
+https://yuanyuanshen.github.io/archives/page/2/
+
+// Vue2.0史上最全入坑教程（上），搭建vue脚手架（vue-cli）
+http://www.jianshu.com/p/1626b8643676
+
+什么是vue脚手架？
+	脚手架的意思是帮你快速开始一个vue的项目，也就是给你一套vue的结构，包含基础的依赖库，只需要 npm install就可以安装，让我们不需要为了编辑或者一些其他事情浪费时间大笑  总而言之，就是快速搭建项目的，让我们可以早点去写代码
+
+node 主要管理包依赖  express模拟的开发环境 webpack用来打包
+
+// vue代码在线测试
+https://codepen.io/pen
+
+
+
+
+

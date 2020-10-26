@@ -1,0 +1,22 @@
+// 解包
+jar -xvf x.jar
+// 打包
+jar -cvfM JAR文件名称 程序文件名称或者程序所在的文件夹
+
+如果要替换的文件在jar包的二级及以下目录下，则需要以下步骤：
+
+（1）使用jar tvf jar名称 | grep 目标文件名 查询出目标文件在war包中的目录
+
+（2）使用jar xvf jar名称 目标文件名(copy上面查出的全路径) 将目标文件及所在war包中的目录解压到当前路径
+
+（3）修改目标文件的内容，或者将要新的目标文件替换掉提取出来的目标文件
+
+（4）使用jar uvf jar名称 目标文件名（和步骤（2）中的目标文件名相同） 将新目标文件替换到 jar包中
+
+举例：需要替换zcsfastDFSTest-0.0.1-SNAPSHOT.jar 下的RunZCS.class文件：
+步骤1# jar tvf zcsfastDFSTest-0.0.1-SNAPSHOT.jar | grep RunZCS.class
+步骤2# jar -xvf zcsfastDFSTest-0.0.1-SNAPSHOT.jar com/zhuoshi/zcsfastDFS/RunZCS.class
+步骤3# cp RunZCS.class com/zhuoshi/zcsfastDFS/
+步骤4# jar -uvf zcsfastDFSTest-0.0.1-SNAPSHOT.jar com/zhuoshi/zcsfastDFS/RunZCS.class
+
+

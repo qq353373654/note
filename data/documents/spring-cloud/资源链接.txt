@@ -1,0 +1,10 @@
+// SpringCloud配置文件最全最详细说明(properties和yml)
+https://blog.csdn.net/xingbaozhen1210/article/details/80290588
+
+// swagger 介绍及两种使用方法
+一：swagger是什么？
+1、是一款让你更好的书写API文档的规范且完整框架。
+2、提供描述、生产、消费和可视化RESTful Web Service。
+3、是由庞大工具集合支撑的形式化规范。这个集合涵盖了从终端用户接口、底层代码库到商业API管理的方方面面。
+https://blog.csdn.net/weixin_37509652/article/details/80094370
+https://www.jianshu.com/p/349e130e40d5

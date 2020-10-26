@@ -1,0 +1,55 @@
+// maven中文库,jar包下载
+https://mvnrepository.com/
+
+// 数据库SQL优化大总结之 百万级数据库优化方案
+
+http://database.51cto.com/art/201407/445934.htm
+
+// EXISTS用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False
+// EXISTS 指定一个子查询,检测 行 的存在.是否为空行 select * from (select 1) a where exists(select * from (select 1) a where 1=2);
+http://www.cnblogs.com/netserver/archive/2008/12/25/1362615.html
+
+// BigDecimal用法详解
+http://blog.csdn.net/lisongjia123/article/details/51232657
+// BigDecimal.setScale 处理java小数点
+http://blog.csdn.net/lmb55/article/details/50253429
+
+// Hibernate validator验证 常用注解
+https://www.cnblogs.com/mr-wuxiansheng/p/7639000.html
+
+// windows10激活步骤
+https://jingyan.baidu.com/article/295430f1ce2e880c7e0050ff.html
+
+// 重入锁：ReentrantLock 详解
+https://blog.csdn.net/Somhu/article/details/78874634
+
+// Web大规模高并发请求和抢购的解决方案
+http://blog.csdn.net/sun_wangdong/article/details/51137008
+
+// idea基础配置
+https://blog.csdn.net/qq_27093465/article/details/52918873
+
+// 常见 HTTP/FTP/WebSocket 错误代码大全
+https://segmentfault.com/a/1190000007587248
+
+// 设置 rabbitMQ 账户 进入sbin目录执行 rabbitmq-plugins enable rabbitmq_management 后 打开 http://localhost:15672/
+// RabbitMQ用户增删及权限控制 rabbitmqctl delete_user Username 默认用户是 guest
+https://www.cnblogs.com/xinxiucan/p/7940953.html
+
+// java日期处理二（Timestamp）
+http://blog.csdn.net/sunchunmei555/article/details/7034143
+
+// DateUtils时间类
+http://seeareyoume.blog.163.com/blog/static/2140541292012111792342113/
+
+// 最新县及县以上1980年以来历史行政区划代码大全（截止2018年12月31日）
+http://www.zxinc.org/gb2260.htm
+
+// gradle安装与入门
+https://blog.csdn.net/liuyongheng1991/article/details/80771813
+
+// Springboot @Validated和@Valid的区别 及使用
+https://blog.csdn.net/herojuice/article/details/86020101
+
+
+

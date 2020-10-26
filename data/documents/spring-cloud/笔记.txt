@@ -1,0 +1,13 @@
+SpringBoot 测试类无法自动注入@Autowired
+使用springboot进行单元测试时，发现使用@Autowired注解的类无法自动注入，当使用这个类时报出空指针错误。
+解决方法：
+1、pom.xml文件添加以下依赖
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+</dependency>
+2、测试类上添加以下注解
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = XXXApplication.class)
+说明：XXXApplication为springboot项目启动类
+

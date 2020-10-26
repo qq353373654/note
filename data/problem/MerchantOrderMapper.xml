@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hygl.service.mapper.MerchantOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.hygl.service.domain.merchantorder.MerchantOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="merchant_id" property="merchantId" jdbcType="VARCHAR" />
+    <result column="submit_type" property="submitType" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="pay_type" property="payType" jdbcType="INTEGER" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="close_time" property="closeTime" jdbcType="TIMESTAMP" />
+    <result column="application_return_time" property="applicationReturnTime" jdbcType="TIMESTAMP" />
+    <result column="accept_return_time" property="acceptReturnTime" jdbcType="TIMESTAMP" />
+    <result column="finish_time" property="finishTime" jdbcType="TIMESTAMP" />
+    <result column="pay_end_time" property="payEndTime" jdbcType="TIMESTAMP" />
+    <result column="send_end_time" property="sendEndTime" jdbcType="TIMESTAMP" />
+    <result column="finish_end_time" property="finishEndTime" jdbcType="TIMESTAMP" />
+    <result column="good_num" property="goodNum" jdbcType="INTEGER" />
+    <result column="total_moeny" property="totalMoeny" jdbcType="DECIMAL" />
+    <result column="return_reason_id" property="returnReasonId" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="receiver" property="receiver" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="send_company" property="sendCompany" jdbcType="VARCHAR" />
+    <result column="send_code" property="sendCode" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="login_phone" property="loginPhone" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  
+  <resultMap type="com.hygl.service.domain.merchantorder.MerchantOrderDto" id="DtoResultMap" extends="BaseResultMap">
+  	 <!-- 订单信息 -->
+        <!-- 关联用户信息 -->
+        <!-- 使用extends继承，不用在中配置订单信息和用户信息的映射-->
+        
+        <!-- 关联订单明细信息 
+            一个订单关联查询出了多条订单明细,要使用collection映射
+            collection:对关联查询到的多条记录映射到集合中
+            property:将关联查询到的多条记录映射到orders类的那个属性
+            ofType:指定映射的集合属性中pojo的类型
+        -->
+        <collection property="details" ofType="com.hygl.service.domain.merchantorder.MerchantOrderDetail">
+            <!-- id:唯一标识
+                 property：要将订单明细的唯一标识映射到com.mybatis.entity.OrderDetail的那个属性
+             -->
+            <id column="moid" property="id"/>
+            <result column="merchant_order_id" property="merchantOrderId"/>
+            <result column="merchant_goods_id" property="merchantGoodsId"/>
+            <result column="goods_name" property="goodsName"/>
+            <result column="goods_pic" property="goodsPic"/>
+            <result column="goods_desc" property="goodsDesc"/>
+            <result column="goods_price" property="goodsPrice"/>
+            <result column="buy_num" property="buyNum"/>
+            <result column="total_money" property="totalMoney"/>
+            <result column="merchant_id" property="merchantId"/>
+            <result column="merchant_name" property="merchantName"/>
+        </collection>
+  
+  
+  </resultMap>
+  
+  
+  
+  
+  <!-- <sql id="order_Column_List">
+  	m.id, m.code, m.merchant_id, m.submit_type, m.user_id, m.type, m.status, m.pay_type, m.creat_time, 
+    m.update_time, m.pay_time, m.send_time, m.close_time, m.application_return_time, m.accept_return_time, 
+    m.finish_time,m.pay_end_time, m.send_end_time, m.finish_end_time, m.good_num, m.total_moeny, 
+    m.return_reason_id, m.address, m.receiver, m.phone, m.send_company, m.send_code, m.remark
+  </sql>
+  
+  <sql id="OrderDetail_Column_List" >
+    mo.id moid, mo.merchant_order_id, mo.merchant_goods_id, mo.goods_name, mo.goods_pic, mo.goods_desc, mo.goods_price, 
+    mo.buy_num, mo.total_money, mo.merchant_id, mo.merchant_name
+  </sql> -->
+  
+  <select id="queryOrderForPage"  resultMap="BaseResultMap"  parameterType="com.hygl.service.domain.merchantorder.MerchantOrder">
+  
+ SELECT
+	m.`code`,
+	m.creat_time,
+	m.total_moeny,
+	m.pay_type,
+	m.`status`,
+	u.login_phone
+FROM
+	`merchant_order` m
+LEFT JOIN `user` u ON m.user_id = u.id 
+  <where>
+  <if test="code != null">
+    and code = #{code,jdbcType=VARCHAR}
+  </if>
+  <if test="receiver != null">
+    and receiver = #{receiver,jdbcType=VARCHAR}
+  </if>
+  <if test=" creatTime!= null">
+    and creat_time = #{creatTime,jdbcType=TIMESTAMP}
+  </if>
+  <if test=" merchantId!= null">
+    and merchant_id = #{merchantId,jdbcType=VARCHAR}
+  </if>
+ </where>
+ </select>
+  
+  
+  <select  id="queryByOrderId" resultMap="DtoResultMap" parameterType="java.lang.Long">
+  
+  SELECT
+	m.id, m.code, m.merchant_id, m.submit_type, m.user_id, m.type, m.status, m.pay_type, m.creat_time, 
+    m.update_time, m.pay_time, m.send_time, m.close_time, m.application_return_time, m.accept_return_time, 
+    m.finish_time,m.pay_end_time, m.send_end_time, m.finish_end_time, m.good_num, m.total_moeny, 
+    m.return_reason_id, m.address, m.receiver, m.phone, m.send_company, m.send_code, m.remark,
+	mo.id moid, mo.merchant_order_id, mo.merchant_goods_id, mo.goods_name, mo.goods_pic, mo.goods_desc, mo.goods_price, 
+    mo.buy_num, mo.total_money, mo.merchant_id, mo.merchant_name
+FROM
+	`merchant_order` m
+LEFT JOIN  merchant_order_detail mo ON m.id = mo.merchant_order_id where m.id=#{id,jdbcType=BIGINT}
+  
+  </select>
+  
+ 
+  
+</mapper>

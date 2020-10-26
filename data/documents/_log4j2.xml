@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+
+	<Appenders>
+		<!--这个输出控制台的配置 -->
+		<Console name="console" target="SYSTEM_OUT">
+			<!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout pattern="%d{MM-dd HH:mm:ss.SSS} [%t] [%-2p]  %c {%F:%L} - %m%n" />
+		</Console>
+		<RollingFile name="fileAppenderDebug" fileName="logs-baidu/abc/debug.log"
+			filePattern="logs-baidu/abc/$${date:yyyy-MM}/debug-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout
+				pattern="%d{MM-dd HH:mm:ss.SSS} [%t] [%-2p]  %c {%F:%L} - %m%n" />
+			<Filters>
+				<ThresholdFilter level="DEBUG" onMatch="NEUTRAL"
+					onMismatch="DENY" />
+			</Filters>
+			<TimeBasedTriggeringPolicy />
+		</RollingFile>
+		<RollingFile name="fileAppenderInfo" fileName="logs-baidu/abc/info.log"
+			filePattern="logs-baidu/abc/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout
+				pattern="%d{MM-dd HH:mm:ss.SSS} [%t] [%-2p]  %c {%F:%L} - %m%n" />
+			<Filters>
+				<ThresholdFilter level="INFO" onMatch="NEUTRAL"
+					onMismatch="DENY" />
+			</Filters>
+			<TimeBasedTriggeringPolicy />
+		</RollingFile>
+		<RollingFile name="fileAppenderWarn" fileName="logs-baidu/abc/warn.log"
+			filePattern="logs-baidu/abc/$${date:yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout
+				pattern="%d{MM-dd HH:mm:ss.SSS} [%t] [%-2p]  %c {%F:%L} - %m%n" />
+			<Filters>
+				<ThresholdFilter level="WARN" onMatch="NEUTRAL"
+					onMismatch="DENY" />
+			</Filters>
+			<TimeBasedTriggeringPolicy />
+		</RollingFile>
+		<RollingFile name="fileAppenderError" fileName="logs-baidu/abc/error.log"
+			filePattern="logs-baidu/abc/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout
+				pattern="%d{MM-dd HH:mm:ss.SSS} [%t] [%-2p]  %c {%F:%L} - %m%n" />
+			<Filters>
+				<ThresholdFilter level="ERROR" onMatch="NEUTRAL"
+					onMismatch="DENY" />
+			</Filters>
+			<TimeBasedTriggeringPolicy />
+		</RollingFile>
+		<File name="slowsqlinfo" fileName="logs-baidu/abc/slowsqlinfo.log">
+			<PatternLayout
+				pattern="%d{MM-dd HH:mm:ss.SSS} [%t] [%-2p]  %c {%F:%L} - %m%n" />
+		</File>
+	</Appenders>
+
+	<Loggers>
+		<AsyncRoot level="INFO" includeLocation="true">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</AsyncRoot>
+		<logger name="com.alibaba.druid.filter.stat.StatFilter"
+			level="INFO" additivity="false" includeLocation="true">
+			<AppenderRef ref="slowsqlinfo" />
+		</logger>
+		<logger name="com.alibaba.druid.filter.FilterManager"
+			level="INFO" additivity="false" includeLocation="true">
+			<AppenderRef ref="slowsqlinfo" />
+		</logger>
+		<logger name="com.alibaba.dubbo" additivity="false">   
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>  
+		<logger name="druid.sql.Connection" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="druid.sql.Statement" level="DEBUG" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="druid.sql.ResultSet" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="org.springframework" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="com.alibaba.druid.pool.DruidDataSourceStatLoggerImpl" level="ERROR" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="org.mybatis" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="com.ibatis" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="org.apache" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="net.rubyeye.xmemcached" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="com.google.code.yanf4j.core.impl.AbstractController" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="org.apache.zookeeper.ClientCnxn" level="ERROR" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="org.quartz.core" level="ERROR" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+		<logger name="com.sunfintech" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileAppenderDebug" />
+			<AppenderRef ref="fileAppenderInfo" />
+			<AppenderRef ref="fileAppenderWarn" />
+			<AppenderRef ref="fileAppenderError" />
+		</logger>
+
+	</Loggers>
+
+</Configuration>

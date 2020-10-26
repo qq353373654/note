@@ -1,0 +1,94 @@
+// 搭建远程git仓库
+https://blog.csdn.net/firevictor/article/details/80318069
+ssh-keygen -t rsa -C "{username}" (注：username为你git上的用户名)
+git init --bare sunlink_data.git
+
+// 解决bash: git-upload-pack: command not found
+ln /sunyard/git-2.9.5/git-upload-pack /usr/bin/
+
+// 解决bash: git-receive-pack: command not found
+ln /sunyard/git-2.9.5/git-receive-pack /usr/bin/
+
+// clone远程仓库
+git clone "/sunyard/git-2.9.5/git-upload-pack" {linux用户}@{linux Ip}:{仓库地址}
+
+// 私有git服务多用户管理及权限控制
+	https://blog.csdn.net/wang839305939/article/details/78194944
+	https://blog.csdn.net/u010258933/article/details/80663805
+	// 用户的主目录指向某文件夹
+		usermod -d /gitRepository {username}
+	// 避免git用户登录操作系统 /etc/passwd 的 /bin/bash 改为 /sunyard/git-2.9.5/git-shell
+		usermod -s /sunyard/git-2.9.5/git-shell {username}
+
+// Git进行版本控制添加文件时，中文文件名乱码显示数字问题
+	git config --global core.quotepath false
+
+// remote: error: insufficient permission for adding an object to repository database ./objects
+chmod 775 sunlink_data.git -R
+chown root:git sunlink_data.git -R
+vim /etc/pam.d/sshd , session     optional pam_umask.so umask=0002
+// 修改用户所在的工作组(直接覆盖已存在的工作组)
+	usermod -g git wuhuan
+// 将用户添加进工作组
+	usermod -G wuhuan wuhuan
+
+// 合并单个commit到指定的分支上
+git log  //查看提交的日志，复制要合并的那个分支的commit id</span>
+git checkout 要合并的分支  // 切换到要合并的分支上
+git cherry-pick 上面复制的那个要合并的commit id  // 提交该commit到当前分支
+
+// 主要操作度小满icode用(合并代码等)
+git checkout -b 分支名 // 创建本地临时分支
+git push --set-upstream origin <BranchName> // 此操作可将临时分支推至度小满icode
+git remote show origin			// 查看本地分支和追踪情况
+git remote prune origin			// 同步删除掉的分支信息
+git branch -d <BranchName>		// 删除本地分支
+
+// 把目标分支合并到当前分支
+git merge ${目标分支}
+
+// remote unpack failed:error Missing commit问题解决
+git gc
+git pull --rebase
+git push
+或者 git push --no-thin origin HEAD:refs/for/release
+
+// 撤销commit,https://www.cnblogs.com/lfxiao/p/9378763.html
+// --mixed 意思是：不删除工作空间改动代码，撤销commit，并且撤销git add . 操作 这个为默认参数,git reset --mixed HEAD^ 和 git reset HEAD^ 效果是一样的。
+// --soft 不删除工作空间改动代码，撤销commit，不撤销git add .
+// --hard 删除工作空间改动代码，撤销commit，撤销git add . 注意完成这个操作后，就恢复到了上一次的commit状态。
+git reset --soft HEAD^
+
+// git 推送出现 "fatal: The remote end hung up unexpectedly" 解决方案 https://blog.csdn.net/weixin_38450840/article/details/80701173
+  方法一：修改提交缓存大小为500M，或者更大的数字
+git config --global http.postBuffer 524288000
+或者在克隆/创建版本库生成的 .git目录下面修改生成的config文件增加如下：然后重新推送。
+[http]  
+postBuffer = 524288000
+  方法二：配置git的最低速度和最低速度时间：
+git config --global http.lowSpeedLimit 0
+git config --global http.lowSpeedTime 999999  单位 秒
+--global配置对当前用户生效，如果需要对所有用户生效，则用--system
+  方法三：fatal: The remote end hung up unexpectedlyB | 2.00 KiB/s
+我的是这样的，后面带| 2.00KiB/s  这句显示 远程结束挂起 |2KiB/s
+应该是墙的原因导致网速太慢，且项目有点大上传不上
+解决办法：翻墙 或者换个网速好的网络重新再push一遍 就没问题了.我是到公司用公司的网络解决的.
+
+// git pull报错：error: RPC failed; curl 56 OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+git config --global pack.windowMemory "100m"
+git config --global pack.SizeLimit "100m" 
+git config --global pack.threads "1"
+git config --global pack.window "0"
+git config --global http.postBuffer 524288000
+git config --global http.sslVerify "false"
+git config --add core.compression -1
+
+// Git 修改已提交的commit注释 https://www.jianshu.com/p/098d85a58bf1
+// 修改最后一次注释 git commit --amend 输入i进入修改模式，修改好注释后，按Esc键 退出编辑模式，输入:wq保存并退出。ok，修改完成
+
+
+
+
+
+
+

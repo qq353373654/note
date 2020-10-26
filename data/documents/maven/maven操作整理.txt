@@ -1,0 +1,26 @@
+// 安装jar包到maven仓库, -DpomFile=pom.xml 参数可指定pom.xml
+	mvn install:install-file -Dfile=a.jar -DgroupId=gid -DartifactId=aid -Dversion=0.0.1 -Dpackaging=jar
+// 安装jar包的源码到maven仓库
+	mvn install:install-file -Dfile=a.jar -DgroupId=gid -DartifactId=aid -Dversion=0.0.1 -Dpackaging=jar -Dclassifier=sources
+	mvn install:install-file -Dfile=a.jar -DgroupId=gid -DartifactId=aid -Dversion=0.0.1 -Dpackaging=jar -Dclassifier=javadoc
+// 打包编译
+	mvn clean install -Dmaven.test.skip -P
+
+// pom.xml加载本地jar包
+<dependency>
+    <groupId>com.zhongan</groupId>
+    <artifactId>sdk</artifactId>
+    <version>0.0.1</version>
+    <scope>system</scope>
+    <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/zaOpenapiSdk.jar</systemPath>
+</dependency>
+
+
+
+
+
+
+
+
+
+

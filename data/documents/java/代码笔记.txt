@@ -1,0 +1,300 @@
+javax.servlet.http.HttpServletRequest信息:
+
+String path = request.getPathInfo();
+			String path2 = request.getPathTranslated();
+			String path3 = request.getContextPath();
+			String path4 = request.getRealPath(path);
+			String path5 = request.getServletPath();
+			String path6 = request.getSession().getServletContext().getContextPath();
+			String path7 = request.getSession().getServletContext().getRealPath("/");
+			System.out.println("---------------");
+			System.out.println(path);	// null
+			System.out.println(path2);	// null
+			System.out.println(path3);	// /sunpls-gateway
+			System.out.println(path4);	// null
+			System.out.println(path5);	// /api/v1/repay/merDepositProxyReceive.do
+			System.out.println(path6);	// /sunpls-gateway
+			System.out.println(path7);	// D:\software\apache-tomcat-8.0.42\webapps\sunpls-gateway
+			System.out.println("---------------");
+
+null
+null
+/sunpls-gateway
+null
+/api/v1/repay/merDepositProxyReceive.do
+/sunpls-gateway
+D:\software\apache-tomcat-8.0.42\webapps\sunpls-gateway
+---------------
+// 取得客户端的系统版本:Apache-HttpClient/4.5.2 (Java/1.8.0_91)
+			String header = request.getHeader("User-Agent");
+			// 取得客户端的IP:127.0.0.1
+			String remoteAddr = request.getRemoteAddr();
+			// 取得客户端的主机名:127.0.0.1
+			String remoteHost = request.getRemoteHost();
+			// 取得客户端的端口:64921
+			int remotePort = request.getRemotePort();
+			// 取得客户端的用户:null
+			String remoteUser = request.getRemoteUser();
+			// 取得服务器IP:127.0.0.1
+			String localAddr = request.getLocalAddr();
+			// 取得服务器端口:8080
+			int localPort = request.getLocalPort();
+			System.out.println("---------------");
+---------------
+
+java中获取类加载路径和项目根路径的5种方法
+
+// 第一种：获取类加载的根路径   D:\git\daotie\daotie\target\classes
+        File f = new File(this.getClass().getResource("/").getPath());
+        System.out.println(f);
+
+        // 获取当前类的所在工程路径; 如果不加“/”  获取当前类的加载目录  D:\git\daotie\daotie\target\classes\my
+        File f2 = new File(this.getClass().getResource("").getPath());
+        System.out.println(f2);
+
+        // 第二种：获取项目路径    D:\git\daotie\daotie
+        File directory = new File("");// 参数为空
+        String courseFile = directory.getCanonicalPath();
+        System.out.println(courseFile);
+
+
+        // 第三种：  file:/D:/git/daotie/daotie/target/classes/
+        URL xmlpath = this.getClass().getClassLoader().getResource("");
+        System.out.println(xmlpath);
+
+
+        // 第四种： D:\git\daotie\daotie
+        System.out.println(System.getProperty("user.dir"));
+        /*
+         * 结果： C:\Documents and Settings\Administrator\workspace\projectName
+         * 获取当前工程路径
+         */
+
+        // 第五种：  获取所有的类路径 包括jar包的路径
+        System.out.println(System.getProperty("java.class.path"));
+        System.out.println("---------------");
+
+D:\Program%20Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes
+D:\Program%20Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes\com\baidu\unionloan
+D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo
+file:/D:/Program%20Files/workspace_dxm/SDK&DEMO/SDK&DEMO/sdk_demo/target/classes/
+D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo
+D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes;D:\Program Files\maven\repository\com\baidu\unionloan\unionloan-encipher-sdk\1.0.0-SNAPSHOT\unionloan-encipher-sdk-1.0.0-SNAPSHOT.jar;D:\Program Files\maven\repository\org\apache\commons\commons-lang3\3.7\commons-lang3-3.7.jar;D:\Program Files\maven\repository\commons-io\commons-io\2.6\commons-io-2.6.jar;D:\Program Files\maven\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;D:\Program Files\maven\repository\org\apache\commons\commons-compress\1.9\commons-compress-1.9.jar;D:\Program Files\maven\repository\com\jcraft\jsch\0.1.46\jsch-0.1.46.jar;D:\Program Files\maven\repository\com\alibaba\fastjson\1.2.47\fastjson-1.2.47.jar;D:\Program Files\maven\repository\junit\junit\4.12\junit-4.12.jar;D:\Program Files\maven\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Program Files\maven\repository\org\apache\httpcomponents\httpcore\4.4.6\httpcore-4.4.6.jar;D:\Program Files\maven\repository\org\apache\httpcomponents\httpclient\4.5.5\httpclient-4.5.5.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter-web\1.5.13.RELEASE\spring-boot-starter-web-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter\1.5.13.RELEASE\spring-boot-starter-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot\1.5.13.RELEASE\spring-boot-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-autoconfigure\1.5.13.RELEASE\spring-boot-autoconfigure-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter-logging\1.5.13.RELEASE\spring-boot-starter-logging-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\ch\qos\logback\logback-classic\1.1.11\logback-classic-1.1.11.jar;D:\Program Files\maven\repository\ch\qos\logback\logback-core\1.1.11\logback-core-1.1.11.jar;D:\Program Files\maven\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;D:\Program Files\maven\repository\org\slf4j\jcl-over-slf4j\1.7.25\jcl-over-slf4j-1.7.25.jar;D:\Program Files\maven\repository\org\slf4j\jul-to-slf4j\1.7.25\jul-to-slf4j-1.7.25.jar;D:\Program Files\maven\repository\org\slf4j\log4j-over-slf4j\1.7.25\log4j-over-slf4j-1.7.25.jar;D:\Program Files\maven\repository\org\springframework\spring-core\4.3.17.RELEASE\spring-core-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\yaml\snakeyaml\1.17\snakeyaml-1.17.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter-tomcat\1.5.13.RELEASE\spring-boot-starter-tomcat-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\apache\tomcat\embed\tomcat-embed-core\8.5.31\tomcat-embed-core-8.5.31.jar;D:\Program Files\maven\repository\org\apache\tomcat\tomcat-annotations-api\8.5.31\tomcat-annotations-api-8.5.31.jar;D:\Program Files\maven\repository\org\apache\tomcat\embed\tomcat-embed-el\8.5.31\tomcat-embed-el-8.5.31.jar;D:\Program Files\maven\repository\org\apache\tomcat\embed\tomcat-embed-websocket\8.5.31\tomcat-embed-websocket-8.5.31.jar;D:\Program Files\maven\repository\org\hibernate\hibernate-validator\5.3.6.Final\hibernate-validator-5.3.6.Final.jar;D:\Program Files\maven\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;D:\Program Files\maven\repository\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;D:\Program Files\maven\repository\com\fasterxml\classmate\1.3.4\classmate-1.3.4.jar;D:\Program Files\maven\repository\com\fasterxml\jackson\core\jackson-databind\2.8.11.1\jackson-databind-2.8.11.1.jar;D:\Program Files\maven\repository\com\fasterxml\jackson\core\jackson-annotations\2.8.0\jackson-annotations-2.8.0.jar;D:\Program Files\maven\repository\com\fasterxml\jackson\core\jackson-core\2.8.11\jackson-core-2.8.11.jar;D:\Program Files\maven\repository\org\springframework\spring-web\4.3.17.RELEASE\spring-web-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-aop\4.3.17.RELEASE\spring-aop-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-beans\4.3.17.RELEASE\spring-beans-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-context\4.3.17.RELEASE\spring-context-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-webmvc\4.3.17.RELEASE\spring-webmvc-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-expression\4.3.17.RELEASE\spring-expression-4.3.17.RELEASE.jar
+---------------
+
+java将路径里的
+URLEncode和URLDecode用于完成普通字符串和 application/x-www-from-urlencoded MIME字符串之间的相互转化
+import java.net.URLDecoder;
+
+// D:\Program%20Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes
+String resourcePath = FileCipherServiceDemo.class.getResource("/").getPath();
+// 将application/x-www-from-urlencoded字符串转换成普通字符串,D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes
+        resourcePath = URLDecoder.decode(resourcePath, "utf-8");
+// 将普通字符创转换成application/x-www-from-urlencoded字符串，输出%C4%E3%BA%C3
+        String urlString = URLEncoder.encode("你好", "GBK");
+---------------
+
+// JAVA字符串格式化-String.format()的使用
+http://blog.csdn.net/lonely_fireworks/article/details/7962171/
+
+// 1msg1
+String s = String.format("1%s1", "msg")
+
+转换符	说明			示例
+%s	字符串类型		"mingrisoft"
+%c	字符类型		'm'
+%b	布尔类型		true
+%d	整数类型(十进制)	99
+%x	整数类型(十六进制)	FF
+%o	整数类型(八进制)	77
+%f	浮点类型		99.99
+%a	十六进制浮点类型	FF.35AE
+%e	指数类型	9.38e+5
+%g	通用浮点类型(f和e类型中较短的)
+%h	散列码
+%%	百分比类型		%
+%n	换行符
+%tx	日期与实践类型(x代表不同的日期与实践转换符)
+
+
+
+// mvc 输出 或  接收的时候 的 head 请求头 
+produces={"application/xml; charset=UTF-8"})
+consumes="application/xml"
+@RequestMapping(value = "/notify", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded;charset=UTF-8", produces = "application/json")
+	@ResponseBody
+	public BaiduDataModel notify(BaiduDataModel baiduDataModel, HttpServletRequest request) throws Exception {}
+
+
+java.math.BigDecimal.setScale(int newScale, int roundingMode)枚举值说明
+// 0.01 => 0.1, -0.01 => 0.1 舍入远离零的舍入模式
+setScale(0, BigDecimal.ROUND_UP);
+// 0.01 => 0.1, -0.01 => 0.0 接近正无穷大的舍入模式
+setScale(1, BigDecimal.ROUND_CEILING)
+// 0.01 => 0.0, -0.01 => 0.0 接近零的舍入模式
+setScale(1, BigDecimal.ROUND_DOWN)
+// 0.01 => 0.0, -0.01 => -0.1 接近负无穷大的舍入模式
+setScale(1, BigDecimal.ROUND_FLOOR)
+// 0.04 => 0.0, 0.05 => 0.1, -0.04 => 0.0, -0.05 => -0.1
+// 四舍五入,向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则为向上舍入的舍入模式。
+setScale(1, BigDecimal.ROUND_HALF_UP)
+// 0.04 => 0.0,  0.05 => 0.0, 0.06 => 0.1, -0.04 => 0.0, -0.05 => 0.0, -0.06 => -0.1
+// 四舍五入不包括5,5是舍,向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则为上舍入的舍入模式。
+setScale(1, BigDecimal.ROUND_HALF_DOWN)
+// 0.15 => 0.2, 0.25 => 0.2
+// 是5则看前1位是奇数则进1,是偶数则舍去,向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则向相邻的偶数舍入。如果舍弃部分左边的数字为奇数，则舍入行为与 ROUND_HALF_UP 相同;如果为偶数，则舍入行为与 ROUND_HALF_DOWN 相同。
+setScale(1, BigDecimal.ROUND_HALF_EVEN)
+// BigDecimal.ROUND_UNNECESSARY 断言请求的操作具有精确的结果，因此不需要舍入。如果对获得精确结果的操作指定此舍入模式，则抛出ArithmeticException。
+// 1 => 1.0, 0.1 => 0.1, 0.01 => java.lang.ArithmeticException: Rounding necessary
+setScale(1, BigDecimal.ROUND_UNNECESSARY)
+
+
+
+Java io学习之java.nio.file的Path类和Files类
+1.Path 类
+// 定义一个Path对象
+
+	Path path= Paths.get("E:\\javaStudy\\src\\File\\a.txt");
+	System.out.println(path.toString());
+	// 获得path的父级路径
+	Path pParent=path.getParent();
+	System.out.println(pParent);
+	// 使用path获得一个File对象
+	File f=path.toFile();
+	System.out.println(f.toString());
+2.Files类
+读写：使用Files类的静态方法，可以是读取文件变得简单快捷。
+	// 将文件以字符串的形式读出
+	byte[] bytes= Files.readAllBytes(path);
+	String content=new String(bytes);
+	System.out.println(content);
+	// 将文件当作行序列读入
+	List<String> lines=Files.readAllLines(path);
+	System.out.println(lines);
+	// 写出一个字符串到文件中
+	Files.write(path,"this is write by nio write".getBytes());
+	// 向指定文件中追加内容,第三个参数规定了操作是append
+	Files.write(path, "\n append something by nio".getBytes(),StandardOpenOption.APPEND);
+	// 将一个行的集合写出到文件
+	Path path2=Paths.get("E:\\javaStudy\\src\\File\\b.txt");
+	Files.write(path2,lines);
+复制，删除，移动，创建文件
+	// 移动文件
+	Files.move(fromPath,toPath);
+	// 复制文件
+	Files.copy(fromPath,toPath);
+	// 删除文件
+	Files.delete(path);
+	// 创建文件
+	Files.createFile(path);
+	// 创建文件夹
+	Files.createDirectory(path);
+遍历目录
+	// 遍历路径下的文件
+	Path dir=Paths.get("E:\\javaStudy\\src\\File");
+	try (DirectoryStream<Path> files=Files.newDirectoryStream(dir)){
+		for (Path file:files){
+			System.out.println(file.getFileName());
+		}
+	}
+	// 使用正则表达式过滤文件
+	try (DirectoryStream<Path> files=Files.newDirectoryStream(dir,"*.java")){
+		for (Path file:files){
+			System.out.println(file.getFileName());
+		}
+	}
+
+// 二进制转16进制
+org.apache.commons.codec.binary.Hex.encodeHexString(byte[] data)
+
+// 获取用户IP并查询所在地理位置（附几个第三方免费开放API）
+https://blog.csdn.net/weixin_42686556/article/details/81948418
+API:http://ip.taobao.com/service/getIpInfo.php?ip=202.85.208.14
+
+// 操作list流
+List<EnumRespVO> dataList = Arrays.stream(loanAfterWarningTypeEnums).map(loanAfterWarningTypeEnum -> EnumRespVO.builder()
+                    .value(loanAfterWarningTypeEnum.getCode())
+                    .label(loanAfterWarningTypeEnum.getMsg())
+                    .build()).collect(Collectors.toList());
+
+// LocalDate与Date转化
+// 01. java.util.Date --> java.time.LocalDateTime
+public void UDateToLocalDateTime() {
+java.util.Date date = new java.util.Date();
+Instant instant = date.toInstant();
+ZoneId zone = ZoneId.systemDefault();
+LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
+}
+// 02. java.util.Date --> java.time.LocalDate
+public void UDateToLocalDate() {
+java.util.Date date = new java.util.Date();
+Instant instant = date.toInstant();
+ZoneId zone = ZoneId.systemDefault();
+LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
+LocalDate localDate = localDateTime.toLocalDate();
+}
+// 03. java.util.Date --> java.time.LocalTime
+public void UDateToLocalTime() {
+java.util.Date date = new java.util.Date();
+Instant instant = date.toInstant();
+ZoneId zone = ZoneId.systemDefault();
+LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
+LocalTime localTime = localDateTime.toLocalTime();
+}
+// 04. java.time.LocalDateTime --> java.util.Date
+public void LocalDateTimeToUdate() {
+LocalDateTime localDateTime = LocalDateTime.now();
+ZoneId zone = ZoneId.systemDefault();
+Instant instant = localDateTime.atZone(zone).toInstant();
+java.util.Date date = Date.from(instant);
+}
+// 05. java.time.LocalDate --> java.util.Date
+public void LocalDateToUdate() {
+LocalDate localDate = LocalDate.now();
+ZoneId zone = ZoneId.systemDefault();
+Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
+java.util.Date date = Date.from(instant);
+}
+// 06. java.time.LocalTime --> java.util.Date
+public void LocalTimeToUdate() {
+LocalTime localTime = LocalTime.now();
+LocalDate localDate = LocalDate.now();
+LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
+ZoneId zone = ZoneId.systemDefault();
+Instant instant = localDateTime.atZone(zone).toInstant();
+java.util.Date date = Date.from(instant);
+}
+
+// LocalDateTime 日期格式化
+LocalDateTime.parse((String) map.get("forceTime"), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+forceTimeLocalDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+
+// 文件下载
+private void downloadFile(File file, HttpServletResponse resp) throws IOException {
+	OutputStream out;
+	InputStream in;
+
+	// 获取文件流
+	in = new FileInputStream(file);
+	int length = in.available();
+	// 设置返回消息头部信息
+	resp.setContentType("application/force-download");
+	resp.setHeader("Content-Length",String.valueOf(length));
+	String fileName = file.getName();
+	System.out.println("下载的文件名称：" + fileName);
+//        fileName = URLEncoder.encode(fileName, "UTF-8");
+	fileName= new String(fileName.getBytes("UTF-8"), "iso8859-1");
+	resp.setHeader("Content-Disposition", "attachment;filename=\"" + fileName + "\"");
+	// 输出文件到客户端
+	out = resp.getOutputStream();
+	int bytesend = 0 ;
+	byte[] buff = new byte[512];
+	while ((bytesend = in.read(buff))!= -1){
+		out.write(buff,0,bytesend);
+	}
+	in.close();
+	out.close();
+}
+
+
+

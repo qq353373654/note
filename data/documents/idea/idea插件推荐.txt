@@ -1,0 +1,5 @@
+﻿idea插件推荐:
+Alibaba Cloud Toolkit
+Free Mybatis plugin
+Lombok
+Translation

@@ -1,0 +1,171 @@
+// post,curl
+curl -X POST http://36.0.234.157/extrisk/distr/t/callback -H 'content-type: application/x-www-form-urlencoded' -d "icode=0078&data=xxx&salt=yyy&key=zzz"
+// 使用curl时，有两个超时时间：一个是连接超时时间，另一个是数据传输的最大允许时间。
+// 连接超时时间用 --connect-timeout 参数来指定，数据传输的最大允许时间用 -m 参数来指定。
+curl --connect-timeout 10 -m 20 "http://XXXXXXX"
+// post请求,查看耗时
+curl -w "time_namelookup: %{time_namelookup}\ntime_connect: %{time_connect}\ntime_appconnect: %{time_appconnect}\ntime_redirect: %{time_redirect}\ntime_pretransfer: %{time_pretransfer}\ntime_starttransfer: %{time_starttransfer}\ntime_total: %{time_total}\n" -X POST http://www.baidu.com -H 'content-type: application/x-www-form-urlencoded' -d "123"
+time_namelookup ：DNS 域名解析的时候，就是把 https://zhihu.com 转换成 ip 地址的过程
+time_connect ：TCP 连接建立的时间，就是三次握手的时间
+time_appconnect ：SSL/SSH 等上层协议建立连接的时间，比如 connect/handshake 的时间
+time_redirect ：从开始到最后一个请求事务的时间
+time_pretransfer ：从请求开始到响应开始传输的时间
+time_starttransfer ：从请求开始到第一个字节将要传输的时间
+time_total ：这次请求花费的全部时间
+
+// 启动jar包的时候开启监听5005端口(测试环境)
+setsid java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 sl-accounts.jar
+// 以指定编码格式启动jar包
+setsid java -jar -Dfile.encoding=UTF-8 jar包地址 >> 日志地址 &
+// 限制jar启动时内存
+java -jar -Xms512m -Xmx512m xxxxx.jar
+
+// 查看进程是否存在
+ps -a | grep '关键字'
+
+// 查看日志等,
+	// cat是从上往下搜,tac是从下往上搜,-m的意思是限制搜索几行信息,--color是给关键字加颜色
+	cat 日志文件名称 | grep '关键字' -m 10 --color
+	// 从底部指定行数开始查询相关日志 -f是持续查看追加内容, -n是不持续查看
+	tail -n 9999 日志文件名称 | grep '关键字' --color
+
+//  linux抓包指令:(不同系统可能指令不同) -w dump.pcap #指定结果保存的位置
+tcpdump -i any host {要截取数据的ip} -w dump.pcap
+https://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html
+
+// 如果想要知道客户端和服务端究竟协商成了什么样的算法，那么可以ssh -vvv 目标IP，加上参数-vvv之后，ssh连接过程中的所有debug日志都会被打印出来。
+// sftp登录,私钥文件权限不可过高,chmod ［who］ ［+ | – | =］ ［mode］ 文件名,chomd 600 {fileName} 即可,
+sftp -oIdentityFile=/home/xyd/.ssh/sftp_privateKey_test -oPort=2222 instloantest@inner.sftp.baidu.com
+
+// Linux字符编码默认为UTF-8,如出现乱码可设置为GBK, https://www.cnblogs.com/Kconnie/p/5418278.html
+Linux字符编码默认为UTF-8，如出现乱码可设置为GBK
+1.手动更改profile文件的命令：
+vi /etc/profile
+也可以修改 /etc/sysconfig/i18n 文件，如
+LANG="en_US.UTF-8"
+LANG="zh_CN.GB18030"
+LANG="zh_CN.GBK"
+SUPPORTED="zh_CN.UTF-8:zh_CN:zh"
+2.在文件的末尾添加以下两行命令：
+export LC_ALL="zh_CN.GBK"
+export LANG="zh_CN.GBK"
+3.也可在/root/.bash_profile文件的末尾添加以下两行命令：
+export LC_ALL="zh_CN.GBK"
+export LANG="zh_CN.GBK"
+重新启动服务器使更改生效。
+4.修改成功以后用locale命令查看，修改前的默认设置为：
+# locale
+
+
+// linux新建用户并增加sudo权限
+	https://blog.csdn.net/yimingsilence/article/details/80738008
+	sudo adduser {username}
+	sudo usermod -aG sudo {username}
+// 删除用户
+	userdel {username} -r
+// 为用户增加密码
+	passwd username
+// 新建工作组
+	groupadd {groupname}
+// 将用户添加进工作组
+	usermod -G {groupname} {username}
+// 修改用户所在的工作组(直接覆盖已存在的工作组)
+	usermod -g git wuhuan
+// 用户的主目录指向某文件夹
+	usermod -d /gitRepository {username}
+// 避免git用户登录操作系统 /etc/passwd 的 /bin/bash 改为 /sunyard/git-2.9.5/git-shell
+	usermod -s /sunyard/git-2.9.5/git-shell {username}
+// linux下查看所有用户及所有用户组
+	// 查看当前登录用户的组内成员
+	groups
+	// 查看该用户所在的组,以及组内成员
+	groups {username}
+	// 查看当前登录用户名
+	whoami
+// 修改git仓库所在目录/home/data/git/的用户组为gitgroup
+	chgrp -R gitgroup /home/data/git/
+// 设置文件或文件夹的权限, -R 改变这个目录及其下面所有的文件和目录的所有者
+	chown wuhuan:git git
+
+该文件所属的组是否对该用户具有写权限. 如果没有写权限, 则这个目录下的所有文件都不能被删除, 同时也不能添加新的文件. 如果希望用户能够添加文件
+但同时不能删除文件, 则可以对文件使用sticky bit位. 设置该位后, 就算用户对目录
+具有写权限, 也不能删除该文件.
+下面说一下如何操作这些标志:
+操作这些标志与操作文件权限的命令是一样的, 都是 chmod. 有两种方法来操作,
+1) chmod u+s temp — 为temp文件加上setuid标志. (setuid 只对文件有效)
+chmod g+s tempdir — 为tempdir目录加上setgid标志 (setgid 只对目录有效)
+chmod o+t temp — 为temp文件加上sticky标志 (sticky只对文件有效)
+
+// 查看当前文件夹大小
+du -sh
+// 查看文件或目录大小
+du -h
+du {目录名/文件名} -h
+
+// 查看用户的一些配置信息
+	cat /etc/passwd
+
+// linux下安装chrome和chromedriver以使用selenium
+1、安装chrome, 查看版本号:google-chrome --version
+用下面的命令安装Google Chrome
+yum install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+也可以先下载至本地，然后安装
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+yum install ./google-chrome-stable_current_x86_64.rpm
+安装必要的库
+yum install mesa-libOSMesa-devel gnu-free-sans-fonts wqy-zenhei-fonts
+2、安装 chromedriver（末尾附chrome和chromedriver的对应版本）
+chrome官网:wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+淘宝源（推荐）:wget http://npm.taobao.org/mirrors/chromedriver/2.41/chromedriver_linux64.zip
+将下载的文件解压，放在如下位置
+unzip chromedriver_linux64.zip
+mv chromedriver /usr/bin/
+给予执行权限
+chmod +x /usr/bin/chromedriver
+3、运行代码，查看是否成功
+
+// linux压缩文件
+zip [选项] 压缩包名 源文件或源目录 -r：压缩目录
+zip test.zip abc abcd
+unzip [选项] 压缩包名 -d：指定解压缩位置
+unzip -d /tmp/ test.zip
+gzip -r 123
+gunzip -c install.log.gz (-c是保留原文件)
+gzip -dc anaconda-ks.cfg.gz (-d是解压缩,-c是保留原文件)
+
+// linux授权某个用户对某个目录有读写的权限
+https://www.cnblogs.com/zrp2013/p/4529820.html
+  // 给指定用户增加权限 -m
+  setfacl -R -m u:username:rwx your_file_or_fir
+  如setfacl -R -m u:zrp:rwx /home/www
+  // 给指定用户移除权限限制 -x
+  setfacl -R -x u:username your_file_or_fir
+  // 查看权限
+  getfacl your_file_or_fir
+
+// alias 别名, 删除别名则是 unalias {别名}
+  // 需编辑到 vim ~/.bashrc 并刷新 source ~/.bashrc 再编辑 ~/.bash_profile 在里面加入一行：source ~/.bashrc
+  alias[别名]=[指令名称]
+  // 给alias的命令传递自定义参数 https://www.kanzhun.com/jiaocheng/368054.html
+    /!:1    表示第1个参数
+    /!:2*  表示第2个及余下的所有参数
+    /!*      表示所有参数
+	// 下面的alias将实现"查出用户名为xddai的名为用户传递参数的所有进程号,并传递给kill,将其kill掉"
+      alias mykill    'ps -u xddai | grep /!:1 | awk' "'"'{print $1}'"'|xargs kill"
+      ps -ef | grep java | awk '{print $11}' | xargs
+  // Linux下alias使用外部传参 https://blog.csdn.net/huangzx3/article/details/82689142
+    alias s='UpMachine(){ ssh root@$1;};UpMachine'
+
+// shell 参数替换 https://www.cnblogs.com/itxdm/p/something_of_shellscirpt.html
+  // ${parameter:-default} -- 如果变量parameter没被设置, 那么就使用默认值. 
+  ${1:-NULL}意思是当$1为空时，自动将NULL替换成$1所要带入的变量值。
+
+
+
+
+
+
+
+
+
+

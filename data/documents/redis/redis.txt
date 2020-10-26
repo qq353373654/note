@@ -1,0 +1,109 @@
+// redis锁
+https://www.jianshu.com/p/1add6858f687
+
+public String set(final String key, final String value, final String nxxx, final String expx, final long time) {
+        return execute(key, new HashRedisExecutor<String>() {
+            @Override
+            public String execute(JedisCluster jedisCluster, Jedis jedis) {
+                if (jedis != null) {
+                    return jedis.set(key, value, nxxx, expx, time);
+                } else {
+                    return jedisCluster.set(key, value, nxxx, expx, time);
+                }
+            }
+        });
+    }
+
+@Override
+	public boolean tryDistributedLock(String key, String value) {
+		log.info("获取redis分布式锁开始,加锁-key:{},value:{}", key, value);
+		HashRedisUtils redis = HashRedisUtils.getInstance();
+		String result = redis.set(key, value, NXXX, EXPR, TIME);
+		boolean flag = Objects.equals(result, LOCK_SUCCESS);
+		log.info("获取redis分布式锁结束-加锁-key:{},value:{},flag:{}", key, value, flag);
+		return flag;
+	}
+
+/**
+     * 接执行LUA脚本
+     *
+     * @param script 对应的LUA脚本命令
+     * @param keys   键list
+     * @param args   值list
+     * @return
+     */
+    public Object eval(String script, List<String> keys, List<String> args) {
+        return execute(script, new HashRedisExecutor<Object>() {
+            @Override
+            public Object execute(JedisCluster jedisCluster, Jedis jedis) {
+                Object result = null;
+                if (jedis != null) {
+                    result = jedis.eval(script, keys, args);
+                } else {
+                    result = jedisCluster.eval(script, keys, args);
+                }
+                return result;
+            }
+        });
+    }
+
+@Override
+	public boolean releaseDistributedLock(String key, String value) {
+		log.info("释放redis分布式锁开始,释放锁-key:{},value:{}", key, value);
+		HashRedisUtils redis = HashRedisUtils.getInstance();
+		String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
+		Object result = redis.eval(script, Collections.singletonList(key), Collections.singletonList(value));
+		boolean flag = Objects.equals(result, RELEASE_SUCCESS);
+		log.info("释放redis分布式锁结束,释放锁-key:{},value:{},flag:{}", key, value, flag);
+		return flag;
+	}
+
+set key value nx ex 60
+eval "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end" leng key value
+
+
+/** 
+  * <dependency>
+  *     <groupId>org.springframework.boot</groupId>
+  *     <artifactId>spring-boot-starter-data-redis</artifactId>
+  * </dependency>
+  */
+@Autowired
+    private RedisTemplate stringRedisTemplate;
+	/** 锁的默认超时时间1小时 */
+	private static final long LOCK_DEFAULT_TIME_OUT = 1000 * 60 * 60;
+
+	/**
+	 * @param key     锁的Key
+	 * @param value   锁里面的值
+	 */
+	public static boolean tryLock(final String key, final String value) {
+		return tryLock(key, value, LOCK_DEFAULT_TIME_OUT);
+	}
+
+	/**
+	 * @param key     锁的Key
+	 * @param value   锁里面的值
+	 * @param timeout 超时时间（毫秒）
+	 */
+	public static boolean tryLock(final String key, final String value, final long timeout) {
+		if (StringUtils.isBlank(key)) {
+			throw new IllegalArgumentException("key不能为空");
+		}
+		RedisCallback<Boolean> redisCallback = (connection) -> {
+			RedisStringCommands redisStringCommands = connection.stringCommands();
+			//执行加强了的set命令，返回true代表设置成功
+			return redisStringCommands.set(key.getBytes(), value.getBytes(), Expiration.milliseconds(timeout), RedisStringCommands.SetOption.SET_IF_ABSENT);
+		};
+		Boolean result = (Boolean) getStringCache().getRedis().execute(redisCallback);
+		return result != null && result;
+	}
+
+	public static boolean releaseLock(String key, String value) {
+		// lua 脚本
+		String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
+		DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>(script, Long.class);
+		// 参数一：redisScript，参数二：key列表，参数三：arg（可多个）
+		Long result = (Long) getStringCache().getRedis().execute(redisScript, Collections.singletonList(key), value);
+		return result != null && result == 1;
+	}

@@ -1,0 +1,1066 @@
+https://github.com/bailicangdu/vue2-manage  样式请参考此项目 2017-10-31 11:23:08
+
+http://cangdu.org/manage/  项目登陆链接
+
+http://m.jb51.net/article/118792.htm  vueJS2.0 解决ie9及以上不兼容
+npm install --save-dev babel-polyfill
+// 在入口文件倒入
+import 'babel-polyfill'
+// 在webpack.config.js配置文件中
+module.exports = {
+ entry: {
+ app: ["babel-polyfill", "./src/main.js"]
+ }
+};
+
+https://wx.sunfintech.com.cn/ppt/login.shtml   admin   1234567890	需要将此项目用vue组件重写
+
+http://www.cnblogs.com/pengjunhao/p/6762141.html	vue项目运行流程
+
+// [vue]webpack打包vue项目并且运行在Tomcat里面
+https://yq.aliyun.com/articles/201155
+
+@罗银霞  @吴欢   https://www.awesomes.cn/subject/vue 上面的vue组件非常多，两位是否可以分工下，尽快把用到的组件都熟悉一遍
+
+// vue一些相关的日志
+https://yuanyuanshen.github.io/archives/page/2/
+
+// Vue2.0史上最全入坑教程（上），搭建vue脚手架（vue-cli）
+http://www.jianshu.com/p/1626b8643676
+
+什么是vue脚手架？
+	脚手架的意思是帮你快速开始一个vue的项目，也就是给你一套vue的结构，包含基础的依赖库，只需要 npm install就可以安装，让我们不需要为了编辑或者一些其他事情浪费时间大笑  总而言之，就是快速搭建项目的，让我们可以早点去写代码
+
+
+node 主要管理包依赖  express模拟的开发环境 webpack用来打包
+
+
+.vue叫vue组件
+<template>
+</template>
+写html代码
+
+<script>
+</script>
+写js代码
+
+<styple>
+</styple>
+写css代码
+
+// 组件这样注册以后才可以使用 html标签不区分大小写
+<template>
+	<aaa></aaa>
+	<bbb></bbb>
+	<ccc></ccc>
+</template>
+
+<script>
+import Aaa from '../components/Aaa'
+import Bbb from '../components/Bbb'
+import Ccc from '../components/Ccc'
+export default{
+	components:{
+		Aaa,
+		Bbb,
+		Ccc
+	}
+}
+</script>
+
+<styple>
+</styple>
+
+
+// 一般用wifi-test / wifi-test2
+wifi-test 密码 12345678
+wifi账号:yt 密码是sunyard6888
+
+mvn clean install  -Dmaven.test.skip
+
+https://v1-cn.vuejs.org/js/vue.min.js	生产版本
+
+// vue代码在线测试
+https://codepen.io/pen
+
+
+E:\gitdemo\vue2crm\db>json-server -p 5354 db.json
+
+
+npm install -g json-server
+
+
+E:\gitdemo\vue2crm>npm run dev
+
+
+一代肝帝:
+对于多张大数据量（这里几百条就算大了）的表JOIN，要先分页再JOIN，否则逻辑读会很高，性能很差。
+一代肝帝:
+http://database.51cto.com/art/201407/445934.htm
+
+罗银霞，笑看人生，信雅达:
+https://vuetifyjs.com/vuetify/quick-start  这个是昨天演示比较炫项目的官网，大家有空了可以看看
+
+罗银霞，笑看人生，信雅达:
+http://adminify.genyii.com/#/crud/posts/create
+
+// EXISTS用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False
+// EXISTS 指定一个子查询,检测 行 的存在.是否为空行 select * from (select 1) a where exists(select * from (select 1) a where 1=2);
+http://www.cnblogs.com/netserver/archive/2008/12/25/1362615.html
+
+
+CronTrigger
+  1)Cron表达式取值
+  字段名	允许的值	允许的特殊字符
+  秒		0-59		,-*/
+  分		0-59		,-*/
+  小时		0-23		,-*/
+  日		1-31		,-*/ L W C
+  月		1-12 or JAN-DEC	,-*/
+  周几		1-7 or SUN-SAT	,-*/ L C #
+  年(可选字段)	empty,1970-2099	,-*/
+
+  *代表每个可能的值,?代表没有指定值,/代表每个多久
+
+  一个cron表达式的例子字符串为"0 0 12 ? * WED",这表示"每周三的中午 12:00".
+
+  0 0 0 0 * ? 每个月1日0点执行任务
+  0秒0分0点?月中的天*月*周中的天
+
+  月中的天 和 周中的天 不能同时为*
+  day-of-month 和 day-of-week 只能设置一个值,另一个值写?
+
+  */5 表示程序启动的那一刻 那一秒每隔5秒
+  0/5 表示 每第五秒 0秒 5秒 10秒 15秒 20秒...
+
+  /增加幅度
+  ,以段为单位 取个数
+  "50,53,55 10 11 24 8 ?"
+  -范围
+  "20-59 10 11 24 8 ?" 20-59秒一直会执行
+
+
+查看索引
+mysql> show index from tblname;
+mysql> show keys from tblname;
+
+type显示的是访问类型，是较为重要的一个指标，结果值从好到坏依次是：
+system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL
+
+
+Extra
+
+Distinct 一旦MYSQL找到了与行相联合匹配的行，就不再搜索了
+
+Not exists MYSQL优化了LEFT JOIN，一旦它找到了匹配LEFT JOIN标准的行，就不再搜索了
+
+Range checked for eachRecord（index map:#）没有找到理想的索引，因此对于从前面表中来的每一个行组合，MYSQL检查使用哪个索引，并用它来从表中返回行。这是使用索引的最慢的连接之一
+
+Using filesort 看到这个的时候，查询就需要优化了。MYSQL需要进行额外的步骤来发现如何对返回的行排序。它根据连接类型以及存储排序键值和匹配条件的全部行的行指针来排序全部行
+
+Using index 列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的，这发生在对表的全部的请求列都是同一个索引的部分的时候
+
+Using temporary 看到这个的时候，查询需要优化了。这里，MYSQL需要创建一个临时表来存储结果，这通常发生在对不同的列集进行ORDER BY上，而不是GROUP BY上
+
+Using Where 使用了WHERE从句来限制哪些行将与下一张表匹配或者是返回给用户。如果不想返回表中的全部行，并且连接类型ALL或index，这就会发生，或者是查询有问题
+
+如果此信息显示Using filesort或者Using temporary的话会很吃力，WHERE和ORDER BY的索引经常无法兼顾，如果按照WHERE来确定索引，那么在ORDER BY时，就必然会引起Using filesort，这就要看是先过滤再排序划算，还是先排序再过滤划算。
+
+
+select count(1) FROM t_customer AS t3
+left JOIN t_loan_chang AS t1 ON (t3.id = t1.ch_pri_key) 
+WHERE  t1.ch_pri_key IS NULL 
+
+custom_no和id一致 可以直接删除
+
+(page-1) * pagesize 分页公式mysql (4-1)*10=30，从第31个开始到40.
+
+// 添加列
+alter table 表名 add 列名 类型(长度) 约束;
+CREATE TABLE `t_loan_chang` (
+  `id` char(32) NOT NULL COMMENT '流水号',
+  `ch_table` varchar(20) DEFAULT NULL COMMENT '表名',
+  `ch_pri_key` char(32) DEFAULT NULL COMMENT '主键',
+  `ch_column` char(20) DEFAULT NULL COMMENT '变更字段',
+  `ch_col_val` varchar(50) DEFAULT NULL COMMENT '变更字段值',
+  `ch_col_val_after` varchar(50) DEFAULT NULL COMMENT '变更后字段值',
+  `ch_status` char(4) DEFAULT NULL COMMENT '变更状态',
+  `op_man` char(20) DEFAULT NULL COMMENT '操作人',
+  `ch_time` datetime DEFAULT NULL COMMENT '变更时间',
+  `custom_id` char(32) DEFAULT NULL COMMENT '客户ID',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户信息变更痕迹表';
+
+custom_name like CONCAT('%',#{custom_name}, '%')
+
+mysql转义
+'&amp;'     :   '&',
+'&gt;'      :   '>',
+'&lt;'      :   '<',
+'&quot;'    :   '"',
+
+// time1-time2=多少天
+datediff(time1，time2)
+
+// mysql 生成UUID
+SELECT REPLACE (UUID(), '-', '')
+
+// 如果是字符串排序会出现问题,字符串转换成数字可以排序
+order by (period+0) asc
+
+alter table t_co_merchant add business_name varchar(50) comment '行业名称';
+// t_co_merchant 添加一个 行业名称 的字段
+`business_name` varchar(50) DEFAULT NULL COMMENT '行业名称',
+
+// t_prod_info
+`overdue_time` varchar(8) DEFAULT NULL COMMENT '逾期宽限期设定',
+alter table t_contract add prod_overdue_time varchar(8) comment '产品逾期宽限期设定';
+// t_contract 添加一个 '产品逾期宽限期设定' 的字段
+`pro_overdue_time` varchar(8) DEFAULT NULL COMMENT '产品逾期宽限期设定',
+
+// 修改列名称
+alter table 表名 change 列名 类型(长度) 约束;
+
+// t_apply_pro
+`period` int(11) DEFAULT NULL COMMENT '期数',
+alter table t_contract add pro_period int(11) comment '产品周期';
+// t_contract 添加一个 '产品周期' 的字段
+`pro_period` int(11) DEFAULT NULL COMMENT '产品周期',
+
+alter table t_prod_rate_merchant_rel add co_name varchar(50) comment '合作单位名称';
+// t_prod_rate_merchant_rel 添加一个 '合作单位名称' 的字段
+`co_name` varchar(50) DEFAULT NULL COMMENT '合作单位名称',
+
+// 删除列
+alter table 表名 drop 列名;
+alter table t_prod_merchant_rel  drop prod_rate_id;
+
+alter table t_prod_off_merchant_rel add co_name varchar(50) comment '合作单位名称';
+// t_prod_off_merchant_rel 添加一个 '合作单位名称' 的字段
+`co_name` varchar(50) DEFAULT NULL COMMENT '合作单位名称',
+
+---47
+t4.name -> t2.prd_name
+t_receipt t3  add  kkzq
+
+select t1.apply_id,t1.task_id,t2.custom_id,t2.custom_no,t2.apply_no,t2.custom_name,t2.card_no,t2.repay_id,t2.period,t2.final_rate,t4.name,t4.kkzq,t3.id,t3.receipt_no,t3.loan_amount,t3.loan_time,t3.loan_state,t3.apply_amount,t3.repay_date
+        from t_ay_flow_rel t1 
+        inner join t_apply_pro t2 on t1.apply_id=t2.id 
+        inner join t_receipt t3 on t3.apply_id=t2.id 
+        inner join t_prod_info t4 on t2.prd_id=t4.id
+
+select t1.apply_id,t1.task_id,
+t2.custom_id,t2.custom_no,t2.apply_no,t2.custom_name,t2.card_no,t2.repay_id,t2.period,t2.final_rate,t2.prd_name,
+t3.kkzq,t3.id,t3.receipt_no,t3.loan_amount,t3.loan_time,t3.loan_state,t3.apply_amount,t3.repay_date
+        from t_ay_flow_rel t1 
+        inner join t_apply_pro t2 on t1.apply_id=t2.id 
+        inner join t_receipt t3 on t3.apply_id=t2.id
+
+alter table t_receipt add kkzq varchar(2) comment '扣款周期';
+
+22 和 47 是一起的
+
+---22
+
+---29
+alter table t_case add apply_id char(32) comment '业务申请编号';
+
+---16
+alter table t_loan_chang add nickName varchar(50) comment '用户昵称';
+
+---13
+alter table t_repay_ref add apply_id char(32) comment '业务申请编号';
+
+// TCreditAmountMapper.xml
+from t_credit_amount where create_date = (select max(create_date) from t_credit_amount where custom_id = #{customerId})
+改成
+from t_credit_amount where where custom_id = #{customerId} order by create_date desc limit 1
+
+// sql如果是null那么
+SELECT IF(ISNULL(SUM(g)),0,SUM(g)) FROM table;
+
+下拉框
+readonly 只读属性
+disabled 不可用 参数值无法修改且无法提交
+
+// t_co_merchant  合作商户	基本信息在此表
+// 商户法人信息在 t_co_owner   表 用owner_id	与 t_co_owner.id	关联
+// 商户联系人在   t_co_contact 表 用contact_id	与 t_co_contact.id	关联
+// 商户高管信息在 t_co_manager 表 用id		与 t_co_manager.co_id	关联
+
+// t_co_platform  合作资产方	基本信息在此表
+// 商户法人信息在 t_co_owner   表 用owner_id	与 t_co_owner.id	关联
+// 商户联系人在   t_co_contact 表 用contact_id	与 t_co_contact.id	关联
+// 商户高管信息在 t_co_manager 表 用id		与 t_co_manager.co_id	关联
+
+// t_co_fund	  合作资产方	基本信息在此表
+// 商户法人信息在 t_co_owner   表 用owner_id	与 t_co_owner.id	关联
+// 商户联系人在   t_co_contact 表 用contact_id	与 t_co_contact.id	关联
+// 商户高管信息在 t_co_manager 表 用id		与 t_co_manager.co_id	关联
+
+// t_co_guarantee 合作资产方	基本信息在此表
+// 商户法人信息在 t_co_owner   表 用owner_id	与 t_co_owner.id	关联
+// 商户联系人在   t_co_contact 表 用contact_id	与 t_co_contact.id	关联
+// 商户高管信息在 t_co_manager 表 用id		与 t_co_manager.co_id	关联
+
+INSERT into t_credit_resources VALUES (12,'关系','customer_relation','contact_person','1'),
+(13,'手机号码','mobilephone','contact_person','1'),
+(14,'联系人类型','customer_type','contact_person','1')
+
+// t_credit_amount qx 期限 varchar(10)	t_divide_period period 期数 int(11)	t_prod_info period 期数 varchar(150)
+// t_prod_info kkzq 扣款周期 varchar(2)	t_prod_period_rate period 周期 char(3)	t_receipt kkzq 扣款周期 varchar(2)
+// t_repay_ref period 期数 int(11)	t_torun_off_rel period 期数 int(11)	t_torun_rate_rel period 期数 int(11)
+// t_voucher_ref period 期数 int(11)
+
+// 2017-11-27 09:17:03 目前4个任务  接口 映射关系 code生成 分页查询
+
+// js刷新当前页面 
+http://www.jb51.net/article/44764.htm
+语法：location.reload([bForceGet])
+参数：bForceGet， 可选参数， 默认为 false，从客户端缓存里取当前页。true, 则以 GET 方式，从服务端取最新的页面, 相当于客户端点击 F5("刷新")
+
+
+<resultMap type>
+<!-- id是主键的映射property时候pojo中主键的属性,column:返回结果中主键的列 -->
+
+4个  接口 映射关系 code生成 分页查询
+映射关系
+drools先不管
+
+
+// 不确定是哪里的值
+TContractMapper.xml
+481	name 
+485	repay_id
+494	rest_money
+496	trid
+498	trloan_amount
+499	trloan_time
+500	interest_day
+503	tpiname
+504	trdeadline
+508	ratename
+509	trelvalue
+510	relvalue
+513	need_accrual
+514	already_accrual
+
+`in_dep_id2   in_dep_name2  收款银行    前面还有同样名字的字段in_dep_id和in_dep_name 是进账部门
+做一个test把所有的 实体类的id 给改成 Long
+t_check_type 和 t_invoices_model 是char(4) 不是Long
+
+<trim suffix="当标签中不为空时添加后缀" suffixOverrides="当标签中不为空时去除第一个后缀" prefix="当标签中不为空时添加前缀" prefixOverrides="当标签中不为空时去除第一个前缀">
+<trim>
+
+SELECT * FROM product WHERE ID > =(select id from product limit 866613, 1) limit 20
+SELECT * FROM product a JOIN (select id from product limit 866613, 20) b ON a.ID = b.id
+
+// PageHelper 分页助手
+https://github.com/pagehelper/Mybatis-PageHelper
+// 获取第1页，10条内容，默认查询总数count
+PageHelper.startPage(1, 10);
+// 紧跟着的第一个select方法会被分页
+List<Country> list = countryMapper.selectIf(1);
+assertEquals(2, list.get(0).getId());
+assertEquals(10, list.size());
+// 分页时，实际返回的结果list类型是Page<E>，如果想取出分页信息，需要强制转换为Page<E>
+assertEquals(182, ((Page) list).getTotal());
+
+netstat -ano 查看端口号 cmd里面
+
+select * from product where id >=(select id from product limit 866613,1) limit 20
+select * from product a join (select id from product limit 866613,20) b on a.id = b.id
+
+Oracle:
+order by colum asc 时，null默认被放在最后
+order by colum desc 时，null默认被放在最前
+nulls first 时，强制null放在最前，不为null的按声明顺序[asc|desc]进行排序
+nulls last 时，强制null放在最后，不为null的按声明顺序[asc|desc]进行排序
+
+MySQL:
+order by colum asc 时，null默认被放在最前
+order by colum desc 时，null默认被放在最后
+ORDER BY IF(ISNULL(update_date),0,1) null被强制放在最前，不为null的按声明顺序[asc|desc]进行排序
+ORDER BY IF(ISNULL(update_date),1,0) null被强制放在最后，不为null的按声明顺序[asc|desc]进行排序
+
+
+<if test="pager.mysqlQueryCondition != null and pager.mysqlQueryCondition != ''" >
+	       join (select id from t_customer 
+			<choose>
+			    <when test="pager.pageId >= pager.pageCount/2">
+			        <choose>
+				    <when test="pager.orderCondition != null and pager.orderCondition != ''">
+				        ${pager.orderConditionReverse}
+				    </when>
+				    <otherwise>
+				        order by id desc
+				    </otherwise>
+				</choose>
+			    </when>
+			    <otherwise>
+			       <if test="pager.orderCondition != null and pager.orderCondition != ''" >
+				     ${pager.orderCondition}
+				   </if>
+			    </otherwise>
+			</choose>
+	       ${pager.mysqlQueryCondition}) a USING(id)
+	    </if>
+
+<if test="pager.mysqlQueryCondition != null and pager.mysqlQueryCondition != ''" >
+       ${pager.mysqlQueryCondition}
+    </if>
+
+2017-12-5 15:51:25
+CREATE TABLE `t_repay_detail` (
+  `id` bigint(19) not null COMMENT 'ID',
+  `repay_ref_id` bigint(19) not null COMMENT '还款计划表ID',
+  `custom_id` bigint(19) not null COMMENT '客户ID',
+  `receipt_id` bigint(19) not null COMMENT '借据ID',
+  `carry_id` bigint(19) not null COMMENT '结转ID',
+  `period` int(11) DEFAULT  NULL COMMENT '期数',
+  `serial_no` varchar(32) DEFAULT NULL COMMENT '处理流水号',
+  `tr_time` int(11) DEFAULT NULL COMMENT '处理时间',
+  `settle_date` date DEFAULT NULL COMMENT '应还日期',
+  `trade_date` date DEFAULT NULL COMMENT '还款日期',
+  `repay_amount` decimal(16,2) DEFAULT '0.00' COMMENT '还款金额',
+  `repay_corpus` decimal(16,2) DEFAULT '0.00' COMMENT '还款本金',
+  `repay_overcorpus` decimal(16,2) DEFAULT '0.00' COMMENT '还款逾期本金',
+  `repay_accrual` decimal(16,2) DEFAULT '0.00' COMMENT '还款利息',
+  `repay_recv` decimal(16,2) DEFAULT '0.00' COMMENT '还款应收利息',
+  `repay_recvcomp` decimal(16,2) DEFAULT '0.00' COMMENT '还款应收利息复息',
+  `repay_punish` decimal(16,2) DEFAULT '0.00' COMMENT '还款逾期息',
+  `repay_dun` decimal(16,2) DEFAULT '0.00' COMMENT '还款催收利息',
+  `repay_duncomp` decimal(16,2) DEFAULT '0.00' COMMENT '还款催收利息复息',
+  `rate` decimal(8,6) NOT NULL COMMENT '利率',
+  `rest_corpus` decimal(16,2) DEFAULT '0.00' COMMENT '剩余本金',
+  `repay_status` char(2) NOT NULL COMMENT '还款状态',
+  `bank_account_no` varchar(36) NOT NULL COMMENT '银行账户',
+  `repay_aisle` varchar(36) NOT NULL COMMENT '还款通道', 
+  `status` char(2) NOT NULL COMMENT '调账状态',
+  PRIMARY KEY (`id`)
+);
+
+// BigDecimal用法详解
+http://blog.csdn.net/lisongjia123/article/details/51232657
+// BigDecimal.setScale 处理java小数点
+http://blog.csdn.net/lmb55/article/details/50253429
+
+
+http://localhost:8080/sunpls-gateway/api/prepayment/apply.do?repayRefId=1
+
+还款状态(已还清:-2,未还清:10,提前还款:15,已提前还清:16,处理中:17)
+
+tReceipt
+tRepayRef
+tContract
+tCustomer
+
+包含各种日历字段(年,月,日....),提供了一些获取、设置、计算的功能
+
+Calendar getInstance
+获取Calendar对象
+
+int get(int field)
+	根据指定的字段,获取值
+set(int field,int value)
+	根据字段设置值
+add(int filed,int value)
+	根据字段,计算值
+常用字段
+	年	Calendar.YEAR
+	月	Calendar.MONTH
+	日	Calendar.DAY_OF_MONTH
+
+alter table t_repay_ref add `need_overcorpus` decimal(16,2) DEFAULT '0.00' COMMENT '应还逾期本金'
+alter table t_repay_ref add `need_nowcorpus` decimal(16,2) DEFAULT '0.00' COMMENT '应还当前本金'
+alter table t_repay_ref add `already_nowcorpus` decimal(16,2) DEFAULT '0.00' COMMENT '应还当前本金'
+
+// [i][0]是当期应还利息，[i][1]是当期应还本金，[i][2]是当期应还总额 
+com.sunfintech.common.impl.EqualCapital.getCapitalInterest(贷款本金，全部期数，利率，扣款周期，首期扣款天数，尾期扣款天数)
+
+计划表中的利率 是 年利率 /360等于 日利率  /12 等于月利率 /360*7等于周利率
+
+如果还款金额是 null 还款方式是 1  那什么也不改变
+如果还款金额是 null 还款方式是 2  那么 部分还款 显示 当前期数 需要还的金额
+如果还款金额 小于 当前期数需要还的 总额  那么报异常
+
+2850000
+2500000
+2100000
+1650000
+1150000
+600000
+0
+
+// java日期处理二（Timestamp）
+http://blog.csdn.net/sunchunmei555/article/details/7034143
+
+还款明细表也要加一条记录
+可以把还款计划列表list取出来复用 在更新时不用每个还款计划都查询
+借据表总期限是次数要根据扣款周期算 期限有几个月。
+
+修复成2个接口
+
+核心/他行发起代扣  这步在代码里 写下
+
+@RequestMapping(value="/users/{id}")
+public String renderUser(@PathVariable("id") int id){
+    //do something
+}
+
+
+交易明细表: 贷款管理-贷后管理-交易管理
+还款明细表: 账务管理-账务调账-还款调账
+分录表    : 财务管理-账务查询-科目总账/记账凭证
+
+// DateUtils时间类
+http://seeareyoume.blog.163.com/blog/static/2140541292012111792342113/
+
+Integer rowCount = queryByCount(page);
+page.getPager().setRowCount(rowCount);
+
+check xml add queryByCountForXXX
+
+
+1-12	短期
+13-24	中期
+25-1000	长期
+
+
+http://139.199.48.198/sunpls-webapp
+
+// StringUtils用org.apache.commons.lang3.StringUtils
+// null或空串或空格是true
+StringUtils.isBlank()
+// null或空串是true
+StringUtils.isEmpty()
+
+2018-1-3 09:45:48
+对于有“设备手续费总额”，为“购买租赁设备”的情况，“提前还款手续费”=“设备手续费总额”-“已支付的手续费”；
+对于退回的情况，从南都结算账户上扣除“剩余本金”+“当期利息”，南都线下收取一部分手续费
+
+就是说 在 还款计划表 里面多了一个手续费的 字段  如果提前还款 他的手续费字段 就还清了  如果 提前还款2次 那 他 总手续费 就是 2期的手续费相加
+这个要根据 贷款申请 的接口来看 贷款申请里面 有一个 本金 利息 手续费  这三个相加  等于 贷款申请中的  还款总额
+至于 退回 的情况 从南都结算账户上扣除  剩余本金 + 当期利息 这个要调用第三方接口 这个接口暂时还没写好，  把参数算出来 传入空函数 注释 待实现 就好了
+
+alter table t_repay_ref add `need_per_service_charge` decimal(16,2) DEFAULT '0.00' COMMENT '应还交易手续费';
+alter table t_repay_ref add `already_per_service_charge` decimal(16,2) DEFAULT '0.00' COMMENT '已还交易手续费'
+
+这个是电动车的提前还款，一还款 就是全部都还完了
+
+2018-1-4 10:31:28
+alter table t_rule_prod_detail add `rule_score` char(10) comment '评分';
+alter table t_rule_prod_detail add `prod_proc` varchar(20) comment '产品阶段';
+2018-1-4 13:46:34
+alter table t_rule_prod add `apply_id` bigint(19) DEFAULT NULL COMMENT '业务申请编号';
+
+借据表中的 apply_id 拿来与传入的 apply_id 比对
+
+207行 if type == 1
+
+alter table t_apply_pro add `comerchant_apply_no` varchar(50) DEFAULT NULL comment '商户申请编号';
+alter table t_apply_pro add `comerchant_order_no` varchar(50) DEFAULT NULL comment '商户订单编号';
+alter table t_apply_pro add `receive_url` varchar(100) DEFAULT NULL comment '贷款申请结果异步通知地址';
+alter table t_apply_pro add `approval_note` varchar(100) DEFAULT NULL comment '审批结论，拒绝时原因描述';
+alter table t_receipt add `receive_url` varchar(100) DEFAULT NULL comment '放款结果异步通知地址';
+
+http://localhost:8080/sunpls-gateway/api/v1/repay/advanceTrial.do
+http://localhost:8080/sunpls-gateway/api/v1/repay/advance.do
+
+String[] headList = {"流水号","姓名","手机号","身份证号","还款银行卡号","期数","应还利息","应还本金","应还总金额","实际扣款金额","入账标识(0-否,1-是,2-失败;默认为0)","机构号","操作人员编号","记录生成时间","记录操作时间"};
+
+alter table t_receipt add `advance_result_notification_url` varchar(100) DEFAULT NULL COMMENT '提前还款结果异步通知地址'
+
+redis启动内存不足
+
+// redis 部署问题
+https://www.cnblogs.com/herry52/p/5938902.html
+
+redis-server.exe redis.windows.conf
+使用上面命令启动redis服务的时候报了以下错误信息：
+
+The Windows version of Redis allocates a memory mapped heap for sharing with
+the forked process used for persistence operations. In order to share this
+memory, Windows allocates from the system paging file a portion equal to the
+size of the Redis heap. At this time there is insufficient contiguous free
+space available in the system paging file for this operation (Windows error
+0x5AF). To work around this you may either increase the size of the system
+paging file, or decrease the size of the Redis heap with the --maxheap flag.
+Sometimes a reboot will defragment the system paging file sufficiently for
+this operation to complete successfully.
+ 
+Please see the documentation included with the binary distributions for more
+details on the --maxheap flag.
+    大概意思是：没有足够的可用空间，可以增加系统的大小分页文件，或减少Redis的堆的大小
+使用--maxheap标志。
+有时重启将充分整理系统分页文件（重启可以解决）
+可以再启动命令后面加maxheap参数重新分配堆大小。 
+
+
+redis-server.exe redis.windows.conf --maxheap 200m
+
+
+
+
+
+黄师傅，huanglf，信雅达:
+http://192.168.1.78:8081/nexus/#welcome
+
+黄师傅，huanglf，信雅达:
+局域网私服地址
+
+[gui]
+	encoding = utf-8
+
+
+南都的提前还款：
+1、终止租赁模式：调用接口“行内资金记账（南都租赁分期）（放款、终止租赁）”，不需要拆成两步
+2、购买模式：先调用“快捷充值（代扣）”，这个接口还要再等等，然后等待异步通知
+1）通知充值失败，则结束
+1）通知充值成功，则调用“行内资金记账（南都租赁分期）（还款、代偿）”接口进行还款处理
+
+购买模式时，在调用“快捷充值（代扣）”到行内资金记账（南都租赁分期）（还款、代偿）”时，理论上客户端查询到的状态是还款中，然后不允许进行日终批量扣款及结转
+
+一个原则，钱是从其他银行转进来的，就要分两步做，都是行内的钱，那就一步完成
+
+
+http://139.199.248.231/sunbta-gateway
+
+
+转出账号 是租赁人的二类户账号。账号类型是 1：二类户 转出金额自己算         转入账号是南都的账户（本金科目账号，利息科目账号） 账户类型：0表内  金额自己算
+
+你调用这个之前 先查询下余额够不够  不够的话需要调用 快捷（代扣） 快捷如果同步返回成功就调用还款。如果返回失败就直接给用户返回。如果返回处理中状态。你就给用户返回处理中。然后这个快捷会有个异步通知。你接收到异步通知接口之后。根据返回的成功失败调用还款，结束后再异步通知用户
+
+丁江钰，信雅达，研发一组:
+渠道编号填0001
+
+丁江钰，信雅达，研发一组:
+应用编号31
+
+丁江钰，信雅达，研发一组:
+交易码随便填一个
+
+@吴欢 异步通知目前用消息队列做的，提前还款的话，你在提前还款审批之后，往消息队列发一条消息，然后可以在ExpenseComponent这个类中取出来
+
+String path = request.getPathInfo();
+			String path2 = request.getPathTranslated();
+			String path3 = request.getContextPath();
+			String path4 = request.getRealPath(path);
+			String path5 = request.getServletPath();
+			String path6 = request.getSession().getServletContext().getContextPath();
+			String path7 = request.getSession().getServletContext().getRealPath("/");
+			System.out.println("---------------");
+			System.out.println(path);	// null
+			System.out.println(path2);	// null
+			System.out.println(path3);	// /sunpls-gateway
+			System.out.println(path4);	// null
+			System.out.println(path5);	// /api/v1/repay/merDepositProxyReceive.do
+			System.out.println(path6);	// /sunpls-gateway
+			System.out.println(path7);	// D:\software\apache-tomcat-8.0.42\webapps\sunpls-gateway
+			System.out.println("---------------");
+
+null
+null
+/sunpls-gateway
+null
+/api/v1/repay/merDepositProxyReceive.do
+/sunpls-gateway
+D:\software\apache-tomcat-8.0.42\webapps\sunpls-gateway
+---------------
+
+String[] a = new String[7];
+			String header = request.getHeader("User-Agent");	//就是取得客户端的系统版本     
+			String remoteAddr = request.getRemoteAddr();		//取得客户端的IP     
+			String remoteHost = request.getRemoteHost();		//取得客户端的主机名     
+			int remotePort = request.getRemotePort();			//取得客户端的端口     
+			String remoteUser = request.getRemoteUser();		//取得客户端的用户     
+			String localAddr = request.getLocalAddr();			//取得服务器IP     
+			int localPort = request.getLocalPort();				//取得服务器端口
+			a[0] = header;						// Apache-HttpClient/4.5.2 (Java/1.8.0_91)
+			a[1] = remoteAddr;					// 127.0.0.1
+			a[2] = remoteHost;					// 127.0.0.1
+			a[3] = String.valueOf(remotePort);	// 64921
+			a[4] = remoteUser;					// null
+			a[5] = localAddr;					// 127.0.0.1
+			a[6] = String.valueOf(localPort);	// 8080
+			for (String s : a) {
+				System.out.println(s);
+			}
+
+alter table t_receipt add `surplus_receive_count` int(11) DEFAULT NULL comment '放款结果异步通知剩余次数';
+alter table t_receipt add `grant_note` varchar(500) DEFAULT NULL comment '放款失败原因描述';
+
+2018-1-16 09:57:48
+我:
+@丁江钰  委托贷款归还 是娱乐宝贷款归还 要调用的 扣款接口吗？
+
+丁江钰，信雅达，研发一组:
+恩
+我:
+结算账号 怎么填呢？    有测试用的 二类账号吗？
+
+程丽京，信雅达，2组:
+600601000000017254
+
+丁江钰，信雅达，研发一组:
+这个是二类户  结算账号我也没有
+
+
+// JAVA字符串格式化-String.format()的使用
+http://blog.csdn.net/lonely_fireworks/article/details/7962171/
+
+转换符	说明			示例
+%s	字符串类型		"mingrisoft"
+%c	字符类型		'm'
+%b	布尔类型		true
+%d	整数类型(十进制)	99
+%x	整数类型(十六进制)	FF
+%o	整数类型(八进制)	77
+%f	浮点类型		99.99
+%a	十六进制浮点类型	FF.35AE
+%e	指数类型	9.38e+5
+%g	通用浮点类型(f和e类型中较短的)
+%h	散列码
+%%	百分比类型		%
+%n	换行符
+%tx	日期与实践类型(x代表不同的日期与实践转换符)
+
+alter table t_receipt add `advance_batch_serial_no` char(32) DEFAULT NULL COMMENT '提前还款批次流水号'
+alter table t_repay_ref add `advance_repay_serial_no` char(32) DEFAULT NULL COMMENT '提前还款归还流水号'
+
+// 2018-1-22 15:09:05
+娱乐宝提前还款 产品号不同的提前还款 忽略本次申请
+
+// 2018-1-23 11:03:09
+:
+req.setTrans_date(DateUtils.DateToShort(new Date()));
+		req.setTrans_tradetime(DateUtils.DateToFull(new Date()));
+
+:
+这两个日期的你可以这样写
+
+// 完全卸载mysql
+https://jingyan.baidu.com/article/f96699bbaa8fc1894f3c1b5a.html
+
+// mysql5.7的安装
+http://www.jb51.net/article/119335.htm
+
+记录了mysql 5.7.19 winx64解压缩版安装教程，具体内容如下
+
+系统环境：Win7 x64
+软件准备：MySQL 5.7.19 winx64
+下载网址：https://dev.mysql.com/downloads/mysql/
+
+配置安装流程
+
+具体安装如下：
+1、把 mysql-5.7.19-winx64.zip 压缩文件解压到 C:\MySQL\ 目录下；
+2、在 C:\MySQL\ 目录下新建 my.ini 配置文件；
+3、用文本编辑器或其他编辑器打开 my.ini 文件，把以下代码复制粘贴进去，保存退出；
+#代码开始
+[Client]
+#设置3306端口
+port = 3306
+ 
+[mysqld]
+#设置3306端口
+port = 3306
+# 设置mysql的安装目录
+basedir=C:\mysql
+# 设置mysql数据库的数据的存放目录
+datadir=C:\mysql\data
+# 允许最大连接数
+max_connections=200
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+ 
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8
+#代码结束
+4、配置环境变量；
+4.1、新建系统变量 MYSQL_HOME ，并配置变量值为 C:\mysql ；
+4.2、编辑系统变量 Path ，将 ;%MYSQL_HOME%\bin 添加到 Path 变量值后面。
+
+5、以管理员身份运行命令提示符cmd（一定要用管理员身份运行，不然权限不够）；
+5.1、使用dos指令，进入C:\mysql 目录，运行以下指令
+mysqld --defaults-file=my.ini --initialize-insecure
+mysqld --install
+net start mysql
+5.2、设置 mysql 的 root 密码，运行以下指令
+mysql -u root -p
+use mysql;
+update user set authentication_string=password('您的密码') where user='root';
+flush privileges;
+exit
+至此，Mysql 5.7.19 winx64 解压缩版配置安装已经完成！祝您成功！
+
+
+// 主动提前还款接口 2018-1-25 17:22:18
+:
+他是接收51公积金的请求
+
+:
+他的是sunlink跟51公积金的接口
+
+:
+你是sunlink跟核心系统的接口
+
+// error: The following untracked working tree files would be overwritten by merge:
+// 备注：会删除掉没有add到仓库的文件，操作记得慎重，以免改动文件的丢失。本质上就是操作仓库中没有被追踪的本地文件
+git clean -d -fx	https://www.jianshu.com/p/7b1c58e0a9ef
+
+// 2018-1-26 14:05:33
+AssetMessageServiceImpl	发送消息队列告诉强哥需要干什么了
+FundMessageServiceImpl	强哥发送消息队列告诉我们返回了什么
+MsgAssetListener	强哥监听到消息队列里面需要干什么的信息 然后干什么
+MsgFundListener		返回结果监听到消息队列里面的信息 决定在结果出来之后需要干什么
+
+平台接口是51的,合作机构接口是我们提供给51的
+channelno对应platform_id
+,prd_id对应product_id
+service_type是杭银自己规定,不好说
+
+2018-1-30 15:33:16
+王体斌，信雅达二组，王经理:
+@吴欢 主动还款申请和主动还款结果，记录在这张表
+
+王体斌，信雅达二组，王经理:
+51公积金来的还款申请编号放在 serial_no
+
+王体斌，信雅达二组，王经理:
+核心系统的还款处理编号放 repay_dealid
+
+王体斌，信雅达二组，王经理:
+成功和失败标记放 record_flag
+
+王体斌，信雅达二组，王经理:
+失败错误原因放 remark
+
+王体斌，信雅达二组，王经理:
+@安道尔 给51公积金推送主动还款的接口，也从这张表取数据
+
+吴方颖，信雅达，2组，安道尔:
+好的
+
+我:
+好的
+
+2018-2-1 12:38:18
+阳程锦，信雅达，2组:
+git 上项目已经可以使用(sunpls-51...-service除外)
+
+阳程锦，信雅达，2组:
+下载编译已通过,原因来自于supls文件夹下pom.xml文件增加了一个<build>标签
+
+阳程锦，信雅达，2组:
+将其删除就可以编译通过(sunpls-51...-service除外)
+
+阳程锦，信雅达，2组:
+另外,编译过程中出现找不到jar包(com.hyxf或sms_util等关键字)将短信jar包导入本地maven仓库即可
+
+阳程锦，信雅达，2组:
+导入maven命令:
+mvn install:install-file -Dfile=(jar包路径) -DgroupId=com.hyxf -DartifactId=sms_util -Dversion=0.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=C:\Users\admin\Desktop\sms_util-0.1.jar -DgroupId=com.hyxf -DartifactId=sms_util -Dversion=0.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=C:\Users\admin\Desktop\sms_util-0.1.1-20180209.104107-1.jar -DgroupId=com.hyxf -DartifactId=sms_util -Dversion=0.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=C:\Users\admin\Desktop\sms_util-0.1.1-SNAPSHOT.jar -DgroupId=com.hyxf -DartifactId=sms_util -Dversion=0.1.1-SNAPSHOT -Dpackaging=jar
+
+{
+  "Header": {
+    "ServicType": "a",
+    "RequestSeqId": "a2",
+    "ChannelId": "a3",
+    "ProductId": "a4"
+  },
+  "RequestBody": {
+    "OrderId": "d",
+    "RepayState": "d",
+    "AddMsg": "d",
+    "PaidDetails": {
+      "PaidDatetime": "d",
+      "ReceiptId": "d",
+      "PeriodNo": "d",
+      "PaidAmount": "d",
+      "PaidPrincipal": "d",
+      "PaidInterest": "d",
+      "PaidPenalty": "d",
+      "PaidFee": "d"
+    }
+  }
+}
+
+// mvc 输出 或  接收的时候 的 head 请求头 
+produces={"application/xml; charset=UTF-8"})
+consumes="application/xml"
+
+
+private CustomerInfoSearchReqVO cisReq;
+	private BindCardApplyReqVO bcaReq;
+	
+	public CustomerInfoSearchReqVO getCisReq() {
+		return cisReq;
+	}
+	@JacksonXmlProperty(localName = "CustomerInfoSearchReq")
+	public void setCisReq(CustomerInfoSearchReqVO cisReq) {
+		this.cisReq = cisReq;
+	}
+	public BindCardApplyReqVO getBcaReq() {
+		return bcaReq;
+	}
+	@JacksonXmlProperty(localName = "BindCardApplyReq")
+	public void setBcaReq(BindCardApplyReqVO bcaReq) {
+		this.bcaReq = bcaReq;
+	}
+
+
+
+private CustomerInfoSearchReqVO cisReq;		// 客户信息查询请求信息VO
+	private MNOInfoVO mnoInfo;					// 运营商信息VO
+	
+	public CustomerInfoSearchReqVO getCisReq() {
+		return cisReq;
+	}
+	@JacksonXmlProperty(localName = "CustomerInfoSearchReq")
+	public void setCisReq(CustomerInfoSearchReqVO cisReq) {
+		this.cisReq = cisReq;
+	}
+	public MNOInfoVO getMnoInfo() {
+		return mnoInfo;
+	}
+	@JacksonXmlProperty(localName = "MnoInfo")
+	public void setMnoInfo(MNOInfoVO mnoInfo) {
+		this.mnoInfo = mnoInfo;
+	}
+
+// 连接数据库Connection is read-only问题的产生原因与解决方法
+http://blog.csdn.net/jinwufeiyang/article/details/52213457
+
+teamviewer 远程协助软件	mstsc 打开win系统的远程协助功能
+
+1.还款计划表没有正常生成
+2.授信金额 返回的是 0
+3.主动还款申请     接口 需要从内网 走一下流程
+4.主动还款结果查询 接口 需要从内网 走一下流程
+
+
+设置redis访问密码
+1.临时
+redis-cli -p 6379
+config get requirepass
+config set requirepass Sunyard88
+config get requirepass
+2.永久
+修改redis.conf配置文件　　
+# requirepass foobared
+requirepass Sunyard88   指定密码123
+连接
+auth 123
+https://www.cnblogs.com/756623607-zhang/p/6859540.html
+
+
+// 设置 rabbitMQ 账户 进入sbin目录执行 rabbitmq-plugins enable rabbitmq_management 后 打开 http://localhost:15672/
+// RabbitMQ用户增删及权限控制 rabbitmqctl delete_user Username 默认用户是 guest
+https://www.cnblogs.com/xinxiucan/p/7940953.html
+
+
+
+
+
+setsid java -jar /sunyard/service/sunpls-51accumulationfund-service.jar  >> /sunyard/service/sunpls-51service.log &
+setsid java -jar /sunyard/service/sunpls-service-hycf.jar >> /sunyard/service/sunpls-hycf.log &
+docker restart tomcat
+docker restart tomcat-gateway
+
+tail -200f /sunyard/service/sunpls-hycf.log
+tail -200f /sunyard/service/sunpls-51service.log 
+tail -200f /sunyard/tomcat/log/catalina.out
+tail -200f /sunyard/tomcat/log-gateway/catalina.out
+
+DELETE FROM `t_receipt` where apply_id = '1520575019153052013';
+DELETE FROM `t_repay_ref` where apply_id = '1520575019153052013';
+DELETE FROM `t_transaction_detail` where serial_no = '361704299';
+DELETE FROM `t_ifs_fgjj_apply` where apply_id = '361704299';
+DELETE FROM `t_ifs_fgjj_loan` where apply_id = '361704299';
+DELETE FROM `t_ifs_fgjj_repay` where apply_id = '361704299';
+DELETE FROM `t_fgjj_phone_book` where apply_id = '361704299';
+DELETE FROM `t_apply_bindcard` where apply_id = '361704299';
+DELETE FROM `t_apply_attachment` where apply_id = '1520575019153052013';
+DELETE FROM `t_apply_pro` where id = '1520575019153052013';
+
+
+delete from t_apply_pro;
+delete from t_customer;
+delete from t_customer_contact;
+delete from t_fgjj_base;
+delete from t_fgjj_base_analyse;
+delete from t_fgjj_bindcard_info;
+delete from t_fgjj_detail;
+delete from t_fgjj_device_info;
+delete from t_fgjj_face_base;
+delete from t_fgjj_face_info;
+delete from t_fgjj_loan_brief;
+delete from t_fgjj_loan_detail;
+delete from t_fgjj_location;
+delete from t_fgjj_phone_book;
+delete from t_fgjj_user;
+delete from t_fgjj_user_info;
+delete from t_ifs_fgjj_apply;
+delete from t_ifs_fgjj_bind;
+delete from t_ifs_fgjj_loan;
+delete from t_ifs_fgjj_repay;
+delete from t_image;
+delete from t_receipt;
+delete from t_repay_ref;
+delete from t_transaction_detail;
+
+
+// 手动将jar包安装到maven仓库
+http://blog.csdn.net/two_people/article/details/62237554
+mvn install:install-file -Dfile=org.json.jar -DgroupId=org.json -DartifactId=org.json -Dversion=2.0 -Dpackaging=jar 
+
+// Hibernate validator验证 常用注解
+https://www.cnblogs.com/mr-wuxiansheng/p/7639000.html
+
+// 创建数据库的时候指定字符编码
+drop database if exists abc;
+create database abc DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+drop database if exists abc;
+create database abc DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+drop database if exists abc;
+create database abc DEFAULT CHARACTER SET latin1 COLLATE latin1_german1_ci;
+
+// windows10激活步骤
+https://jingyan.baidu.com/article/295430f1ce2e880c7e0050ff.html
+
+// linux压缩文件指令
+tar -zcvf 新文件名.tar.gz 要压缩的文件
+
+rd是研发（研究与开发），fe前端研发，qa是测试，ue用户体验，op是运维。
+另外，ui 就是用户设计，db数据库，pm产品经理
+1.PM: Product Manager，产品经理，又称品牌经理（Brand Manager）。
+2.RD: Research and Development engineer，研发工程师，
+3.FE: FE有多种解释，在实体经济中，FE可以指Facility Engineer，厂务工程师，主要负责工厂的外围的一些支持系统。在网络经济中，FE可以指Front-End Development，前端开发，新新职业。
+4.QA: Qualtiy Assurance，品质保证。QA的主要职责就是质量保证工作。
+5.OP: Operator，操作员，管理员。
+
+java通信RSA公私钥生成方式:
+
+step1: ssh生成rsa公私钥
+	ssh-keygen -t rsa
+
+step2: 去到密钥生成目录
+	cd /root/.ssh
+
+step3: 私钥pcks8编码
+	openssl pkcs8 -topk8 -in id_rsa -out id_rsa_pcks8 -nocrypt
+
+step4: 提取公钥
+	openssl rsa -in id_rsa -pubout -out id_rsa_pcks8.pem
+

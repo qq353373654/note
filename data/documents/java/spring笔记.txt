@@ -1,0 +1,87 @@
+// 在XML文件中用${key}替换指定的properties文件中的值, PropertyPlaceholderConfigurer可以将上下文（配置文 件）中的属性值放在另一个单独的标准java Properties文件中去
+	https://blog.csdn.net/qq_37346607/article/details/84590000
+	<context:property-placeholder location="userinfo.properties"/> 
+	/**
+	 * @author 未知 2018-09-29
+	 */
+	public final class PropertiesUtils extends PropertyPlaceholderConfigurer {
+
+		private static Map<String, String> ctxPropertiesMap;
+
+		@Override
+		protected void loadProperties(Properties props) throws IOException {
+			super.loadProperties(props);
+			ctxPropertiesMap = new HashMap<String, String>();
+			for (Object key : props.keySet()) {
+				String keyStr = key.toString();
+				String value = props.getProperty(keyStr);
+
+				ctxPropertiesMap.put(keyStr, value);
+			}
+		}
+	}
+	<bean class="com.sunfintech.base.util.PropertiesUtils">
+		<property name="locations">
+			<list>
+				<value>classpath:resource/jdbc.properties</value>
+				<value>classpath:resource/config.properties</value>
+			</list>
+		</property>
+		<property name="properties">
+			<props>
+				<!-- dubbo个性化配置(服务名,端口) -->
+				<prop key="dubbo.application.name">${dubbo.application.name}</prop>
+				<prop key="dubbo.protocol.port">${dubbo.protocol.port}</prop>
+			</props>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+
+// org.springframework.stereotype.Service和com.alibaba.dubbo.config.annotation.Service两种service的区别
+	https://blog.csdn.net/lkforce/article/details/52983345
+	org.springframework.stereotype.Service是spring的注解，用于标注业务层组件（service）。
+	标注了的组件需要在配置文件里有这样的配置<context:component-scan base-package="这里是包名" ></context:component-scan>
+	com.alibaba.dubbo.config.annotation.Service是dubbo用于声明provider的注解。
+	标注了这个注解的service需要在配置文件里添加这样的配置：<dubbo:annotation package="这里是包名" /> 
+
+// Dubbo服务提供者
+	https://www.cnblogs.com/Bruce3555/p/6892878.html
+	/**
+	 * Dubbo服务类测试接口； 正式开启的服务用Dubbo提供的main方法
+	 * @author v_wuhuanhuan_dxm 2019-4-8
+	 */
+	public class DubboProvider {
+		
+		private final static Logger log = LoggerFactory.getLogger(DubboProvider.class);
+		
+		@SuppressWarnings("resource")
+		public static void main(String[] args) {
+			try {
+				ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "classpath:spring/applicationContext.xml" });
+				context.start();
+			} catch (Exception e) {
+				log.error("DubboProvider context start error:", e);
+			}
+			synchronized (DubboProvider.class) {
+				while (true) {
+					try {
+						DubboProvider.class.wait();
+					} catch (InterruptedException e) {
+						log.error("synchronized error:", e);
+					}
+				}
+			}
+		}
+
+	}
+
+// @RequestMapping 的值
+@RequestMapping(value = {"/modifyGet.do","/modifyGet1.do"}, method={RequestMethod.POST, RequestMethod.GET},
+　　　　　　　　　　consumes={"application/json"}, produces={"application/json"}, params={"name=mike","pwd=123456"},headers={"a=1"}) 
+@ResponseBody
+    public Object addEmpGet()throws Exception {
+     
+        JSONObject responseObj = new JSONObject();
+        responseObj.put("id", 1/*reqObj.getIntValue("id")*/);
+        return responseObj ;
+    }　

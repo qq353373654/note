@@ -1,0 +1,42 @@
+YML(YAML)语法(文件后缀为.yml格式)
+
+基本语法:
+
+k:(空格)v   :   表示一对键值对(空格不能省略),以空格控制层级关系,只要是左对齐的数据,都是同一级别;
+
+注意:   属性和值都是大小写敏感
+
+server:
+  port: 8083
+  path: /helloBoot
+值的写法:
+
+字面量:数字,字符串,Boolean(布尔)值(字符串默认不用加上单引号或双引号);
+
+     " "(双引号):不会转义字符串里面的特殊字符,特殊字符会作为本身想表达的意思
+
+     eg:      name: "Hello Boot \n !!!"   ---   输出: Hello Boot 换行 !!!
+
+     ' '(单引号):会转义特殊字符,特殊字符最终只是一个字符串数据
+
+     eg:      name: 'Hello Boot \n !!!'  ---   输出: Hello Boot \n !!!
+
+对象:Map(key:value);
+
+     k: v : 在下一行来写对象的属性和值的关系
+
+person:
+    name: boot
+    age: 18
+     行内写法:
+
+person: {name: boot,age: 18}
+数组(用-表示数组中的一个元素):
+
+animal: 
+   -cat
+   -dag
+   -pig
+行内写法:
+
+animal: [cat,dog,pig]
