@@ -155,6 +155,68 @@ https://www.cnblogs.com/zrp2013/p/4529820.html
       ps -ef | grep java | awk '{print $11}' | xargs
   // Linux下alias使用外部传参 https://blog.csdn.net/huangzx3/article/details/82689142
     alias s='UpMachine(){ ssh root@$1;};UpMachine'
+// alias 示例
+alias test='test(){ printf "$1abc\n"$1def\\n;};test'
+alias grepjar='ps -ef|grep jar'
+alias sunlog='sunlog(){ 
+name=${1:-info}
+if [ ${name} = "debug" -o ${name} = "info" -o ${name} = "warn" -o ${name} = "error" ];
+then
+  view /sunyard/java/logs/saas-accounts/saas_sunxd/${name}.log
+else
+  echo "sunlog 附带的参数只能是 debug 或 info 或 warn 或 error，不填则为info"
+fi;
+};sunlog'
+alias sunlogf='sunlogf(){ tailf /sunyard/java/logs/saas-accounts/saas_sunxd/${1:-info}.log -100;};sunlogf'
+alias gsunlog='gsunlog(){ ${1:+ grep $1 /sunyard/java/logs/saas-accounts/saas_sunxd/${2:-info}.log --color};};gsunlog'
+alias log='log(){
+logPath=~/java/logs
+orgNames=`find ${logPath} -type d -iname "saas_*" | awk -F _ '"'"'{print $2}'"'"' | xargs `
+orgName=$1
+logNames=(debug info warn error)
+logName=${2:-info}
+if echo "${orgNames[@]}" | grep -w "${orgName}" &>/dev/null && echo "${logNames[@]}" | grep -w "${logName}" &>/dev/null;
+then
+  view ${logPath}/saas_${orgName}/${logName}.log
+else
+  echo "log \${租户名称} \${日志级别}"
+  echo "第一个参数应为 ${orgNames// / 或 }"
+  echo "第二个参数应为 debug 或 info 或 warn 或 error，不填则为info"
+fi;
+};log'
+alias logf='logf(){
+logPath=~/java/logs
+orgNames=`find ${logPath} -type d -iname "saas_*" | awk -F _ '"'"'{print $2}'"'"' | xargs `
+orgName=$1
+logNames=(debug info warn error)
+logName=${2:-info}
+if echo "${orgNames[@]}" | grep -w "${orgName}" &>/dev/null && echo "${logNames[@]}" | grep -w "${logName}" &>/dev/null;
+then
+  tailf ${logPath}/saas_${orgName}/${logName}.log -100
+else
+  echo "logf \${租户名称} \${日志级别}"
+  echo "第一个参数应为 ${orgNames// / 或 }"
+  echo "第二个参数应为 debug 或 info 或 warn 或 error，不填则为info"
+fi;
+};logf'
+alias glog='glog(){
+logPath=~/java/logs
+orgNames=`find ${logPath} -type d -iname "saas_*" | awk -F _ '"'"'{print $2}'"'"' | xargs `
+grepMsg=$1
+orgName=$2
+logNames=(debug info warn error)
+logName=${3:-info}
+if [ ! -z "${grepMsg}" ] && echo "${orgNames[@]}" | grep -w "${orgName}" &>/dev/null && echo "${logNames[@]}" | grep -w "${logName}" &>/dev/null;
+then
+  grep ${grepMsg} ${logPath}/saas_${orgName}/${logName}.log
+else
+  echo "glog \${内容} \${租户名称} \${日志级别}"
+  echo "第一个参数为待搜索的内容"
+  echo "第二个参数应为 ${orgNames// / 或 }"
+  echo "第三个参数应为 debug 或 info 或 warn 或 error，不填则为info"
+fi;
+};glog'
+complete -W "`find ~/java/logs/ -type d -iname "saas_*" | awk -F '_' '{print $2}'` debug info warn error" log
 
 // shell 参数替换 https://www.cnblogs.com/itxdm/p/something_of_shellscirpt.html
   // ${parameter:-default} -- 如果变量parameter没被设置, 那么就使用默认值. 
