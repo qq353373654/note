@@ -222,7 +222,8 @@ complete -W "`find ~/java/logs/ -type d -iname "saas_*" | awk -F '_' '{print $2}
   // ${parameter:-default} -- 如果变量parameter没被设置, 那么就使用默认值. 
   ${1:-NULL}意思是当$1为空时，自动将NULL替换成$1所要带入的变量值。
 
-
+// rabbitmq linux 安装
+https://blog.csdn.net/yangliangliang2011/article/details/81043896
 
 
 
