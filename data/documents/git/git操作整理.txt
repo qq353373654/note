@@ -97,6 +97,35 @@ git config --add core.compression -1
   将代码 push 到远程仓库后，LFS 跟踪的文件会以『Git LFS』的形式显示:
   clone 时 使用'git clone' 或 git lfs clone均可
 
+// git修改提交作者和邮箱 https://blog.csdn.net/diu_brother/article/details/51982993
+  // 解决方法一 如果只需要最近一次提交，那么很简单直接使用git commit –amend就可以搞定
+  git commit --amend --author="NewAuthor <NewEmail@address.com>"
+  // 解决方法二 如果是多个修改，那么就需要使用到git filter-branch这个工具来做批量修改,为了方便大家使用，封装了一个简单的shell脚本，直接修改[XXX]中的变量为对应的值即可
+#!/bin/sh
+
+git filter-branch --env-filter '
+
+an="$GIT_AUTHOR_NAME"
+am="$GIT_AUTHOR_EMAIL"
+cn="$GIT_COMMITTER_NAME"
+cm="$GIT_COMMITTER_EMAIL"
+
+if [ "$GIT_COMMITTER_EMAIL" = "[Your Old Email]" ]
+then
+    cn="[Your New Author Name]"
+    cm="[Your New Email]"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "[Your Old Email]" ]
+then
+    an="[Your New Author Name]"
+    am="[Your New Email]"
+fi
+
+export GIT_AUTHOR_NAME="$an"
+export GIT_AUTHOR_EMAIL="$am"
+export GIT_COMMITTER_NAME="$cn"
+export GIT_COMMITTER_EMAIL="$cm"
+'
 
 
 

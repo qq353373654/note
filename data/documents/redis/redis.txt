@@ -107,3 +107,9 @@ eval "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEY
 		Long result = (Long) getStringCache().getRedis().execute(redisScript, Collections.singletonList(key), value);
 		return result != null && result == 1;
 	}
+
+
+
+// redis连接
+redis-cli -h host -p port -a password
+AUTH "password"

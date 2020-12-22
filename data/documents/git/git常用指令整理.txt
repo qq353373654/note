@@ -1,0 +1,28 @@
+git常用指令  最后更新时间  2019-1-7 19:42:05
+
+git clone git地址			// down项目到当前文件夹下 例:git clone http://xxx.git
+git config --global user.email "邮箱"	// 设置邮箱(push时必填)
+git config --global user.name "名字"	// 设置名字(push时必填)
+git config --global gui.encoding utf-8	// gitk编码修改为utf-8
+gitk					// 查看最近提交版本记录的图形化界面(可以清楚的查看到提交用户名称,时间,注释,提交的代码等)
+git log					// 显示当前分支的版本历史
+git branch -av				// 查看当前分支详情 -a表示分支列表 -v表示版本号及注释
+git checkout 分支名			// 切换分支, 分支名选最后一个/后面的名称
+git checkout 文件名			// 恢复暂存区的指定文件到工作区(不可逆) 例: git checkout *
+git status				// 显示有变更的文件
+git stash				// 将当前操作的文件压入暂存栈
+git stash pop				// 将暂存栈的文件 恢复到上一次操作的状态(如果与当前文件有冲突,会自动合并冲突,需要手动找到位置并处理)
+git pull				// 下载最新代码
+git add 文件名/目录名			// 添加指定文件到暂存区
+git commit -m "注释"			// 提交add过的文件至本地git仓库
+git push				// 将本地git仓库的版本推送到远程git仓库
+git reset head 文件名			// 将待提交文件移出add列表中
+git reset --hard 版本号			// 将当前版本回退到指定版本
+git config --list			// 显示当前的Git配置
+git pull origin master --allow-unrelated-histories // pull 允许不相关的历史 用于不同的远程地址作代码同步
+git checkout -b 分支名			// 创建本地临时分支
+git merge 分支名			// 将指定分支合并到当前分支
+git push --set-upstream origin <BranchName> // 此操作可将指定临时分支推至度小满icode
+git remote show origin			// 查看本地分支和追踪情况
+git remote prune origin			// 同步删除掉的分支信息
+git branch -d <BranchName>		// 删除本地分支

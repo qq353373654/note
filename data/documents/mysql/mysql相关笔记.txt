@@ -163,4 +163,10 @@ END
 show status like  'Threads%'
 show variables like '%max_connection%'; 
 
+// 解决bash: mysql: command not found... 的方法 https://blog.csdn.net/qq_38695182/article/details/79953474
+ln  -s   /usr/local/mysql/bin/mysql    /usr/bin
+
+// \G:将查询到的横向表格纵向输出，方便阅读
+select * from table \G;
+
 

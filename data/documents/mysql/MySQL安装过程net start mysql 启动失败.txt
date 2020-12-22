@@ -1,0 +1,6 @@
+MySQL安装过程net start mysql 启动失败 报“错误2，系统找不到文件”的解决办法
+错误2，系统找不到文件。
+开始...运行... regedit  注册表项：
+HKEY_LOCAL_MACHINE -> SYSTEM -> CurrentControlSet -? services -> mysql -> ImagePath
+"D:\MySQL\mysql-5.6.24-winx64\bin\mysqld" mysql
+其中前面那段路径是你MySQL的解压目录。
