@@ -127,6 +127,12 @@ export GIT_COMMITTER_NAME="$cn"
 export GIT_COMMITTER_EMAIL="$cm"
 '
 
-
+// git push 报错：missing Change-Id in commit message footer https://www.cnblogs.com/zndxall/p/9603834.html
+从上而下，我们用commitid1,commitid2,commitid3表示截图中的三个提交,很明显，第二个提交commitid2没有change_id,这个时候我们可以git reset --soft commitid3来软回退到异常节点的前一个正常的节点，这个操作相当于撤销了最后的git commit -s的操作，add过的代码还在索引库（可以去了解下git reset --soft）,具体操作如下：
+(1) git reset --soft commitid3
+(2) git status 可以看到绿色的已经add过的文件（即commitid1和commitid2的改动）
+(3) git commit -s #添加评论，保存退出后会生成change_id
+(4) git log 可以看到已经有了change_id
+(5) git push origin HEAD:refs/for/工作分支 例如 git push origin refs/heads/test:refs/for/test
 
 
