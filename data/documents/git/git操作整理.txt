@@ -22,6 +22,12 @@ git clone "/sunyard/git-2.9.5/git-upload-pack" {linux用户}@{linux Ip}:{仓库�
 
 // Git进行版本控制添加文件时，中文文件名乱码显示数字问题
 	git config --global core.quotepath false
+// git图形化界面gitk里中文乱码解决
+	git config --global gui.encoding utf-8
+// git log 日志乱码 到Git Bash命令窗口输入如下设置命令语句 https://www.cnblogs.com/yanzige/p/9810333.html
+git config --global i18n.commitencoding utf-8  --注释：该命令表示提交命令的时候使用utf-8编码集提交
+git config --global i18n.logoutputencoding utf-8 --注释：该命令表示日志输出时使用utf-8编码集显示
+export LESSCHARSET=utf-8  --注释：设置LESS字符集为utf-8
 
 // remote: error: insufficient permission for adding an object to repository database ./objects
 chmod 775 sunlink_data.git -R
@@ -135,4 +141,11 @@ export GIT_COMMITTER_EMAIL="$cm"
 (4) git log 可以看到已经有了change_id
 (5) git push origin HEAD:refs/for/工作分支 例如 git push origin refs/heads/test:refs/for/test
 
+// git版本回退 https://www.jianshu.com/p/2419924d5d82
+git reset --hard commit_id
+git reset --hard HEAD^
+
+// git status会有rebase in progress; onto https://www.it1352.com/711032.html
+用过 git rebase，但上一次的进程还没有完成。解决好之后，git add .，然后 git rebase --continue 就可以进入下一步。如果你还有冲突要处理，继续这样做就好。
+当然，你也可以直接 git rebase --abort 来取消目前的进程。
 

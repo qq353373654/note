@@ -225,10 +225,20 @@ complete -W "`find ~/java/logs/ -type d -iname "saas_*" | awk -F '_' '{print $2}
 // rabbitmq linux 安装
 https://blog.csdn.net/yangliangliang2011/article/details/81043896
 
+// 延时队列插件需要在服务器上安装一下并执行指令,rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+// mq启动 https://www.cnblogs.com/nyist-xsk/p/11469494.html
+rabbitmq-server -detached 后台启动
+rabbitmqctl stop 关闭mq
+插件安装完成后可以通过命令sudo rabbitmq-plugins list查看已有插件列表 https://www.cnblogs.com/shihaiming/p/11017249.html
+文件拷贝到插件目录后可以通过命令sudo rabbitmq-plugins enable plugin-name启用插件。
 
+// 查找文件夹所在目录
+find /* -type d -iname "rabbitmq"
 
+// docker 进入容器 https://www.runoob.com/docker/docker-exec-command.html
+docker exec -it 9df70f9a0714 /bin/bash
 
-
-
+// linux删除依赖
+yum remove xxx
 
 

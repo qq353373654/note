@@ -29,8 +29,6 @@ import com.sunfintech.common.constant.StringConstant;
 
 /**
  * sftp上传工具类
- * @author chenglj
- *
  */
 public class SftpUtils {
 

@@ -365,20 +365,20 @@ under the License.
         </repository>
 -->
 		
-		<repository>
+	<!-- 	<repository>
           <id>thirdparty</id>
           <name>Nexus thirdparty</name>
           <url>http://maven.aliyun.com/nexus/content/repositories/snapshots</url>
           <releases><enabled>true</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-		<repository>
+        </repository> -->
+	<!--	<repository>
           <id>thirdparty123</id>
           <name>Nexus thirdparty123</name>
           <url>http://maven.aliyun.com/nexus/content/repositories/thirdparty</url>
           <releases><enabled>true</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
-        </repository>
+        </repository> -->
 			 
 <!--
         <repository>
@@ -408,7 +408,7 @@ under the License.
         <repository>
           <id>central</id>
           <name>central</name> 
-          <url>http://repo1.maven.org/maven2</url>
+          <url>https://repo1.maven.org/maven2</url>
 					<releases><enabled>true</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </repository>
@@ -416,7 +416,7 @@ under the License.
         <repository>
           <id>jboss</id>
           <name>jboss</name> 
-          <url>http://repository.jboss.org/nexus/content/groups/public-jboss</url>
+          <url>https://repository.jboss.org/nexus/content/groups/public-jboss</url>
 					<releases><enabled>true</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </repository>

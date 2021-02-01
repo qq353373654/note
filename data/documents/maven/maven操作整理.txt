@@ -5,6 +5,8 @@
 	mvn install:install-file -Dfile=a.jar -DgroupId=gid -DartifactId=aid -Dversion=0.0.1 -Dpackaging=jar -Dclassifier=javadoc
 // 打包编译
 	mvn clean install -Dmaven.test.skip -P
+// 打包编译某个模块
+	mvn clean package -pl {模块名} -am -Dmaven.test.skip -Ptest
 
 // pom.xml加载本地jar包
 <dependency>
@@ -14,7 +16,6 @@
     <scope>system</scope>
     <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/zaOpenapiSdk.jar</systemPath>
 </dependency>
-
 
 
 
