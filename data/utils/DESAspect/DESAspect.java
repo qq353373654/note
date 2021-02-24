@@ -1,7 +1,7 @@
 package com.alipay.riskplus.dubbusiness.common.configuration;
 
-import com.alipay.riskplus.dubbusiness.common.utils.AESUtil;
 import com.alipay.riskplus.dubbusiness.common.annotation.Encryption;
+import com.alipay.riskplus.dubbusiness.common.utils.AESUtil;
 import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.extern.slf4j.Slf4j;
@@ -27,12 +27,13 @@ import java.util.List;
 @Slf4j
 public class DESAspect {
 
-    public final static String KEY = "fullink";
+    public final static String KEY = "H&uTuS&$!k";
 
     /**
      * Dao aspect.
      */
-    @Pointcut("execution( * com.alipay.riskplus.dubbusiness.*.mapper..*.*(..))")
+    @Pointcut("execution( * com.alipay.riskplus.dubbusiness.*.mapper..*.*(..)) " +
+            "|| execution( * com.alipay.riskplus.dubbusiness.*.*.mapper..*.*(..))")
     public void daoAspect() {
     }
 
@@ -89,7 +90,7 @@ public class DESAspect {
     /**
      * 对实体内的字段进行加密
      */
-    private static <T> void encryptObject(T t) {
+    private <T> void encryptObject(T t) {
         if (null == t) {
             return;
         }
@@ -105,7 +106,10 @@ public class DESAspect {
                         field.setAccessible(true);
                         String fieldValue = (String) field.get(t);
                         if (StringUtils.isNotEmpty(fieldValue)) {
-                            field.set(t, AESUtil.encrypt(fieldValue, KEY));
+                            String encrypt = AESUtil.encrypt(fieldValue, KEY);
+                            if (encrypt != null) {
+                                field.set(t, encrypt);
+                            }
                         }
                     }
                 }
@@ -118,7 +122,7 @@ public class DESAspect {
     /**
      * 对实体内的字段进行解密
      */
-    private static <T> void decryptObject(T t) {
+    private <T> void decryptObject(T t) {
         if (null == t) {
             return;
         }
@@ -134,7 +138,10 @@ public class DESAspect {
                         field.setAccessible(true);
                         String fieldValue = (String) field.get(t);
                         if (StringUtils.isNotEmpty(fieldValue)) {
-                            field.set(t, AESUtil.decrypt(fieldValue, KEY));
+                            String decrypt = AESUtil.decrypt(fieldValue, KEY);
+                            if (StringUtils.isNotBlank(decrypt)) {
+                                field.set(t, decrypt);
+                            }
                         }
                     }
                 }

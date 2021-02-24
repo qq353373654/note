@@ -1,0 +1,17 @@
+CREATE TABLE `t_web_log` (
+  `id` bigint(19) NOT NULL,
+  `class_name` varchar(32) DEFAULT NULL COMMENT '请求类名称',
+  `method_name` varchar(32) DEFAULT NULL COMMENT '请求方法名称',
+  `method_note` varchar(255) DEFAULT NULL COMMENT '请求方法自定义注释',
+  `user_no` varchar(32) DEFAULT NULL COMMENT '操作人编号',
+  `user_name` varchar(64) DEFAULT NULL COMMENT '操作人名称',
+  `request_time` datetime DEFAULT NULL COMMENT '请求时间',
+  `request_ip` varchar(32) DEFAULT NULL COMMENT '请求ip',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间(系统时间)',
+  PRIMARY KEY (`id`),
+  KEY `idx_web_log_01` (`class_name`,`method_name`) USING BTREE,
+  KEY `idx_web_log_02` (`user_no`,`user_name`) USING BTREE,
+  KEY `idx_web_log_03` (`request_time`) USING BTREE,
+  KEY `idx_web_log_04` (`request_ip`) USING BTREE
+)COMMENT='web请求记录表';
