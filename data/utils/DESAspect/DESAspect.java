@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -33,7 +34,10 @@ public class DESAspect {
      * Dao aspect.
      */
     @Pointcut("execution( * com.alipay.riskplus.dubbusiness.*.mapper..*.*(..)) " +
-            "|| execution( * com.alipay.riskplus.dubbusiness.*.*.mapper..*.*(..))")
+            "|| execution( * com.alipay.riskplus.dubbusiness.*.*.mapper..*.*(..))" +
+            "|| execution( * com.baomidou.mybatisplus.extension.service.IService.saveBatch(..)) " +
+            "|| execution( * com.baomidou.mybatisplus.extension.service.IService.saveOrUpdateBatch(..)) " +
+            "|| execution( * com.baomidou.mybatisplus.extension.service.IService.updateBatchById(..)) ")
     public void daoAspect() {
     }
 
@@ -61,6 +65,11 @@ public class DESAspect {
                 AbstractWrapper<Object, ?, ?> wrapper = (AbstractWrapper<Object, ?, ?>) param;
                 Object object = wrapper.getEntity();
                 encryptObject(object);
+            } else if (param instanceof Collection) {
+                Collection<Object> values = (Collection<Object>) param;
+                for (Object object : values) {
+                    encryptObject(object);
+                }
             } else {
                 encryptObject(param);
             }
@@ -69,8 +78,8 @@ public class DESAspect {
         // 执行方法
         Object proceed = joinPoint.proceed(args);
         // 解密
-        if (proceed instanceof List) {
-            List<Object> values = (List<Object>) proceed;
+        if (proceed instanceof Collection) {
+            Collection<Object> values = (Collection<Object>) proceed;
             for (Object object : values) {
                 decryptObject(object);
             }

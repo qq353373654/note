@@ -241,4 +241,7 @@ docker exec -it 9df70f9a0714 /bin/bash
 // linux删除依赖
 yum remove xxx
 
+// 本地文件传到服务器(windows传服务器或服务器传服务器)
+scp {本地目录} {远程机账号@远程机地址:目标目录}
+
 
