@@ -2,7 +2,6 @@
 https://mvnrepository.com/
 
 // 数据库SQL优化大总结之 百万级数据库优化方案
-
 http://database.51cto.com/art/201407/445934.htm
 
 // EXISTS用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False
@@ -51,5 +50,8 @@ https://blog.csdn.net/liuyongheng1991/article/details/80771813
 // Springboot @Validated和@Valid的区别 及使用
 https://blog.csdn.net/herojuice/article/details/86020101
 
+// 深入解读Quartz任务调度器
+https://juejin.cn/post/6844903511549804557
 
-
+// CentOS 6.9 上安装RabbitMQ 3.7.7
+https://blog.csdn.net/yangliangliang2011/article/details/81043896

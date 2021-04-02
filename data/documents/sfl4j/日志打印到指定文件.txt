@@ -1,0 +1,24 @@
+<!-- 输出到 api-server-stat.log -->
+<!-- [2021-03-23 11:03:08,161][<租户id>][method:riskplus.dubhe.credit.apply][code:OK][cost:105] -->
+<appender name="api-server-stat" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder>
+        <pattern>[%date][%X{MDC_TENANT_ID}][method:%X{MDC_REQUEST_METHOD}][code:%X{MDC_RESULT_CODE}][cost:%X{MDC_RESULT_COST}]%n</pattern>
+        <!-- 设置字符集 -->
+        <charset>UTF-8</charset>
+    </encoder>
+    <file>${log.path}/api-server-stat.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>${log.path}/${log_orgName}/%d{yyyy-MM, aux}/api-server-stat.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+        <maxFileSize>500MB</maxFileSize>
+        <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <!-- 大于等于 -->
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>INFO</level>
+    </filter>
+</appender>
+
+<logger name="api-server-stat-logger" additivity="false" level="INFO">
+    <!-- api-server-stat:接口耗时和响应code信息. -->
+    <appender-ref ref="api-server-stat" />
+</logger>
