@@ -1,0 +1,11 @@
+// maven打包时报错：Fatal error compiling: java.lang.OutOfMemoryError: Java heap space
+https://blog.csdn.net/qq_42643690/article/details/104602311
+@REM set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+set MAVEN_OPTS= -Xms128m -Xmx1024m
+
+
+
+
+
+
+

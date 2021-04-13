@@ -1,0 +1,21 @@
+// vue项目运行流程
+http://www.cnblogs.com/pengjunhao/p/6762141.html
+
+// [vue]webpack打包vue项目并且运行在Tomcat里面
+https://yq.aliyun.com/articles/201155
+
+// vue一些相关的日志
+https://yuanyuanshen.github.io/archives/page/2/
+
+// Vue2.0史上最全入坑教程（上），搭建vue脚手架（vue-cli）
+http://www.jianshu.com/p/1626b8643676
+
+什么是vue脚手架？
+	脚手架的意思是帮你快速开始一个vue的项目，也就是给你一套vue的结构，包含基础的依赖库，只需要 npm install就可以安装，让我们不需要为了编辑或者一些其他事情浪费时间大笑  总而言之，就是快速搭建项目的，让我们可以早点去写代码
+
+node 主要管理包依赖  express模拟的开发环境 webpack用来打包
+
+// vue代码在线测试
+https://codepen.io/pen
+
+

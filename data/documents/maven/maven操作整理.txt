@@ -1,3 +1,7 @@
+// 手动将jar包安装到maven仓库 http://blog.csdn.net/two_people/article/details/62237554
+// 安装解密demo的jar包,pom文件需要把压缩包里的pom解压出来指定一下路径
+mvn install:install-file -Dfile=unionloan-encipher-sdk-1.0.0-SNAPSHOT.jar -DgroupId=com.baidu.unionloan -DartifactId=unionloan-encipher-sdk -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -DpomFile=META-INF/maven/com.baidu.unionloan/unionloan-encipher-sdk/pom.xml
+
 // 安装jar包到maven仓库, -DpomFile=pom.xml 参数可指定pom.xml
 	mvn install:install-file -Dfile=a.jar -DgroupId=gid -DartifactId=aid -Dversion=0.0.1 -Dpackaging=jar
 // 安装jar包的源码到maven仓库
@@ -17,7 +21,10 @@
     <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/zaOpenapiSdk.jar</systemPath>
 </dependency>
 
-
+// maven打包时报错：Fatal error compiling: java.lang.OutOfMemoryError: Java heap space
+https://blog.csdn.net/qq_42643690/article/details/104602311
+@REM set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+set MAVEN_OPTS= -Xms128m -Xmx1024m
 
 
 

@@ -1,0 +1,9 @@
+// 动态绑定变量
+<bind name="key_offset" value="(pageNum-1)*pageSize"></bind>
+select * from table limit #{key_offset},#{pageSize}
+
+<trim suffix="当标签中不为空时添加后缀" suffixOverrides="当标签中不为空时去除第一个后缀" prefix="当标签中不为空时添加前缀" prefixOverrides="当标签中不为空时去除第一个前缀">
+<trim>
+
+<resultMap type>
+<!-- id是主键的映射property时候pojo中主键的属性,column:返回结果中主键的列 -->

@@ -84,4 +84,18 @@
         JSONObject responseObj = new JSONObject();
         responseObj.put("id", 1/*reqObj.getIntValue("id")*/);
         return responseObj ;
-    }　
+    }
+
+// mvc 输出 或  接收的时候 的 head 请求头 
+produces={"application/xml; charset=UTF-8"})
+consumes="application/xml"
+@RequestMapping(value = "/notify", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded;charset=UTF-8", produces = "application/json")
+	@ResponseBody
+	public BaiduDataModel notify(BaiduDataModel baiduDataModel, HttpServletRequest request) throws Exception {}
+
+
+
+
+
+
+

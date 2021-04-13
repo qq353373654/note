@@ -1,0 +1,79 @@
+// LFS: Put https://github-cloud.s3.amazonaws.com/
+https://blog.csdn.net/qq_20226441/article/details/82787448
+解决方案
+方案一
+以管理员身份运行记事本。
+文件->打开：筛选器选择【所有文件】，打开C:\Windows\System32\drivers\etc\hosts
+在最后新起一行加入
+8.8.8.8 s3.amazonaws.com
+8.8.8.8 github-cloud.s3.amazonaws.com
+1
+2
+（其中8.8.8.8为Google DNS）问题即可解决。
+方案二
+Dns检测|Dns查询 - 站长工具：http://tool.chinaz.com/dns/
+输入域名
+amazonaws.com
+github-cloud.s3.amazonaws.com
+分别检测，选取TTL较小的IP按方案一的方法写入host，问题即可解决。
+
+// git 推送出现 "fatal: The remote end hung up unexpectedly" 解决方案 https://blog.csdn.net/weixin_38450840/article/details/80701173
+  方法一：修改提交缓存大小为500M，或者更大的数字
+git config --global http.postBuffer 524288000
+或者在克隆/创建版本库生成的 .git目录下面修改生成的config文件增加如下：然后重新推送。
+[http]  
+postBuffer = 524288000
+  方法二：配置git的最低速度和最低速度时间：
+git config --global http.lowSpeedLimit 0
+git config --global http.lowSpeedTime 999999  单位 秒
+--global配置对当前用户生效，如果需要对所有用户生效，则用--system
+  方法三：fatal: The remote end hung up unexpectedlyB | 2.00 KiB/s
+我的是这样的，后面带| 2.00KiB/s??这句显示 远程结束挂起 |2KiB/s
+应该是墙的原因导致网速太慢，且项目有点大上传不上
+解决办法：翻墙?或者换个网速好的网络重新再push一遍 就没问题了.我是到公司用公司的网络解决的.
+
+// git pull报错：error: RPC failed; curl 56 OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+git config --global pack.windowMemory "100m"
+git config --global pack.SizeLimit "100m"?
+git config --global pack.threads "1"
+git config --global pack.window "0"
+git config --global http.postBuffer 524288000
+git config --global http.sslVerify "false"
+git config --add core.compression -1
+
+// linux解决bash: git-upload-pack: command not found
+ln /sunyard/git-2.9.5/git-upload-pack /usr/bin/
+// linux解决bash: git-receive-pack: command not found
+ln /sunyard/git-2.9.5/git-receive-pack /usr/bin/
+
+// Git进行版本控制添加文件时，中文文件名乱码显示数字问题
+	git config --global core.quotepath false
+// git图形化界面gitk里中文乱码解决
+	git config --global gui.encoding utf-8
+// git log 日志乱码 到Git Bash命令窗口输入如下设置命令语句 https://www.cnblogs.com/yanzige/p/9810333.html
+git config --global i18n.commitencoding utf-8  --注释：该命令表示提交命令的时候使用utf-8编码集提交
+git config --global i18n.logoutputencoding utf-8 --注释：该命令表示日志输出时使用utf-8编码集显示
+export LESSCHARSET=utf-8  --注释：设置LESS字符集为utf-8
+
+// remote unpack failed:error Missing commit问题解决
+git gc
+git pull --rebase
+git push
+或者 git push --no-thin origin HEAD:refs/for/release
+
+// git push 报错：missing Change-Id in commit message footer https://www.cnblogs.com/zndxall/p/9603834.html
+从上而下，我们用commitid1,commitid2,commitid3表示截图中的三个提交,很明显，第二个提交commitid2没有change_id,这个时候我们可以git reset --soft commitid3来软回退到异常节点的前一个正常的节点，这个操作相当于撤销了最后的git commit -s的操作，add过的代码还在索引库（可以去了解下git reset --soft）,具体操作如下：
+(1) git reset --soft commitid3
+(2) git status 可以看到绿色的已经add过的文件（即commitid1和commitid2的改动）
+(3) git commit -s #添加评论，保存退出后会生成change_id
+(4) git log 可以看到已经有了change_id
+(5) git push origin HEAD:refs/for/工作分支 例如 git push origin refs/heads/test:refs/for/test
+
+// git status会有rebase in progress; onto https://www.it1352.com/711032.html
+用过 git rebase，但上一次的进程还没有完成。解决好之后，git add .，然后 git rebase --continue 就可以进入下一步。如果你还有冲突要处理，继续这样做就好。
+当然，你也可以直接 git rebase --abort 来取消目前的进程。
+
+
+
+
+

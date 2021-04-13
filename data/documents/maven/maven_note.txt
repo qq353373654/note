@@ -1,0 +1,7 @@
+// 使用 EXPLAIN 关键字 检查SQL语句效率
+http://blog.csdn.net/xm1331305/article/details/25795657
+
+// 使用explain语句查看sql性能
+http://database.51cto.com/art/201108/284783.htm
+
+

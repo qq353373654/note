@@ -13,6 +13,11 @@ time_pretransfer ：从请求开始到响应开始传输的时间
 time_starttransfer ：从请求开始到第一个字节将要传输的时间
 time_total ：这次请求花费的全部时间
 
+// linux下启动jar包
+setsid java -jar /sunyard/service/sunpls-service-hycf.jar >> /sunyard/service/sunpls-hycf.log &
+setsid java -jar -Dfile.encoding=UTF-8 jar包地址 >> 日志地址 &
+// linux下持续查看日志
+tail -200f /sunyard/service/sunpls-hycf.log
 // 启动jar包的时候开启监听5005端口(测试环境)
 setsid java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 sl-accounts.jar
 // 以指定编码格式启动jar包

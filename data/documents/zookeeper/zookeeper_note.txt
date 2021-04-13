@@ -1,0 +1,8 @@
+// zookeeper插件eclipse安装
+https://blog.csdn.net/yelllowcong/article/details/78230026
+1、install 
+2、插件地址:http://www.massedynamic.org/eclipse/updates/
+3、安装zookeeper
+4、等待下载
+
+

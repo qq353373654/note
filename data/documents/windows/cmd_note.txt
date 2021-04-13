@@ -1,0 +1,14 @@
+// windos查看端口号 dos窗口(cmd里面)
+netstat -ano
+
+// java通信RSA公私钥生成方式:
+step1: ssh生成rsa公私钥
+	ssh-keygen -t rsa
+step2: 去到密钥生成目录
+	cd /root/.ssh
+step3: 私钥pcks8编码
+	openssl pkcs8 -topk8 -in id_rsa -out id_rsa_pcks8 -nocrypt
+step4: 提取公钥
+	openssl rsa -in id_rsa -pubout -out id_rsa_pcks8.pem
+
+

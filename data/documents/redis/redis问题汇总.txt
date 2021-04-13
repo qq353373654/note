@@ -1,0 +1,30 @@
+// redis启动内存不足 redis 部署问题 https://www.cnblogs.com/herry52/p/5938902.html
+redis-server.exe redis.windows.conf
+
+使用上面命令启动redis服务的时候报了以下错误信息：
+The Windows version of Redis allocates a memory mapped heap for sharing with
+the forked process used for persistence operations. In order to share this
+memory, Windows allocates from the system paging file a portion equal to the
+size of the Redis heap. At this time there is insufficient contiguous free
+space available in the system paging file for this operation (Windows error
+0x5AF). To work around this you may either increase the size of the system
+paging file, or decrease the size of the Redis heap with the --maxheap flag.
+Sometimes a reboot will defragment the system paging file sufficiently for
+this operation to complete successfully.
+ 
+Please see the documentation included with the binary distributions for more
+details on the --maxheap flag.
+    大概意思是：没有足够的可用空间，可以增加系统的大小分页文件，或减少Redis的堆的大小
+使用--maxheap标志。
+有时重启将充分整理系统分页文件（重启可以解决）
+可以再启动命令后面加maxheap参数重新分配堆大小。 
+redis-server.exe redis.windows.conf --maxheap 200m
+
+
+
+
+
+
+
+
+

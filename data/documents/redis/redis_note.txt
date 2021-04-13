@@ -109,6 +109,19 @@ eval "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEY
 	}
 
 
+// 设置redis访问密码
+1.临时
+redis-cli -p 6379
+config get requirepass
+config set requirepass Sunyard88
+config get requirepass
+2.永久
+修改redis.conf配置文件　　
+# requirepass foobared
+requirepass Sunyard88   指定密码123
+连接
+auth 123
+https://www.cnblogs.com/756623607-zhang/p/6859540.html
 
 // redis连接
 redis-cli -h host -p port -a password

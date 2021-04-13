@@ -1,0 +1,9 @@
+// 设置 rabbitMQ 账户 进入sbin目录执行 rabbitmq-plugins enable rabbitmq_management 后 打开 http://localhost:15672/
+// RabbitMQ用户增删及权限控制 rabbitmqctl delete_user Username 默认用户是 guest
+https://www.cnblogs.com/xinxiucan/p/7940953.html
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+// 打开win系统的远程协助功能 mstsc 远程协助软件 teamviewer 向日葵远程控制
+
+// 打开控制面板 control
+
+
