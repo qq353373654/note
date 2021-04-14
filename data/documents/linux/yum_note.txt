@@ -1,0 +1,13 @@
+// linux删除依赖
+yum remove xxx
+
+// 查看是否用yum指令安装软件
+yum list installed |grep java  运行查看一下是否安装了java
+
+// 查看yum库中的安装包，输入命令
+yum -y list java*
+
+// 安装yum库中的安装包
+yum -y install java-1.8.0-openjdk*
+
+
