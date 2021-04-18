@@ -1,0 +1,27 @@
+// 安装nginx https://www.runoob.com/linux/nginx-install-setup.html https://www.bilibili.com/video/BV1zJ411w7SV?p=5
+一、安装编译工具及库文件
+yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel
+二、首先要安装 PCRE PCRE 作用是让 Nginx 支持 Rewrite 功能。 https://blog.csdn.net/eddy23513/article/details/81366751
+#下载
+wget    https://netix.dl.sourceforge.net/project/pcre/pcre/8.40/pcre-8.40.tar.gz
+#解压安装包:
+tar -zxvf pcre-8.40.tar.gz
+#进入安装包目录
+cd pcre-8.40
+#编译安装  
+./configure
+make && make install
+#查看pcre版本
+pcre-config --version
+三、安装 Nginx
+1、下载 Nginx，下载地址：https://nginx.org/en/download.html 或者yum安装
+// 查看yum库中的安装包，输入命令
+yum -y list nginx*
+// 安装yum库中的安装包
+yum -y install nginx*
+
+
+
+
+
+

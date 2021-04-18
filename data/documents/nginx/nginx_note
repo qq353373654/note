@@ -1,0 +1,20 @@
+// 启动
+nginx
+
+// 查看版本号
+nginx -v
+
+// 关闭
+nginx -s stop
+
+// 重新加载配置文件
+nginx -s reload
+
+// 重启nginx
+nginx -s reopen
+
+
+
+
+
+
