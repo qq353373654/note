@@ -120,7 +120,7 @@ public class DesensitizeUtils {
             return;
         }
         DesensitizeFlag annotation = t.getClass().getAnnotation(DesensitizeFlag.class);
-        if (null == annotation || !(byReturn && annotation.byReturn()) || !(byToJSONString && annotation.byToJSONString())) {
+        if (null == annotation || !((byReturn && annotation.byReturn()) || (byToJSONString && annotation.byToJSONString()))) {
             return;
         }
         Field[] declaredFields = t.getClass().getDeclaredFields();
