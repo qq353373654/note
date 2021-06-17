@@ -338,6 +338,13 @@ private void downloadFile(File file, HttpServletResponse resp) throws IOExceptio
 		<junit_version>4.12</junit_version>
 </properties>
 
+// JAXBContext xml报文格式转换 集合类型需要加以下标签
+@XmlElementWrapper(name = "itemList")
+@XmlElement(name = "item")
+
+// 一个单词匹配0-10次
+(\d,){0,10}
+
 
 
 (page-1) * pagesize 分页公式mysql (4-1)*10=30, limit (page-1) * pagesize, pagesize 从第31个开始到40.

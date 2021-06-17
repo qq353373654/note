@@ -92,4 +92,7 @@ export GIT_COMMITTER_EMAIL="$cm"
 git reset --hard {commit_id}
 git reset --hard HEAD^
 
+// Github Git彻底删除历史提交记录的方法
+https://blog.csdn.net/cai6811376/article/details/54248764
+
 

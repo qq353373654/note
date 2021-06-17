@@ -1,4 +1,7 @@
-﻿sql:
+﻿// mysql 登录
+mysql -h 主机 -P 端口 -u 用户名 -p
+
+sql:
   `MODIFIED` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `CREATED` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
   `ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
@@ -158,6 +161,16 @@ WHILE rootId is not null  do
 END WHILE;   
 return str;  
 END
+
+// 查询子级数据https://www.cnblogs.com/rainydayfmb/p/8028868.html
+select id from (
+              select t1.id,
+              if(find_in_set(parent_id, @pids) > 0, @pids := concat(@pids, ',', id), 0) as ischild
+              from (
+                   select id,parent_id from re_menu t where t.status = 1 order by parent_id, id
+                  ) t1,
+                  (select @pids := 要查询的菜单节点 id) t2
+             ) t3 where ischild != 0
 
 // 查看当前连接数 和 连接数上限
 show status like  'Threads%'

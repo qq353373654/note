@@ -27,6 +27,10 @@ java -jar -Xms512m -Xmx512m xxxxx.jar
 
 // 查看进程是否存在
 ps -a | grep '关键字'
+// 查看占用端口的进程号
+lsof -i:8080
+// 直接通过端口号杀进程
+kill -9 `lsof -ti:8080`
 
 // 查看日志等,
 	// cat是从上往下搜,tac是从下往上搜,-m的意思是限制搜索几行信息,--color是给关键字加颜色
@@ -222,8 +226,10 @@ scp {本地目录} {远程机账号@远程机地址:目标目录}
 如果你只是想查看其它编码格式的文件或者想解决用Vim查看文件乱码的问题，
 那么你可以在~/.vimrc文件中添加一下内容: set encoding=utf-8 filenencodings=ucs-bom,utf-8,cp936
 
+// 查看zip文件内容
+zcat {fileName}
 
-
-
+// 生成rsa公钥 可加注释 -C是comment的缩写 -b是bit的缩写指秘钥的长度 https://blog.csdn.net/weixin_42752574/article/details/106367959
+ssh-keygen -t rsa
 
 
