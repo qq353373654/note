@@ -1,8 +1,8 @@
-// zookeeper²å¼şeclipse°²×°
+// zookeeperæ’ä»¶eclipseå®‰è£…
 https://blog.csdn.net/yelllowcong/article/details/78230026
-1¡¢install 
-2¡¢²å¼şµØÖ·:http://www.massedynamic.org/eclipse/updates/
-3¡¢°²×°zookeeper
-4¡¢µÈ´ıÏÂÔØ
+1ã€install 
+2ã€æ’ä»¶åœ°å€:http://www.massedynamic.org/eclipse/updates/
+3ã€å®‰è£…zookeeper
+4ã€ç­‰å¾…ä¸‹è½½
 
 

@@ -1,10 +1,10 @@
-<!-- jdk°æ±¾ -->
+<!-- jdkç‰ˆæœ¬ -->
 		<jdk_version>1.8</jdk_version>
 
-<!-- Spring¿ò¼Ü -->
+<!-- Springæ¡†æž¶ -->
 		<spring_version>4.3.18.RELEASE</spring_version>
 		<spring-mybatis_version>1.3.2</spring-mybatis_version>
-<!-- Spring¿ò¼Übegin -->
+<!-- Springæ¡†æž¶begin -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
@@ -55,12 +55,12 @@
 				<artifactId>mybatis-spring</artifactId>
 				<version>${spring-mybatis_version}</version>
 			</dependency>
-			<!-- Spring¿ò¼Üend -->
+			<!-- Springæ¡†æž¶end -->
 
-<!-- rabbitmqÏûÏ¢ÖÐ¼ä¼þbegin -->
+<!-- rabbitmqæ¶ˆæ¯ä¸­é—´ä»¶begin -->
 		<rabbitmq_version>3.5.1</rabbitmq_version>
 		<rabbitmq-spring_version>1.4.6.RELEASE</rabbitmq-spring_version>
-<!-- RabbitmqÏûÏ¢ÖÐ¼ä¼þbegin -->
+<!-- Rabbitmqæ¶ˆæ¯ä¸­é—´ä»¶begin -->
 			<dependency>
 				<groupId>com.rabbitmq</groupId>
 				<artifactId>amqp-client</artifactId>
@@ -71,12 +71,12 @@
 				<artifactId>spring-rabbit</artifactId>
 				<version>${rabbitmq-spring_version}</version>
 			</dependency>
-			<!-- RabbitmqÏûÏ¢ÖÐ¼ä¼þbegin -->
+			<!-- Rabbitmqæ¶ˆæ¯ä¸­é—´ä»¶begin -->
 
 <!-- mockito -->
 		<mockito_version>1.9.5</mockito_version>
 		<hamcrest_version>1.3</hamcrest_version>
-<!-- mockÄ£Äâ²âÊÔµ²°åbegin -->
+<!-- mockæ¨¡æ‹Ÿæµ‹è¯•æŒ¡æ¿begin -->
 			<dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-all</artifactId>
@@ -89,20 +89,20 @@
 				<version>${hamcrest_version}</version>
 				<scope>test</scope>
 			</dependency>
-			<!-- mockÄ£Äâ²âÊÔµ²°åend -->
+			<!-- mockæ¨¡æ‹Ÿæµ‹è¯•æŒ¡æ¿end -->
 
-<!-- ºº×Ö×ªÆ´Òô·â×° -->
+<!-- æ±‰å­—è½¬æ‹¼éŸ³å°è£… -->
 		<pinyin4j_version>2.5.1</pinyin4j_version>
-<!-- ºº×Ö×ªÆ´Òô·â×° -->
+<!-- æ±‰å­—è½¬æ‹¼éŸ³å°è£… -->
 			<dependency>
 				<groupId>com.belerweb</groupId>
 				<artifactId>pinyin4j</artifactId>
 				<version>${pinyin4j_version}</version>
 			</dependency>
 
-<!-- junit²âÊÔ -->
+<!-- junitæµ‹è¯• -->
 		<junit_version>4.12</junit_version>
-<!-- junit²âÊÔ -->
+<!-- junitæµ‹è¯• -->
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -110,29 +110,29 @@
 				<scope>test</scope>
 			</dependency>
 
-<!-- jschÁ¬½ÓSFTP -->
+<!-- jschè¿žæŽ¥SFTP -->
 		<jsch_version>0.1.50</jsch_version>
-<!-- jschÁ¬½ÓSFTP -->
+<!-- jschè¿žæŽ¥SFTP -->
 			<dependency>
 				<groupId>com.jcraft</groupId>
 				<artifactId>jsch</artifactId>
 				<version>${jsch_version}</version>
 			</dependency>
 
-<!-- quartz¶¨Ê±Æ÷ -->
+<!-- quartzå®šæ—¶å™¨ -->
 		<quartz_version>2.2.3</quartz_version>
-<!-- quartz¶¨Ê±Æ÷begin -->
+<!-- quartzå®šæ—¶å™¨begin -->
 			<dependency>
 				<groupId>org.quartz-scheduler</groupId>
 				<artifactId>quartz</artifactId>
 				<version>${quartz_version}</version>
 			</dependency>
-			<!-- quartz¶¨Ê±Æ÷end -->
+			<!-- quartzå®šæ—¶å™¨end -->
 
-<!-- javax²ÎÊýÐ£Ñé -->
+<!-- javaxå‚æ•°æ ¡éªŒ -->
 		<hibernate_validation_version>6.0.10.Final</hibernate_validation_version>
 		<glassfish_el_version>3.0.1-b09</glassfish_el_version>
-<!-- java²ÎÊýÐ£ÑéÏà¹Øbegin -->
+<!-- javaå‚æ•°æ ¡éªŒç›¸å…³begin -->
 			<dependency>
 				<groupId>org.hibernate.validator</groupId>
 				<artifactId>hibernate-validator</artifactId>
@@ -143,19 +143,19 @@
 				<artifactId>javax.el</artifactId>
 				<version>${glassfish_el_version}</version>
 			</dependency>
-			<!-- java²ÎÊýÐ£ÑéÏà¹Øend -->
+			<!-- javaå‚æ•°æ ¡éªŒç›¸å…³end -->
 
-<!-- »º´æµÚÈý·½¿Í»§¶Ë -->
+<!-- ç¼“å­˜ç¬¬ä¸‰æ–¹å®¢æˆ·ç«¯ -->
 		<jedis_version>2.9.0</jedis_version>
-<!-- »º´æµÚÈý·½¿Í»§¶Ëbegin -->
+<!-- ç¼“å­˜ç¬¬ä¸‰æ–¹å®¢æˆ·ç«¯begin -->
 <dependency>
 				<groupId>redis.clients</groupId>
 				<artifactId>jedis</artifactId>
 				<version>${jedis_version}</version>
 			</dependency>
-			<!-- »º´æµÚÈý·½¿Í»§¶Ëend -->
+			<!-- ç¼“å­˜ç¬¬ä¸‰æ–¹å®¢æˆ·ç«¯end -->
 
-<!-- Apache CommonµÄjar -->
+<!-- Apache Commonçš„jar -->
 		<commons_lang3_version>3.4</commons_lang3_version>
 		<commons_pool2_version>2.4.2</commons_pool2_version>
 		<commons_codec_version>1.10</commons_codec_version>
@@ -164,7 +164,7 @@
 		<commons_fileupload_version>1.3.3</commons_fileupload_version>
 		<commons_net_version>3.6</commons_net_version>
 		<commons_compress_version>1.17</commons_compress_version>
-<!-- apache³£ÓÃ¹¤¾ßÀàbegin -->
+<!-- apacheå¸¸ç”¨å·¥å…·ç±»begin -->
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
@@ -206,11 +206,11 @@
 				<artifactId>commons-net</artifactId>
 				<version>${commons_net_version}</version>
 			</dependency>
-			<!-- apache³£ÓÃ¹¤¾ßÀàend -->
+			<!-- apacheå¸¸ç”¨å·¥å…·ç±»end -->
 
-<!-- slf4jÈÕÖ¾´òÓ¡ -->
+<!-- slf4jæ—¥å¿—æ‰“å° -->
 		<log4j_version>2.5</log4j_version>
-<!-- slf4jÈÕÖ¾´òÓ¡begin -->
+<!-- slf4jæ—¥å¿—æ‰“å°begin -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
@@ -221,12 +221,12 @@
 			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>${log4j_version}</version>
 		</dependency>
-		<!-- slf4jÈÕÖ¾´òÓ¡end -->
+		<!-- slf4jæ—¥å¿—æ‰“å°end -->
 
-<!-- mysqlÊý¾Ý¿âÁ¬½Ó -->
+<!-- mysqlæ•°æ®åº“è¿žæŽ¥ -->
 		<mysql_connector_version>5.1.39</mysql_connector_version>
 		<druid_version>1.1.8</druid_version>
-<!-- mysqlÊý¾Ý¿âÁ¬½Óbegin -->
+<!-- mysqlæ•°æ®åº“è¿žæŽ¥begin -->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
@@ -237,18 +237,18 @@
 				<artifactId>druid</artifactId>
 				<version>${druid_version}</version>
 			</dependency>
-			<!-- mysqlÊý¾Ý¿âÁ¬½Óend -->
+			<!-- mysqlæ•°æ®åº“è¿žæŽ¥end -->
 
-<!-- json´¦Àí¹¤¾ßÒÀÀµ -->
+<!-- jsonå¤„ç†å·¥å…·ä¾èµ– -->
 		<fastjson_version>1.2.22</fastjson_version>
 		<fasterxml_version>2.9.6</fasterxml_version>
-<!-- json´¦Àí¹¤¾ßÒÀÀµbegin -->
+<!-- jsonå¤„ç†å·¥å…·ä¾èµ–begin -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>${fastjson_version}</version>
 			</dependency>
-			<!-- jackson±¨ÎÄ×ª»»begin -->
+			<!-- jacksonæŠ¥æ–‡è½¬æ¢begin -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-annotations</artifactId>
@@ -279,15 +279,15 @@
 				<artifactId>jackson-dataformat-csv</artifactId>
 				<version>${fasterxml_version}</version>
 			</dependency>
-			<!-- jackson±¨ÎÄ×ª»»end -->
-			<!-- json´¦Àí¹¤¾ßÒÀÀµend -->
+			<!-- jacksonæŠ¥æ–‡è½¬æ¢end -->
+			<!-- jsonå¤„ç†å·¥å…·ä¾èµ–end -->
 
-<!--dubboÏà¹Ø -->
+<!--dubboç›¸å…³ -->
 		<dubbo_version>2.6.2</dubbo_version>
 		<netty_version>4.1.26.Final</netty_version>
 		<zookeeper_version>3.4.12</zookeeper_version>
 		<curator_version>4.0.1</curator_version>
-<!--dubboÏà¹Øbegin -->
+<!--dubboç›¸å…³begin -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
@@ -346,20 +346,20 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<!--dubboÏà¹Øend -->
+			<!--dubboç›¸å…³end -->
 
-<!-- fastdfsÏà¹Ø -->
+<!-- fastdfsç›¸å…³ -->
 		<fastdfs_version>1.27.0.0</fastdfs_version>
-<!-- fastdfsÏà¹Ø -->
+<!-- fastdfsç›¸å…³ -->
 			<dependency>
 				<groupId>net.oschina.zcx7878</groupId>
 				<artifactId>fastdfs-client-java</artifactId>
 				<version>${fastdfs_version}</version>
 			</dependency>
 
-<!-- ÓÊ¼þÏà¹Ø -->
+<!-- é‚®ä»¶ç›¸å…³ -->
 		<mail_version>1.4</mail_version>
-<!-- ÓÊ¼þÏà¹Ø -->
+<!-- é‚®ä»¶ç›¸å…³ -->
 			<dependency>
 				<groupId>javax.mail</groupId>
 				<artifactId>mail</artifactId>

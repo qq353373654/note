@@ -1,13 +1,13 @@
-// ÉèÖÃ rabbitMQ ÕË»§ ½øÈësbinÄ¿Â¼Ö´ĞĞ rabbitmq-plugins enable rabbitmq_management ºó ´ò¿ª http://localhost:15672/
-// RabbitMQÓÃ»§ÔöÉ¾¼°È¨ÏŞ¿ØÖÆ rabbitmqctl delete_user Username Ä¬ÈÏÓÃ»§ÊÇ guest
+// è®¾ç½® rabbitMQ è´¦æˆ· è¿›å…¥sbinç›®å½•æ‰§è¡Œ rabbitmq-plugins enable rabbitmq_management å æ‰“å¼€ http://localhost:15672/
+// RabbitMQç”¨æˆ·å¢åˆ åŠæƒé™æ§åˆ¶ rabbitmqctl delete_user Username é»˜è®¤ç”¨æˆ·æ˜¯ guest
 https://www.cnblogs.com/xinxiucan/p/7940953.html
 
-// ÑÓÊ±¶ÓÁĞ²å¼şĞèÒªÔÚ·şÎñÆ÷ÉÏ°²×°Ò»ÏÂ²¢Ö´ĞĞÖ¸Áî,rabbitmq-plugins enable rabbitmq_delayed_message_exchange
-// mqÆô¶¯ https://www.cnblogs.com/nyist-xsk/p/11469494.html
-rabbitmq-server -detached ºóÌ¨Æô¶¯
-rabbitmqctl stop ¹Ø±Õmq
-²å¼ş°²×°Íê³Éºó¿ÉÒÔÍ¨¹ıÃüÁîsudo rabbitmq-plugins list²é¿´ÒÑÓĞ²å¼şÁĞ±í https://www.cnblogs.com/shihaiming/p/11017249.html
-ÎÄ¼ş¿½±´µ½²å¼şÄ¿Â¼ºó¿ÉÒÔÍ¨¹ıÃüÁîsudo rabbitmq-plugins enable plugin-nameÆôÓÃ²å¼ş¡£
+// å»¶æ—¶é˜Ÿåˆ—æ’ä»¶éœ€è¦åœ¨æœåŠ¡å™¨ä¸Šå®‰è£…ä¸€ä¸‹å¹¶æ‰§è¡ŒæŒ‡ä»¤,rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+// mqå¯åŠ¨ https://www.cnblogs.com/nyist-xsk/p/11469494.html
+rabbitmq-server -detached åå°å¯åŠ¨
+rabbitmqctl stop å…³é—­mq
+æ’ä»¶å®‰è£…å®Œæˆåå¯ä»¥é€šè¿‡å‘½ä»¤sudo rabbitmq-plugins listæŸ¥çœ‹å·²æœ‰æ’ä»¶åˆ—è¡¨ https://www.cnblogs.com/shihaiming/p/11017249.html
+æ–‡ä»¶æ‹·è´åˆ°æ’ä»¶ç›®å½•åå¯ä»¥é€šè¿‡å‘½ä»¤sudo rabbitmq-plugins enable plugin-nameå¯ç”¨æ’ä»¶ã€‚
 
 
 

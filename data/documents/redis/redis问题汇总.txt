@@ -1,7 +1,7 @@
-// redisÆô¶¯ÄÚ´æ²»×ã redis ²¿ÊğÎÊÌâ https://www.cnblogs.com/herry52/p/5938902.html
+// rediså¯åŠ¨å†…å­˜ä¸è¶³ redis éƒ¨ç½²é—®é¢˜ https://www.cnblogs.com/herry52/p/5938902.html
 redis-server.exe redis.windows.conf
 
-Ê¹ÓÃÉÏÃæÃüÁîÆô¶¯redis·şÎñµÄÊ±ºò±¨ÁËÒÔÏÂ´íÎóĞÅÏ¢£º
+ä½¿ç”¨ä¸Šé¢å‘½ä»¤å¯åŠ¨redisæœåŠ¡çš„æ—¶å€™æŠ¥äº†ä»¥ä¸‹é”™è¯¯ä¿¡æ¯ï¼š
 The Windows version of Redis allocates a memory mapped heap for sharing with
 the forked process used for persistence operations. In order to share this
 memory, Windows allocates from the system paging file a portion equal to the
@@ -14,10 +14,10 @@ this operation to complete successfully.
  
 Please see the documentation included with the binary distributions for more
 details on the --maxheap flag.
-    ´ó¸ÅÒâË¼ÊÇ£ºÃ»ÓĞ×ã¹»µÄ¿ÉÓÃ¿Õ¼ä£¬¿ÉÒÔÔö¼ÓÏµÍ³µÄ´óĞ¡·ÖÒ³ÎÄ¼ş£¬»ò¼õÉÙRedisµÄ¶ÑµÄ´óĞ¡
-Ê¹ÓÃ--maxheap±êÖ¾¡£
-ÓĞÊ±ÖØÆô½«³ä·ÖÕûÀíÏµÍ³·ÖÒ³ÎÄ¼ş£¨ÖØÆô¿ÉÒÔ½â¾ö£©
-¿ÉÒÔÔÙÆô¶¯ÃüÁîºóÃæ¼Ómaxheap²ÎÊıÖØĞÂ·ÖÅä¶Ñ´óĞ¡¡£ 
+    å¤§æ¦‚æ„æ€æ˜¯ï¼šæ²¡æœ‰è¶³å¤Ÿçš„å¯ç”¨ç©ºé—´ï¼Œå¯ä»¥å¢åŠ ç³»ç»Ÿçš„å¤§å°åˆ†é¡µæ–‡ä»¶ï¼Œæˆ–å‡å°‘Redisçš„å †çš„å¤§å°
+ä½¿ç”¨--maxheapæ ‡å¿—ã€‚
+æœ‰æ—¶é‡å¯å°†å……åˆ†æ•´ç†ç³»ç»Ÿåˆ†é¡µæ–‡ä»¶ï¼ˆé‡å¯å¯ä»¥è§£å†³ï¼‰
+å¯ä»¥å†å¯åŠ¨å‘½ä»¤åé¢åŠ maxheapå‚æ•°é‡æ–°åˆ†é…å †å¤§å°ã€‚ 
 redis-server.exe redis.windows.conf --maxheap 200m
 
 

@@ -1,14 +1,14 @@
-// windos²é¿´¶Ë¿ÚºÅ dos´°¿Ú(cmdÀïÃæ)
+// windosæŸ¥çœ‹ç«¯å£å· dosçª—å£(cmdé‡Œé¢)
 netstat -ano
 
-// javaÍ¨ĞÅRSA¹«Ë½Ô¿Éú³É·½Ê½:
-step1: sshÉú³Érsa¹«Ë½Ô¿
+// javaé€šä¿¡RSAå…¬ç§é’¥ç”Ÿæˆæ–¹å¼:
+step1: sshç”Ÿæˆrsaå…¬ç§é’¥
 	ssh-keygen -t rsa
-step2: È¥µ½ÃÜÔ¿Éú³ÉÄ¿Â¼
+step2: å»åˆ°å¯†é’¥ç”Ÿæˆç›®å½•
 	cd /root/.ssh
-step3: Ë½Ô¿pcks8±àÂë
+step3: ç§é’¥pcks8ç¼–ç 
 	openssl pkcs8 -topk8 -in id_rsa -out id_rsa_pcks8 -nocrypt
-step4: ÌáÈ¡¹«Ô¿
+step4: æå–å…¬é’¥
 	openssl rsa -in id_rsa -pubout -out id_rsa_pcks8.pem
 
 

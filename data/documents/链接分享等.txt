@@ -1,57 +1,57 @@
-// mavenÖĞÎÄ¿â,jar°üÏÂÔØ
+// mavenä¸­æ–‡åº“,jaråŒ…ä¸‹è½½
 https://mvnrepository.com/
 
-// Êı¾İ¿âSQLÓÅ»¯´ó×Ü½áÖ® °ÙÍò¼¶Êı¾İ¿âÓÅ»¯·½°¸
+// æ•°æ®åº“SQLä¼˜åŒ–å¤§æ€»ç»“ä¹‹ ç™¾ä¸‡çº§æ•°æ®åº“ä¼˜åŒ–æ–¹æ¡ˆ
 http://database.51cto.com/art/201407/445934.htm
 
-// EXISTSÓÃÓÚ¼ì²é×Ó²éÑ¯ÊÇ·ñÖÁÉÙ»á·µ»ØÒ»ĞĞÊı¾İ£¬¸Ã×Ó²éÑ¯Êµ¼ÊÉÏ²¢²»·µ»ØÈÎºÎÊı¾İ£¬¶øÊÇ·µ»ØÖµTrue»òFalse
-// EXISTS Ö¸¶¨Ò»¸ö×Ó²éÑ¯,¼ì²â ĞĞ µÄ´æÔÚ.ÊÇ·ñÎª¿ÕĞĞ select * from (select 1) a where exists(select * from (select 1) a where 1=2);
+// EXISTSç”¨äºæ£€æŸ¥å­æŸ¥è¯¢æ˜¯å¦è‡³å°‘ä¼šè¿”å›ä¸€è¡Œæ•°æ®ï¼Œè¯¥å­æŸ¥è¯¢å®é™…ä¸Šå¹¶ä¸è¿”å›ä»»ä½•æ•°æ®ï¼Œè€Œæ˜¯è¿”å›å€¼Trueæˆ–False
+// EXISTS æŒ‡å®šä¸€ä¸ªå­æŸ¥è¯¢,æ£€æµ‹ è¡Œ çš„å­˜åœ¨.æ˜¯å¦ä¸ºç©ºè¡Œ select * from (select 1) a where exists(select * from (select 1) a where 1=2);
 http://www.cnblogs.com/netserver/archive/2008/12/25/1362615.html
 
-// BigDecimalÓÃ·¨Ïê½â
+// BigDecimalç”¨æ³•è¯¦è§£
 http://blog.csdn.net/lisongjia123/article/details/51232657
-// BigDecimal.setScale ´¦ÀíjavaĞ¡Êıµã
+// BigDecimal.setScale å¤„ç†javaå°æ•°ç‚¹
 http://blog.csdn.net/lmb55/article/details/50253429
 
-// Hibernate validatorÑéÖ¤ ³£ÓÃ×¢½â
+// Hibernate validatoréªŒè¯ å¸¸ç”¨æ³¨è§£
 https://www.cnblogs.com/mr-wuxiansheng/p/7639000.html
 
-// windows10¼¤»î²½Öè
+// windows10æ¿€æ´»æ­¥éª¤
 https://jingyan.baidu.com/article/295430f1ce2e880c7e0050ff.html
 
-// ÖØÈëËø£ºReentrantLock Ïê½â
+// é‡å…¥é”ï¼šReentrantLock è¯¦è§£
 https://blog.csdn.net/Somhu/article/details/78874634
 
-// Web´ó¹æÄ£¸ß²¢·¢ÇëÇóºÍÇÀ¹ºµÄ½â¾ö·½°¸
+// Webå¤§è§„æ¨¡é«˜å¹¶å‘è¯·æ±‚å’ŒæŠ¢è´­çš„è§£å†³æ–¹æ¡ˆ
 http://blog.csdn.net/sun_wangdong/article/details/51137008
 
-// idea»ù´¡ÅäÖÃ
+// ideaåŸºç¡€é…ç½®
 https://blog.csdn.net/qq_27093465/article/details/52918873
 
-// ³£¼û HTTP/FTP/WebSocket ´íÎó´úÂë´óÈ«
+// å¸¸è§ HTTP/FTP/WebSocket é”™è¯¯ä»£ç å¤§å…¨
 https://segmentfault.com/a/1190000007587248
 
-// ÉèÖÃ rabbitMQ ÕË»§ ½øÈësbinÄ¿Â¼Ö´ĞĞ rabbitmq-plugins enable rabbitmq_management ºó ´ò¿ª http://localhost:15672/
-// RabbitMQÓÃ»§ÔöÉ¾¼°È¨ÏŞ¿ØÖÆ rabbitmqctl delete_user Username Ä¬ÈÏÓÃ»§ÊÇ guest
+// è®¾ç½® rabbitMQ è´¦æˆ· è¿›å…¥sbinç›®å½•æ‰§è¡Œ rabbitmq-plugins enable rabbitmq_management å æ‰“å¼€ http://localhost:15672/
+// RabbitMQç”¨æˆ·å¢åˆ åŠæƒé™æ§åˆ¶ rabbitmqctl delete_user Username é»˜è®¤ç”¨æˆ·æ˜¯ guest
 https://www.cnblogs.com/xinxiucan/p/7940953.html
 
-// javaÈÕÆÚ´¦Àí¶ş£¨Timestamp£©
+// javaæ—¥æœŸå¤„ç†äºŒï¼ˆTimestampï¼‰
 http://blog.csdn.net/sunchunmei555/article/details/7034143
 
-// DateUtilsÊ±¼äÀà
+// DateUtilsæ—¶é—´ç±»
 http://seeareyoume.blog.163.com/blog/static/2140541292012111792342113/
 
-// ×îĞÂÏØ¼°ÏØÒÔÉÏ1980ÄêÒÔÀ´ÀúÊ·ĞĞÕşÇø»®´úÂë´óÈ«£¨½ØÖ¹2018Äê12ÔÂ31ÈÕ£©
+// æœ€æ–°å¿åŠå¿ä»¥ä¸Š1980å¹´ä»¥æ¥å†å²è¡Œæ”¿åŒºåˆ’ä»£ç å¤§å…¨ï¼ˆæˆªæ­¢2018å¹´12æœˆ31æ—¥ï¼‰
 http://www.zxinc.org/gb2260.htm
 
-// gradle°²×°ÓëÈëÃÅ
+// gradleå®‰è£…ä¸å…¥é—¨
 https://blog.csdn.net/liuyongheng1991/article/details/80771813
 
-// Springboot @ValidatedºÍ@ValidµÄÇø±ğ ¼°Ê¹ÓÃ
+// Springboot @Validatedå’Œ@Validçš„åŒºåˆ« åŠä½¿ç”¨
 https://blog.csdn.net/herojuice/article/details/86020101
 
-// ÉîÈë½â¶ÁQuartzÈÎÎñµ÷¶ÈÆ÷
+// æ·±å…¥è§£è¯»Quartzä»»åŠ¡è°ƒåº¦å™¨
 https://juejin.cn/post/6844903511549804557
 
-// CentOS 6.9 ÉÏ°²×°RabbitMQ 3.7.7
+// CentOS 6.9 ä¸Šå®‰è£…RabbitMQ 3.7.7
 https://blog.csdn.net/yangliangliang2011/article/details/81043896
