@@ -1,8 +1,8 @@
-// vueJS2.0 ½â¾öie9¼°ÒÔÉÏ²»¼æÈİ http://m.jb51.net/article/118792.htm  
+// vueJS2.0 è§£å†³ie9åŠä»¥ä¸Šä¸å…¼å®¹ http://m.jb51.net/article/118792.htm  
 npm install --save-dev babel-polyfill
-// ÔÚÈë¿ÚÎÄ¼şµ¹Èë
+// åœ¨å…¥å£æ–‡ä»¶å€’å…¥
 import 'babel-polyfill'
-// ÔÚwebpack.config.jsÅäÖÃÎÄ¼şÖĞ
+// åœ¨webpack.config.jsé…ç½®æ–‡ä»¶ä¸­
 module.exports = {
  entry: {
  app: ["babel-polyfill", "./src/main.js"]

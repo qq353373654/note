@@ -1,9 +1,9 @@
-<!-- Êä³öµ½ api-server-stat.log -->
-<!-- [2021-03-23 11:03:08,161][<×â»§id>][method:riskplus.dubhe.credit.apply][code:OK][cost:105] -->
+<!-- è¾“å‡ºåˆ° api-server-stat.log -->
+<!-- [2021-03-23 11:03:08,161][<ç§Ÿæˆ·id>][method:riskplus.dubhe.credit.apply][code:OK][cost:105] -->
 <appender name="api-server-stat" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <encoder>
         <pattern>[%date][%X{MDC_TENANT_ID}][method:%X{MDC_REQUEST_METHOD}][code:%X{MDC_RESULT_CODE}][cost:%X{MDC_RESULT_COST}]%n</pattern>
-        <!-- ÉèÖÃ×Ö·û¼¯ -->
+        <!-- è®¾ç½®å­—ç¬¦é›† -->
         <charset>UTF-8</charset>
     </encoder>
     <file>${log.path}/api-server-stat.log</file>
@@ -12,13 +12,13 @@
         <maxFileSize>500MB</maxFileSize>
         <maxHistory>30</maxHistory>
     </rollingPolicy>
-    <!-- ´óÓÚµÈÓÚ -->
+    <!-- å¤§äºŽç­‰äºŽ -->
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
         <level>INFO</level>
     </filter>
 </appender>
 
 <logger name="api-server-stat-logger" additivity="false" level="INFO">
-    <!-- api-server-stat:½Ó¿ÚºÄÊ±ºÍÏìÓ¦codeÐÅÏ¢. -->
+    <!-- api-server-stat:æŽ¥å£è€—æ—¶å’Œå“åº”codeä¿¡æ¯. -->
     <appender-ref ref="api-server-stat" />
 </logger>

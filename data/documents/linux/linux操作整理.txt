@@ -1,151 +1,151 @@
 // post,curl
 curl -X POST http://36.0.234.157/extrisk/distr/t/callback -H 'content-type: application/x-www-form-urlencoded' -d "icode=0078&data=xxx&salt=yyy&key=zzz"
-// Ê¹ÓÃcurlÊ±£¬ÓĞÁ½¸ö³¬Ê±Ê±¼ä£ºÒ»¸öÊÇÁ¬½Ó³¬Ê±Ê±¼ä£¬ÁíÒ»¸öÊÇÊı¾İ´«ÊäµÄ×î´óÔÊĞíÊ±¼ä¡£
-// Á¬½Ó³¬Ê±Ê±¼äÓÃ --connect-timeout ²ÎÊıÀ´Ö¸¶¨£¬Êı¾İ´«ÊäµÄ×î´óÔÊĞíÊ±¼äÓÃ -m ²ÎÊıÀ´Ö¸¶¨¡£
+// ä½¿ç”¨curlæ—¶ï¼Œæœ‰ä¸¤ä¸ªè¶…æ—¶æ—¶é—´ï¼šä¸€ä¸ªæ˜¯è¿æ¥è¶…æ—¶æ—¶é—´ï¼Œå¦ä¸€ä¸ªæ˜¯æ•°æ®ä¼ è¾“çš„æœ€å¤§å…è®¸æ—¶é—´ã€‚
+// è¿æ¥è¶…æ—¶æ—¶é—´ç”¨ --connect-timeout å‚æ•°æ¥æŒ‡å®šï¼Œæ•°æ®ä¼ è¾“çš„æœ€å¤§å…è®¸æ—¶é—´ç”¨ -m å‚æ•°æ¥æŒ‡å®šã€‚
 curl --connect-timeout 10 -m 20 "http://XXXXXXX"
-// postÇëÇó,²é¿´ºÄÊ±
+// postè¯·æ±‚,æŸ¥çœ‹è€—æ—¶
 curl -w "time_namelookup: %{time_namelookup}\ntime_connect: %{time_connect}\ntime_appconnect: %{time_appconnect}\ntime_redirect: %{time_redirect}\ntime_pretransfer: %{time_pretransfer}\ntime_starttransfer: %{time_starttransfer}\ntime_total: %{time_total}\n" -X POST http://www.baidu.com -H 'content-type: application/x-www-form-urlencoded' -d "123"
-time_namelookup £ºDNS ÓòÃû½âÎöµÄÊ±ºò£¬¾ÍÊÇ°Ñ https://zhihu.com ×ª»»³É ip µØÖ·µÄ¹ı³Ì
-time_connect £ºTCP Á¬½Ó½¨Á¢µÄÊ±¼ä£¬¾ÍÊÇÈı´ÎÎÕÊÖµÄÊ±¼ä
-time_appconnect £ºSSL/SSH µÈÉÏ²ãĞ­Òé½¨Á¢Á¬½ÓµÄÊ±¼ä£¬±ÈÈç connect/handshake µÄÊ±¼ä
-time_redirect £º´Ó¿ªÊ¼µ½×îºóÒ»¸öÇëÇóÊÂÎñµÄÊ±¼ä
-time_pretransfer £º´ÓÇëÇó¿ªÊ¼µ½ÏìÓ¦¿ªÊ¼´«ÊäµÄÊ±¼ä
-time_starttransfer £º´ÓÇëÇó¿ªÊ¼µ½µÚÒ»¸ö×Ö½Ú½«Òª´«ÊäµÄÊ±¼ä
-time_total £ºÕâ´ÎÇëÇó»¨·ÑµÄÈ«²¿Ê±¼ä
+time_namelookup ï¼šDNS åŸŸåè§£æçš„æ—¶å€™ï¼Œå°±æ˜¯æŠŠ https://zhihu.com è½¬æ¢æˆ ip åœ°å€çš„è¿‡ç¨‹
+time_connect ï¼šTCP è¿æ¥å»ºç«‹çš„æ—¶é—´ï¼Œå°±æ˜¯ä¸‰æ¬¡æ¡æ‰‹çš„æ—¶é—´
+time_appconnect ï¼šSSL/SSH ç­‰ä¸Šå±‚åè®®å»ºç«‹è¿æ¥çš„æ—¶é—´ï¼Œæ¯”å¦‚ connect/handshake çš„æ—¶é—´
+time_redirect ï¼šä»å¼€å§‹åˆ°æœ€åä¸€ä¸ªè¯·æ±‚äº‹åŠ¡çš„æ—¶é—´
+time_pretransfer ï¼šä»è¯·æ±‚å¼€å§‹åˆ°å“åº”å¼€å§‹ä¼ è¾“çš„æ—¶é—´
+time_starttransfer ï¼šä»è¯·æ±‚å¼€å§‹åˆ°ç¬¬ä¸€ä¸ªå­—èŠ‚å°†è¦ä¼ è¾“çš„æ—¶é—´
+time_total ï¼šè¿™æ¬¡è¯·æ±‚èŠ±è´¹çš„å…¨éƒ¨æ—¶é—´
 
-// linuxÏÂÆô¶¯jar°ü
+// linuxä¸‹å¯åŠ¨jaråŒ…
 setsid java -jar /sunyard/service/sunpls-service-hycf.jar >> /sunyard/service/sunpls-hycf.log &
-setsid java -jar -Dfile.encoding=UTF-8 jar°üµØÖ· >> ÈÕÖ¾µØÖ· &
-// linuxÏÂ³ÖĞø²é¿´ÈÕÖ¾
+setsid java -jar -Dfile.encoding=UTF-8 jaråŒ…åœ°å€ >> æ—¥å¿—åœ°å€ &
+// linuxä¸‹æŒç»­æŸ¥çœ‹æ—¥å¿—
 tail -200f /sunyard/service/sunpls-hycf.log
-// Æô¶¯jar°üµÄÊ±ºò¿ªÆô¼àÌı5005¶Ë¿Ú(²âÊÔ»·¾³)
+// å¯åŠ¨jaråŒ…çš„æ—¶å€™å¼€å¯ç›‘å¬5005ç«¯å£(æµ‹è¯•ç¯å¢ƒ)
 setsid java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 sl-accounts.jar
-// ÒÔÖ¸¶¨±àÂë¸ñÊ½Æô¶¯jar°ü
-setsid java -jar -Dfile.encoding=UTF-8 jar°üµØÖ· >> ÈÕÖ¾µØÖ· &
-// ÏŞÖÆjarÆô¶¯Ê±ÄÚ´æ
+// ä»¥æŒ‡å®šç¼–ç æ ¼å¼å¯åŠ¨jaråŒ…
+setsid java -jar -Dfile.encoding=UTF-8 jaråŒ…åœ°å€ >> æ—¥å¿—åœ°å€ &
+// é™åˆ¶jarå¯åŠ¨æ—¶å†…å­˜
 java -jar -Xms512m -Xmx512m xxxxx.jar
 
-// ²é¿´½ø³ÌÊÇ·ñ´æÔÚ
-ps -a | grep '¹Ø¼ü×Ö'
-// ²é¿´Õ¼ÓÃ¶Ë¿ÚµÄ½ø³ÌºÅ
+// æŸ¥çœ‹è¿›ç¨‹æ˜¯å¦å­˜åœ¨
+ps -a | grep 'å…³é”®å­—'
+// æŸ¥çœ‹å ç”¨ç«¯å£çš„è¿›ç¨‹å·
 lsof -i:8080
-// Ö±½ÓÍ¨¹ı¶Ë¿ÚºÅÉ±½ø³Ì
+// ç›´æ¥é€šè¿‡ç«¯å£å·æ€è¿›ç¨‹
 kill -9 `lsof -ti:8080`
 
-// ²é¿´ÈÕÖ¾µÈ,
-	// catÊÇ´ÓÉÏÍùÏÂËÑ,tacÊÇ´ÓÏÂÍùÉÏËÑ,-mµÄÒâË¼ÊÇÏŞÖÆËÑË÷¼¸ĞĞĞÅÏ¢,--colorÊÇ¸ø¹Ø¼ü×Ö¼ÓÑÕÉ«
-	cat ÈÕÖ¾ÎÄ¼şÃû³Æ | grep '¹Ø¼ü×Ö' -m 10 --color
-	// ´Óµ×²¿Ö¸¶¨ĞĞÊı¿ªÊ¼²éÑ¯Ïà¹ØÈÕÖ¾ -fÊÇ³ÖĞø²é¿´×·¼ÓÄÚÈİ, -nÊÇ²»³ÖĞø²é¿´
-	tail -n 9999 ÈÕÖ¾ÎÄ¼şÃû³Æ | grep '¹Ø¼ü×Ö' --color
+// æŸ¥çœ‹æ—¥å¿—ç­‰,
+	// catæ˜¯ä»ä¸Šå¾€ä¸‹æœ,tacæ˜¯ä»ä¸‹å¾€ä¸Šæœ,-mçš„æ„æ€æ˜¯é™åˆ¶æœç´¢å‡ è¡Œä¿¡æ¯,--coloræ˜¯ç»™å…³é”®å­—åŠ é¢œè‰²
+	cat æ—¥å¿—æ–‡ä»¶åç§° | grep 'å…³é”®å­—' -m 10 --color
+	// ä»åº•éƒ¨æŒ‡å®šè¡Œæ•°å¼€å§‹æŸ¥è¯¢ç›¸å…³æ—¥å¿— -fæ˜¯æŒç»­æŸ¥çœ‹è¿½åŠ å†…å®¹, -næ˜¯ä¸æŒç»­æŸ¥çœ‹
+	tail -n 9999 æ—¥å¿—æ–‡ä»¶åç§° | grep 'å…³é”®å­—' --color
 
-//  linux×¥°üÖ¸Áî:(²»Í¬ÏµÍ³¿ÉÄÜÖ¸Áî²»Í¬) -w dump.pcap #Ö¸¶¨½á¹û±£´æµÄÎ»ÖÃ
-tcpdump -i any host {Òª½ØÈ¡Êı¾İµÄip} -w dump.pcap
+//  linuxæŠ“åŒ…æŒ‡ä»¤:(ä¸åŒç³»ç»Ÿå¯èƒ½æŒ‡ä»¤ä¸åŒ) -w dump.pcap #æŒ‡å®šç»“æœä¿å­˜çš„ä½ç½®
+tcpdump -i any host {è¦æˆªå–æ•°æ®çš„ip} -w dump.pcap
 https://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html
 
-// Èç¹ûÏëÒªÖªµÀ¿Í»§¶ËºÍ·şÎñ¶Ë¾¿¾¹Ğ­ÉÌ³ÉÁËÊ²Ã´ÑùµÄËã·¨£¬ÄÇÃ´¿ÉÒÔssh -vvv Ä¿±êIP£¬¼ÓÉÏ²ÎÊı-vvvÖ®ºó£¬sshÁ¬½Ó¹ı³ÌÖĞµÄËùÓĞdebugÈÕÖ¾¶¼»á±»´òÓ¡³öÀ´¡£
-// sftpµÇÂ¼,Ë½Ô¿ÎÄ¼şÈ¨ÏŞ²»¿É¹ı¸ß,chmod £Ûwho£İ £Û+ | ¨C | =£İ £Ûmode£İ ÎÄ¼şÃû,chomd 600 {fileName} ¼´¿É,
+// å¦‚æœæƒ³è¦çŸ¥é“å®¢æˆ·ç«¯å’ŒæœåŠ¡ç«¯ç©¶ç«Ÿåå•†æˆäº†ä»€ä¹ˆæ ·çš„ç®—æ³•ï¼Œé‚£ä¹ˆå¯ä»¥ssh -vvv ç›®æ ‡IPï¼ŒåŠ ä¸Šå‚æ•°-vvvä¹‹åï¼Œsshè¿æ¥è¿‡ç¨‹ä¸­çš„æ‰€æœ‰debugæ—¥å¿—éƒ½ä¼šè¢«æ‰“å°å‡ºæ¥ã€‚
+// sftpç™»å½•,ç§é’¥æ–‡ä»¶æƒé™ä¸å¯è¿‡é«˜,chmod ï¼»whoï¼½ ï¼»+ | â€“ | =ï¼½ ï¼»modeï¼½ æ–‡ä»¶å,chomd 600 {fileName} å³å¯,
 sftp -oIdentityFile=/home/xyd/.ssh/sftp_privateKey_test -oPort=2222 instloantest@inner.sftp.baidu.com
 
-// Linux×Ö·û±àÂëÄ¬ÈÏÎªUTF-8,Èç³öÏÖÂÒÂë¿ÉÉèÖÃÎªGBK, https://www.cnblogs.com/Kconnie/p/5418278.html
-Linux×Ö·û±àÂëÄ¬ÈÏÎªUTF-8£¬Èç³öÏÖÂÒÂë¿ÉÉèÖÃÎªGBK
-1.ÊÖ¶¯¸ü¸ÄprofileÎÄ¼şµÄÃüÁî£º
+// Linuxå­—ç¬¦ç¼–ç é»˜è®¤ä¸ºUTF-8,å¦‚å‡ºç°ä¹±ç å¯è®¾ç½®ä¸ºGBK, https://www.cnblogs.com/Kconnie/p/5418278.html
+Linuxå­—ç¬¦ç¼–ç é»˜è®¤ä¸ºUTF-8ï¼Œå¦‚å‡ºç°ä¹±ç å¯è®¾ç½®ä¸ºGBK
+1.æ‰‹åŠ¨æ›´æ”¹profileæ–‡ä»¶çš„å‘½ä»¤ï¼š
 vi /etc/profile
-Ò²¿ÉÒÔĞŞ¸Ä /etc/sysconfig/i18n ÎÄ¼ş£¬Èç
+ä¹Ÿå¯ä»¥ä¿®æ”¹ /etc/sysconfig/i18n æ–‡ä»¶ï¼Œå¦‚
 LANG="en_US.UTF-8"
 LANG="zh_CN.GB18030"
 LANG="zh_CN.GBK"
 SUPPORTED="zh_CN.UTF-8:zh_CN:zh"
-2.ÔÚÎÄ¼şµÄÄ©Î²Ìí¼ÓÒÔÏÂÁ½ĞĞÃüÁî£º
+2.åœ¨æ–‡ä»¶çš„æœ«å°¾æ·»åŠ ä»¥ä¸‹ä¸¤è¡Œå‘½ä»¤ï¼š
 export LC_ALL="zh_CN.GBK"
 export LANG="zh_CN.GBK"
-3.Ò²¿ÉÔÚ/root/.bash_profileÎÄ¼şµÄÄ©Î²Ìí¼ÓÒÔÏÂÁ½ĞĞÃüÁî£º
+3.ä¹Ÿå¯åœ¨/root/.bash_profileæ–‡ä»¶çš„æœ«å°¾æ·»åŠ ä»¥ä¸‹ä¸¤è¡Œå‘½ä»¤ï¼š
 export LC_ALL="zh_CN.GBK"
 export LANG="zh_CN.GBK"
-ÖØĞÂÆô¶¯·şÎñÆ÷Ê¹¸ü¸ÄÉúĞ§¡£
-4.ĞŞ¸Ä³É¹¦ÒÔºóÓÃlocaleÃüÁî²é¿´£¬ĞŞ¸ÄÇ°µÄÄ¬ÈÏÉèÖÃÎª£º
+é‡æ–°å¯åŠ¨æœåŠ¡å™¨ä½¿æ›´æ”¹ç”Ÿæ•ˆã€‚
+4.ä¿®æ”¹æˆåŠŸä»¥åç”¨localeå‘½ä»¤æŸ¥çœ‹ï¼Œä¿®æ”¹å‰çš„é»˜è®¤è®¾ç½®ä¸ºï¼š
 # locale
 
 
-// linuxĞÂ½¨ÓÃ»§²¢Ôö¼ÓsudoÈ¨ÏŞ
+// linuxæ–°å»ºç”¨æˆ·å¹¶å¢åŠ sudoæƒé™
 	https://blog.csdn.net/yimingsilence/article/details/80738008
 	sudo adduser {username}
 	sudo usermod -aG sudo {username}
-// É¾³ıÓÃ»§
+// åˆ é™¤ç”¨æˆ·
 	userdel {username} -r
-// ÎªÓÃ»§Ôö¼ÓÃÜÂë
+// ä¸ºç”¨æˆ·å¢åŠ å¯†ç 
 	passwd username
-// ĞÂ½¨¹¤×÷×é
+// æ–°å»ºå·¥ä½œç»„
 	groupadd {groupname}
-// ½«ÓÃ»§Ìí¼Ó½ø¹¤×÷×é
+// å°†ç”¨æˆ·æ·»åŠ è¿›å·¥ä½œç»„
 	usermod -G {groupname} {username}
-// ĞŞ¸ÄÓÃ»§ËùÔÚµÄ¹¤×÷×é(Ö±½Ó¸²¸ÇÒÑ´æÔÚµÄ¹¤×÷×é)
+// ä¿®æ”¹ç”¨æˆ·æ‰€åœ¨çš„å·¥ä½œç»„(ç›´æ¥è¦†ç›–å·²å­˜åœ¨çš„å·¥ä½œç»„)
 	usermod -g git wuhuan
-// ÓÃ»§µÄÖ÷Ä¿Â¼Ö¸ÏòÄ³ÎÄ¼ş¼Ğ
+// ç”¨æˆ·çš„ä¸»ç›®å½•æŒ‡å‘æŸæ–‡ä»¶å¤¹
 	usermod -d /gitRepository {username}
-// ±ÜÃâgitÓÃ»§µÇÂ¼²Ù×÷ÏµÍ³ /etc/passwd µÄ /bin/bash ¸ÄÎª /sunyard/git-2.9.5/git-shell
+// é¿å…gitç”¨æˆ·ç™»å½•æ“ä½œç³»ç»Ÿ /etc/passwd çš„ /bin/bash æ”¹ä¸º /sunyard/git-2.9.5/git-shell
 	usermod -s /sunyard/git-2.9.5/git-shell {username}
-// linuxÏÂ²é¿´ËùÓĞÓÃ»§¼°ËùÓĞÓÃ»§×é
-	// ²é¿´µ±Ç°µÇÂ¼ÓÃ»§µÄ×éÄÚ³ÉÔ±
+// linuxä¸‹æŸ¥çœ‹æ‰€æœ‰ç”¨æˆ·åŠæ‰€æœ‰ç”¨æˆ·ç»„
+	// æŸ¥çœ‹å½“å‰ç™»å½•ç”¨æˆ·çš„ç»„å†…æˆå‘˜
 	groups
-	// ²é¿´¸ÃÓÃ»§ËùÔÚµÄ×é,ÒÔ¼°×éÄÚ³ÉÔ±
+	// æŸ¥çœ‹è¯¥ç”¨æˆ·æ‰€åœ¨çš„ç»„,ä»¥åŠç»„å†…æˆå‘˜
 	groups {username}
-	// ²é¿´µ±Ç°µÇÂ¼ÓÃ»§Ãû
+	// æŸ¥çœ‹å½“å‰ç™»å½•ç”¨æˆ·å
 	whoami
-// ĞŞ¸Ägit²Ö¿âËùÔÚÄ¿Â¼/home/data/git/µÄÓÃ»§×éÎªgitgroup
+// ä¿®æ”¹gitä»“åº“æ‰€åœ¨ç›®å½•/home/data/git/çš„ç”¨æˆ·ç»„ä¸ºgitgroup
 	chgrp -R gitgroup /home/data/git/
-// ÉèÖÃÎÄ¼ş»òÎÄ¼ş¼ĞµÄÈ¨ÏŞ, -R ¸Ä±äÕâ¸öÄ¿Â¼¼°ÆäÏÂÃæËùÓĞµÄÎÄ¼şºÍÄ¿Â¼µÄËùÓĞÕß
+// è®¾ç½®æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹çš„æƒé™, -R æ”¹å˜è¿™ä¸ªç›®å½•åŠå…¶ä¸‹é¢æ‰€æœ‰çš„æ–‡ä»¶å’Œç›®å½•çš„æ‰€æœ‰è€…
 	chown wuhuan:git git
 
-¸ÃÎÄ¼şËùÊôµÄ×éÊÇ·ñ¶Ô¸ÃÓÃ»§¾ßÓĞĞ´È¨ÏŞ. Èç¹ûÃ»ÓĞĞ´È¨ÏŞ, ÔòÕâ¸öÄ¿Â¼ÏÂµÄËùÓĞÎÄ¼ş¶¼²»ÄÜ±»É¾³ı, Í¬Ê±Ò²²»ÄÜÌí¼ÓĞÂµÄÎÄ¼ş. Èç¹ûÏ£ÍûÓÃ»§ÄÜ¹»Ìí¼ÓÎÄ¼ş
-µ«Í¬Ê±²»ÄÜÉ¾³ıÎÄ¼ş, Ôò¿ÉÒÔ¶ÔÎÄ¼şÊ¹ÓÃsticky bitÎ». ÉèÖÃ¸ÃÎ»ºó, ¾ÍËãÓÃ»§¶ÔÄ¿Â¼
-¾ßÓĞĞ´È¨ÏŞ, Ò²²»ÄÜÉ¾³ı¸ÃÎÄ¼ş.
-ÏÂÃæËµÒ»ÏÂÈçºÎ²Ù×÷ÕâĞ©±êÖ¾:
-²Ù×÷ÕâĞ©±êÖ¾Óë²Ù×÷ÎÄ¼şÈ¨ÏŞµÄÃüÁîÊÇÒ»ÑùµÄ, ¶¼ÊÇ chmod. ÓĞÁ½ÖÖ·½·¨À´²Ù×÷,
-1) chmod u+s temp ¡ª ÎªtempÎÄ¼ş¼ÓÉÏsetuid±êÖ¾. (setuid Ö»¶ÔÎÄ¼şÓĞĞ§)
-chmod g+s tempdir ¡ª ÎªtempdirÄ¿Â¼¼ÓÉÏsetgid±êÖ¾ (setgid Ö»¶ÔÄ¿Â¼ÓĞĞ§)
-chmod o+t temp ¡ª ÎªtempÎÄ¼ş¼ÓÉÏsticky±êÖ¾ (stickyÖ»¶ÔÎÄ¼şÓĞĞ§)
+è¯¥æ–‡ä»¶æ‰€å±çš„ç»„æ˜¯å¦å¯¹è¯¥ç”¨æˆ·å…·æœ‰å†™æƒé™. å¦‚æœæ²¡æœ‰å†™æƒé™, åˆ™è¿™ä¸ªç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶éƒ½ä¸èƒ½è¢«åˆ é™¤, åŒæ—¶ä¹Ÿä¸èƒ½æ·»åŠ æ–°çš„æ–‡ä»¶. å¦‚æœå¸Œæœ›ç”¨æˆ·èƒ½å¤Ÿæ·»åŠ æ–‡ä»¶
+ä½†åŒæ—¶ä¸èƒ½åˆ é™¤æ–‡ä»¶, åˆ™å¯ä»¥å¯¹æ–‡ä»¶ä½¿ç”¨sticky bitä½. è®¾ç½®è¯¥ä½å, å°±ç®—ç”¨æˆ·å¯¹ç›®å½•
+å…·æœ‰å†™æƒé™, ä¹Ÿä¸èƒ½åˆ é™¤è¯¥æ–‡ä»¶.
+ä¸‹é¢è¯´ä¸€ä¸‹å¦‚ä½•æ“ä½œè¿™äº›æ ‡å¿—:
+æ“ä½œè¿™äº›æ ‡å¿—ä¸æ“ä½œæ–‡ä»¶æƒé™çš„å‘½ä»¤æ˜¯ä¸€æ ·çš„, éƒ½æ˜¯ chmod. æœ‰ä¸¤ç§æ–¹æ³•æ¥æ“ä½œ,
+1) chmod u+s temp â€” ä¸ºtempæ–‡ä»¶åŠ ä¸Šsetuidæ ‡å¿—. (setuid åªå¯¹æ–‡ä»¶æœ‰æ•ˆ)
+chmod g+s tempdir â€” ä¸ºtempdirç›®å½•åŠ ä¸Šsetgidæ ‡å¿— (setgid åªå¯¹ç›®å½•æœ‰æ•ˆ)
+chmod o+t temp â€” ä¸ºtempæ–‡ä»¶åŠ ä¸Šstickyæ ‡å¿— (stickyåªå¯¹æ–‡ä»¶æœ‰æ•ˆ)
 
-// ²é¿´µ±Ç°ÎÄ¼ş¼Ğ´óĞ¡
+// æŸ¥çœ‹å½“å‰æ–‡ä»¶å¤¹å¤§å°
 du -sh
-// ²é¿´ÎÄ¼ş»òÄ¿Â¼´óĞ¡
+// æŸ¥çœ‹æ–‡ä»¶æˆ–ç›®å½•å¤§å°
 du -h
-du {Ä¿Â¼Ãû/ÎÄ¼şÃû} -h
+du {ç›®å½•å/æ–‡ä»¶å} -h
 
-// ²é¿´ÓÃ»§µÄÒ»Ğ©ÅäÖÃĞÅÏ¢
+// æŸ¥çœ‹ç”¨æˆ·çš„ä¸€äº›é…ç½®ä¿¡æ¯
 	cat /etc/passwd
 
-// linuxÑ¹ËõÎÄ¼ş
-zip [Ñ¡Ïî] Ñ¹Ëõ°üÃû Ô´ÎÄ¼ş»òÔ´Ä¿Â¼ -r£ºÑ¹ËõÄ¿Â¼
+// linuxå‹ç¼©æ–‡ä»¶
+zip [é€‰é¡¹] å‹ç¼©åŒ…å æºæ–‡ä»¶æˆ–æºç›®å½• -rï¼šå‹ç¼©ç›®å½•
 zip test.zip abc abcd
-unzip [Ñ¡Ïî] Ñ¹Ëõ°üÃû -d£ºÖ¸¶¨½âÑ¹ËõÎ»ÖÃ
+unzip [é€‰é¡¹] å‹ç¼©åŒ…å -dï¼šæŒ‡å®šè§£å‹ç¼©ä½ç½®
 unzip -d /tmp/ test.zip
 gzip -r 123
-gunzip -c install.log.gz (-cÊÇ±£ÁôÔ­ÎÄ¼ş)
-gzip -dc anaconda-ks.cfg.gz (-dÊÇ½âÑ¹Ëõ,-cÊÇ±£ÁôÔ­ÎÄ¼ş)
+gunzip -c install.log.gz (-cæ˜¯ä¿ç•™åŸæ–‡ä»¶)
+gzip -dc anaconda-ks.cfg.gz (-dæ˜¯è§£å‹ç¼©,-cæ˜¯ä¿ç•™åŸæ–‡ä»¶)
 
-// linuxÊÚÈ¨Ä³¸öÓÃ»§¶ÔÄ³¸öÄ¿Â¼ÓĞ¶ÁĞ´µÄÈ¨ÏŞ
+// linuxæˆæƒæŸä¸ªç”¨æˆ·å¯¹æŸä¸ªç›®å½•æœ‰è¯»å†™çš„æƒé™
 https://www.cnblogs.com/zrp2013/p/4529820.html
-  // ¸øÖ¸¶¨ÓÃ»§Ôö¼ÓÈ¨ÏŞ -m
+  // ç»™æŒ‡å®šç”¨æˆ·å¢åŠ æƒé™ -m
   setfacl -R -m u:username:rwx your_file_or_fir
-  Èçsetfacl -R -m u:zrp:rwx /home/www
-  // ¸øÖ¸¶¨ÓÃ»§ÒÆ³ıÈ¨ÏŞÏŞÖÆ -x
+  å¦‚setfacl -R -m u:zrp:rwx /home/www
+  // ç»™æŒ‡å®šç”¨æˆ·ç§»é™¤æƒé™é™åˆ¶ -x
   setfacl -R -x u:username your_file_or_fir
-  // ²é¿´È¨ÏŞ
+  // æŸ¥çœ‹æƒé™
   getfacl your_file_or_fir
 
-// alias ±ğÃû, É¾³ı±ğÃûÔòÊÇ unalias {±ğÃû}
-  // Ğè±à¼­µ½ vim ~/.bashrc ²¢Ë¢ĞÂ source ~/.bashrc ÔÙ±à¼­ ~/.bash_profile ÔÚÀïÃæ¼ÓÈëÒ»ĞĞ£ºsource ~/.bashrc
-  alias[±ğÃû]=[Ö¸ÁîÃû³Æ]
-  // ¸øaliasµÄÃüÁî´«µİ×Ô¶¨Òå²ÎÊı https://www.kanzhun.com/jiaocheng/368054.html
-    /!:1    ±íÊ¾µÚ1¸ö²ÎÊı
-    /!:2*  ±íÊ¾µÚ2¸ö¼°ÓàÏÂµÄËùÓĞ²ÎÊı
-    /!*      ±íÊ¾ËùÓĞ²ÎÊı
-	// ÏÂÃæµÄalias½«ÊµÏÖ"²é³öÓÃ»§ÃûÎªxddaiµÄÃûÎªÓÃ»§´«µİ²ÎÊıµÄËùÓĞ½ø³ÌºÅ,²¢´«µİ¸økill,½«Æäkillµô"
+// alias åˆ«å, åˆ é™¤åˆ«ååˆ™æ˜¯ unalias {åˆ«å}
+  // éœ€ç¼–è¾‘åˆ° vim ~/.bashrc å¹¶åˆ·æ–° source ~/.bashrc å†ç¼–è¾‘ ~/.bash_profile åœ¨é‡Œé¢åŠ å…¥ä¸€è¡Œï¼šsource ~/.bashrc
+  alias[åˆ«å]=[æŒ‡ä»¤åç§°]
+  // ç»™aliasçš„å‘½ä»¤ä¼ é€’è‡ªå®šä¹‰å‚æ•° https://www.kanzhun.com/jiaocheng/368054.html
+    /!:1    è¡¨ç¤ºç¬¬1ä¸ªå‚æ•°
+    /!:2*  è¡¨ç¤ºç¬¬2ä¸ªåŠä½™ä¸‹çš„æ‰€æœ‰å‚æ•°
+    /!*      è¡¨ç¤ºæ‰€æœ‰å‚æ•°
+	// ä¸‹é¢çš„aliaså°†å®ç°"æŸ¥å‡ºç”¨æˆ·åä¸ºxddaiçš„åä¸ºç”¨æˆ·ä¼ é€’å‚æ•°çš„æ‰€æœ‰è¿›ç¨‹å·,å¹¶ä¼ é€’ç»™kill,å°†å…¶killæ‰"
       alias mykill    'ps -u xddai | grep /!:1 | awk' "'"'{print $1}'"'|xargs kill"
       ps -ef | grep java | awk '{print $11}' | xargs
-  // LinuxÏÂaliasÊ¹ÓÃÍâ²¿´«²Î https://blog.csdn.net/huangzx3/article/details/82689142
+  // Linuxä¸‹aliasä½¿ç”¨å¤–éƒ¨ä¼ å‚ https://blog.csdn.net/huangzx3/article/details/82689142
     alias s='UpMachine(){ ssh root@$1;};UpMachine'
-// alias Ê¾Àı
+// alias ç¤ºä¾‹
 alias test='test(){ printf "$1abc\n"$1def\\n;};test'
 alias grepjar='ps -ef|grep jar'
 alias sunlog='sunlog(){ 
@@ -154,7 +154,7 @@ if [ ${name} = "debug" -o ${name} = "info" -o ${name} = "warn" -o ${name} = "err
 then
   view /sunyard/java/logs/saas-accounts/saas_sunxd/${name}.log
 else
-  echo "sunlog ¸½´øµÄ²ÎÊıÖ»ÄÜÊÇ debug »ò info »ò warn »ò error£¬²»ÌîÔòÎªinfo"
+  echo "sunlog é™„å¸¦çš„å‚æ•°åªèƒ½æ˜¯ debug æˆ– info æˆ– warn æˆ– errorï¼Œä¸å¡«åˆ™ä¸ºinfo"
 fi;
 };sunlog'
 alias sunlogf='sunlogf(){ tailf /sunyard/java/logs/saas-accounts/saas_sunxd/${1:-info}.log -100;};sunlogf'
@@ -169,9 +169,9 @@ if echo "${orgNames[@]}" | grep -w "${orgName}" &>/dev/null && echo "${logNames[
 then
   view ${logPath}/saas_${orgName}/${logName}.log
 else
-  echo "log \${×â»§Ãû³Æ} \${ÈÕÖ¾¼¶±ğ}"
-  echo "µÚÒ»¸ö²ÎÊıÓ¦Îª ${orgNames// / »ò }"
-  echo "µÚ¶ş¸ö²ÎÊıÓ¦Îª debug »ò info »ò warn »ò error£¬²»ÌîÔòÎªinfo"
+  echo "log \${ç§Ÿæˆ·åç§°} \${æ—¥å¿—çº§åˆ«}"
+  echo "ç¬¬ä¸€ä¸ªå‚æ•°åº”ä¸º ${orgNames// / æˆ– }"
+  echo "ç¬¬äºŒä¸ªå‚æ•°åº”ä¸º debug æˆ– info æˆ– warn æˆ– errorï¼Œä¸å¡«åˆ™ä¸ºinfo"
 fi;
 };log'
 alias logf='logf(){
@@ -184,9 +184,9 @@ if echo "${orgNames[@]}" | grep -w "${orgName}" &>/dev/null && echo "${logNames[
 then
   tailf ${logPath}/saas_${orgName}/${logName}.log -100
 else
-  echo "logf \${×â»§Ãû³Æ} \${ÈÕÖ¾¼¶±ğ}"
-  echo "µÚÒ»¸ö²ÎÊıÓ¦Îª ${orgNames// / »ò }"
-  echo "µÚ¶ş¸ö²ÎÊıÓ¦Îª debug »ò info »ò warn »ò error£¬²»ÌîÔòÎªinfo"
+  echo "logf \${ç§Ÿæˆ·åç§°} \${æ—¥å¿—çº§åˆ«}"
+  echo "ç¬¬ä¸€ä¸ªå‚æ•°åº”ä¸º ${orgNames// / æˆ– }"
+  echo "ç¬¬äºŒä¸ªå‚æ•°åº”ä¸º debug æˆ– info æˆ– warn æˆ– errorï¼Œä¸å¡«åˆ™ä¸ºinfo"
 fi;
 };logf'
 alias glog='glog(){
@@ -200,36 +200,36 @@ if [ ! -z "${grepMsg}" ] && echo "${orgNames[@]}" | grep -w "${orgName}" &>/dev/
 then
   grep ${grepMsg} ${logPath}/saas_${orgName}/${logName}.log
 else
-  echo "glog \${ÄÚÈİ} \${×â»§Ãû³Æ} \${ÈÕÖ¾¼¶±ğ}"
-  echo "µÚÒ»¸ö²ÎÊıÎª´ıËÑË÷µÄÄÚÈİ"
-  echo "µÚ¶ş¸ö²ÎÊıÓ¦Îª ${orgNames// / »ò }"
-  echo "µÚÈı¸ö²ÎÊıÓ¦Îª debug »ò info »ò warn »ò error£¬²»ÌîÔòÎªinfo"
+  echo "glog \${å†…å®¹} \${ç§Ÿæˆ·åç§°} \${æ—¥å¿—çº§åˆ«}"
+  echo "ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºå¾…æœç´¢çš„å†…å®¹"
+  echo "ç¬¬äºŒä¸ªå‚æ•°åº”ä¸º ${orgNames// / æˆ– }"
+  echo "ç¬¬ä¸‰ä¸ªå‚æ•°åº”ä¸º debug æˆ– info æˆ– warn æˆ– errorï¼Œä¸å¡«åˆ™ä¸ºinfo"
 fi;
 };glog'
 complete -W "`find ~/java/logs/ -type d -iname "saas_*" | awk -F '_' '{print $2}'` debug info warn error" log
 
-// shell ²ÎÊıÌæ»» https://www.cnblogs.com/itxdm/p/something_of_shellscirpt.html
-  // ${parameter:-default} -- Èç¹û±äÁ¿parameterÃ»±»ÉèÖÃ, ÄÇÃ´¾ÍÊ¹ÓÃÄ¬ÈÏÖµ. 
-  ${1:-NULL}ÒâË¼ÊÇµ±$1Îª¿ÕÊ±£¬×Ô¶¯½«NULLÌæ»»³É$1ËùÒª´øÈëµÄ±äÁ¿Öµ¡£
+// shell å‚æ•°æ›¿æ¢ https://www.cnblogs.com/itxdm/p/something_of_shellscirpt.html
+  // ${parameter:-default} -- å¦‚æœå˜é‡parameteræ²¡è¢«è®¾ç½®, é‚£ä¹ˆå°±ä½¿ç”¨é»˜è®¤å€¼. 
+  ${1:-NULL}æ„æ€æ˜¯å½“$1ä¸ºç©ºæ—¶ï¼Œè‡ªåŠ¨å°†NULLæ›¿æ¢æˆ$1æ‰€è¦å¸¦å…¥çš„å˜é‡å€¼ã€‚
 
-// ²éÕÒÎÄ¼ş¼ĞËùÔÚÄ¿Â¼
+// æŸ¥æ‰¾æ–‡ä»¶å¤¹æ‰€åœ¨ç›®å½•
 find /* -type d -iname "rabbitmq"
 
-// docker ½øÈëÈİÆ÷ https://www.runoob.com/docker/docker-exec-command.html
+// docker è¿›å…¥å®¹å™¨ https://www.runoob.com/docker/docker-exec-command.html
 docker exec -it 9df70f9a0714 /bin/bash
 
-// ±¾µØÎÄ¼ş´«µ½·şÎñÆ÷(windows´«·şÎñÆ÷»ò·şÎñÆ÷´«·şÎñÆ÷)
-scp {±¾µØÄ¿Â¼} {Ô¶³Ì»úÕËºÅ@Ô¶³Ì»úµØÖ·:Ä¿±êÄ¿Â¼}
+// æœ¬åœ°æ–‡ä»¶ä¼ åˆ°æœåŠ¡å™¨(windowsä¼ æœåŠ¡å™¨æˆ–æœåŠ¡å™¨ä¼ æœåŠ¡å™¨)
+scp {æœ¬åœ°ç›®å½•} {è¿œç¨‹æœºè´¦å·@è¿œç¨‹æœºåœ°å€:ç›®æ ‡ç›®å½•}
 
-// linuxÏÂ²é¿´ÎÄ¼ş±àÂë¼°ĞŞ¸Ä±àÂë https://blog.csdn.net/zhangge3663/article/details/86607948
-ÔÚVimÖĞ¿ÉÒÔÖ±½Ó²é¿´ÎÄ¼ş±àÂë :set fileencoding
-Èç¹ûÄãÖ»ÊÇÏë²é¿´ÆäËü±àÂë¸ñÊ½µÄÎÄ¼ş»òÕßÏë½â¾öÓÃVim²é¿´ÎÄ¼şÂÒÂëµÄÎÊÌâ£¬
-ÄÇÃ´Äã¿ÉÒÔÔÚ~/.vimrcÎÄ¼şÖĞÌí¼ÓÒ»ÏÂÄÚÈİ: set encoding=utf-8 filenencodings=ucs-bom,utf-8,cp936
+// linuxä¸‹æŸ¥çœ‹æ–‡ä»¶ç¼–ç åŠä¿®æ”¹ç¼–ç  https://blog.csdn.net/zhangge3663/article/details/86607948
+åœ¨Vimä¸­å¯ä»¥ç›´æ¥æŸ¥çœ‹æ–‡ä»¶ç¼–ç  :set fileencoding
+å¦‚æœä½ åªæ˜¯æƒ³æŸ¥çœ‹å…¶å®ƒç¼–ç æ ¼å¼çš„æ–‡ä»¶æˆ–è€…æƒ³è§£å†³ç”¨VimæŸ¥çœ‹æ–‡ä»¶ä¹±ç çš„é—®é¢˜ï¼Œ
+é‚£ä¹ˆä½ å¯ä»¥åœ¨~/.vimrcæ–‡ä»¶ä¸­æ·»åŠ ä¸€ä¸‹å†…å®¹: set encoding=utf-8 filenencodings=ucs-bom,utf-8,cp936
 
-// ²é¿´zipÎÄ¼şÄÚÈİ
+// æŸ¥çœ‹zipæ–‡ä»¶å†…å®¹
 zcat {fileName}
 
-// Éú³Érsa¹«Ô¿ ¿É¼Ó×¢ÊÍ -CÊÇcommentµÄËõĞ´ -bÊÇbitµÄËõĞ´Ö¸ÃØÔ¿µÄ³¤¶È https://blog.csdn.net/weixin_42752574/article/details/106367959
+// ç”Ÿæˆrsaå…¬é’¥ å¯åŠ æ³¨é‡Š -Cæ˜¯commentçš„ç¼©å†™ -bæ˜¯bitçš„ç¼©å†™æŒ‡ç§˜é’¥çš„é•¿åº¦ https://blog.csdn.net/weixin_42752574/article/details/106367959
 ssh-keygen -t rsa
 
 

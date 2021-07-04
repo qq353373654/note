@@ -1,4 +1,4 @@
-// 1¡¢°²×°cnpm£¬ÊäÈëÒÔÏÂÃüÁî£º 2¡¢ÊäÈëcnpm -v £¬¼ì²âÊÇ·ñÕı³£
+// 1ã€å®‰è£…cnpmï¼Œè¾“å…¥ä»¥ä¸‹å‘½ä»¤ï¼š 2ã€è¾“å…¥cnpm -v ï¼Œæ£€æµ‹æ˜¯å¦æ­£å¸¸
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 

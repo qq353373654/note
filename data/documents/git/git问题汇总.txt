@@ -1,38 +1,38 @@
 // LFS: Put https://github-cloud.s3.amazonaws.com/
 https://blog.csdn.net/qq_20226441/article/details/82787448
-½â¾ö·½°¸
-·½°¸Ò»
-ÒÔ¹ÜÀíÔ±Éí·İÔËĞĞ¼ÇÊÂ±¾¡£
-ÎÄ¼ş->´ò¿ª£ºÉ¸Ñ¡Æ÷Ñ¡Ôñ¡¾ËùÓĞÎÄ¼ş¡¿£¬´ò¿ªC:\Windows\System32\drivers\etc\hosts
-ÔÚ×îºóĞÂÆğÒ»ĞĞ¼ÓÈë
+è§£å†³æ–¹æ¡ˆ
+æ–¹æ¡ˆä¸€
+ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œè®°äº‹æœ¬ã€‚
+æ–‡ä»¶->æ‰“å¼€ï¼šç­›é€‰å™¨é€‰æ‹©ã€æ‰€æœ‰æ–‡ä»¶ã€‘ï¼Œæ‰“å¼€C:\Windows\System32\drivers\etc\hosts
+åœ¨æœ€åæ–°èµ·ä¸€è¡ŒåŠ å…¥
 8.8.8.8 s3.amazonaws.com
 8.8.8.8 github-cloud.s3.amazonaws.com
 1
 2
-£¨ÆäÖĞ8.8.8.8ÎªGoogle DNS£©ÎÊÌâ¼´¿É½â¾ö¡£
-·½°¸¶ş
-Dns¼ì²â|Dns²éÑ¯ - Õ¾³¤¹¤¾ß£ºhttp://tool.chinaz.com/dns/
-ÊäÈëÓòÃû
+ï¼ˆå…¶ä¸­8.8.8.8ä¸ºGoogle DNSï¼‰é—®é¢˜å³å¯è§£å†³ã€‚
+æ–¹æ¡ˆäºŒ
+Dnsæ£€æµ‹|DnsæŸ¥è¯¢ - ç«™é•¿å·¥å…·ï¼šhttp://tool.chinaz.com/dns/
+è¾“å…¥åŸŸå
 amazonaws.com
 github-cloud.s3.amazonaws.com
-·Ö±ğ¼ì²â£¬Ñ¡È¡TTL½ÏĞ¡µÄIP°´·½°¸Ò»µÄ·½·¨Ğ´Èëhost£¬ÎÊÌâ¼´¿É½â¾ö¡£
+åˆ†åˆ«æ£€æµ‹ï¼Œé€‰å–TTLè¾ƒå°çš„IPæŒ‰æ–¹æ¡ˆä¸€çš„æ–¹æ³•å†™å…¥hostï¼Œé—®é¢˜å³å¯è§£å†³ã€‚
 
-// git ÍÆËÍ³öÏÖ "fatal: The remote end hung up unexpectedly" ½â¾ö·½°¸ https://blog.csdn.net/weixin_38450840/article/details/80701173
-  ·½·¨Ò»£ºĞŞ¸ÄÌá½»»º´æ´óĞ¡Îª500M£¬»òÕß¸ü´óµÄÊı×Ö
+// git æ¨é€å‡ºç° "fatal: The remote end hung up unexpectedly" è§£å†³æ–¹æ¡ˆ https://blog.csdn.net/weixin_38450840/article/details/80701173
+  æ–¹æ³•ä¸€ï¼šä¿®æ”¹æäº¤ç¼“å­˜å¤§å°ä¸º500Mï¼Œæˆ–è€…æ›´å¤§çš„æ•°å­—
 git config --global http.postBuffer 524288000
-»òÕßÔÚ¿ËÂ¡/´´½¨°æ±¾¿âÉú³ÉµÄ .gitÄ¿Â¼ÏÂÃæĞŞ¸ÄÉú³ÉµÄconfigÎÄ¼şÔö¼ÓÈçÏÂ£ºÈ»ºóÖØĞÂÍÆËÍ¡£
+æˆ–è€…åœ¨å…‹éš†/åˆ›å»ºç‰ˆæœ¬åº“ç”Ÿæˆçš„ .gitç›®å½•ä¸‹é¢ä¿®æ”¹ç”Ÿæˆçš„configæ–‡ä»¶å¢åŠ å¦‚ä¸‹ï¼šç„¶åé‡æ–°æ¨é€ã€‚
 [http]  
 postBuffer = 524288000
-  ·½·¨¶ş£ºÅäÖÃgitµÄ×îµÍËÙ¶ÈºÍ×îµÍËÙ¶ÈÊ±¼ä£º
+  æ–¹æ³•äºŒï¼šé…ç½®gitçš„æœ€ä½é€Ÿåº¦å’Œæœ€ä½é€Ÿåº¦æ—¶é—´ï¼š
 git config --global http.lowSpeedLimit 0
-git config --global http.lowSpeedTime 999999  µ¥Î» Ãë
---globalÅäÖÃ¶Ôµ±Ç°ÓÃ»§ÉúĞ§£¬Èç¹ûĞèÒª¶ÔËùÓĞÓÃ»§ÉúĞ§£¬ÔòÓÃ--system
-  ·½·¨Èı£ºfatal: The remote end hung up unexpectedlyB | 2.00 KiB/s
-ÎÒµÄÊÇÕâÑùµÄ£¬ºóÃæ´ø| 2.00KiB/s??Õâ¾äÏÔÊ¾ Ô¶³Ì½áÊø¹ÒÆğ |2KiB/s
-Ó¦¸ÃÊÇÇ½µÄÔ­Òòµ¼ÖÂÍøËÙÌ«Âı£¬ÇÒÏîÄ¿ÓĞµã´óÉÏ´«²»ÉÏ
-½â¾ö°ì·¨£º·­Ç½?»òÕß»»¸öÍøËÙºÃµÄÍøÂçÖØĞÂÔÙpushÒ»±é ¾ÍÃ»ÎÊÌâÁË.ÎÒÊÇµ½¹«Ë¾ÓÃ¹«Ë¾µÄÍøÂç½â¾öµÄ.
+git config --global http.lowSpeedTime 999999  å•ä½ ç§’
+--globalé…ç½®å¯¹å½“å‰ç”¨æˆ·ç”Ÿæ•ˆï¼Œå¦‚æœéœ€è¦å¯¹æ‰€æœ‰ç”¨æˆ·ç”Ÿæ•ˆï¼Œåˆ™ç”¨--system
+  æ–¹æ³•ä¸‰ï¼šfatal: The remote end hung up unexpectedlyB | 2.00 KiB/s
+æˆ‘çš„æ˜¯è¿™æ ·çš„ï¼Œåé¢å¸¦| 2.00KiB/s??è¿™å¥æ˜¾ç¤º è¿œç¨‹ç»“æŸæŒ‚èµ· |2KiB/s
+åº”è¯¥æ˜¯å¢™çš„åŸå› å¯¼è‡´ç½‘é€Ÿå¤ªæ…¢ï¼Œä¸”é¡¹ç›®æœ‰ç‚¹å¤§ä¸Šä¼ ä¸ä¸Š
+è§£å†³åŠæ³•ï¼šç¿»å¢™?æˆ–è€…æ¢ä¸ªç½‘é€Ÿå¥½çš„ç½‘ç»œé‡æ–°å†pushä¸€é å°±æ²¡é—®é¢˜äº†.æˆ‘æ˜¯åˆ°å…¬å¸ç”¨å…¬å¸çš„ç½‘ç»œè§£å†³çš„.
 
-// git pull±¨´í£ºerror: RPC failed; curl 56 OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
+// git pullæŠ¥é”™ï¼šerror: RPC failed; curl 56 OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054
 git config --global pack.windowMemory "100m"
 git config --global pack.SizeLimit "100m"?
 git config --global pack.threads "1"
@@ -41,37 +41,37 @@ git config --global http.postBuffer 524288000
 git config --global http.sslVerify "false"
 git config --add core.compression -1
 
-// linux½â¾öbash: git-upload-pack: command not found
+// linuxè§£å†³bash: git-upload-pack: command not found
 ln /sunyard/git-2.9.5/git-upload-pack /usr/bin/
-// linux½â¾öbash: git-receive-pack: command not found
+// linuxè§£å†³bash: git-receive-pack: command not found
 ln /sunyard/git-2.9.5/git-receive-pack /usr/bin/
 
-// Git½øĞĞ°æ±¾¿ØÖÆÌí¼ÓÎÄ¼şÊ±£¬ÖĞÎÄÎÄ¼şÃûÂÒÂëÏÔÊ¾Êı×ÖÎÊÌâ
+// Gitè¿›è¡Œç‰ˆæœ¬æ§åˆ¶æ·»åŠ æ–‡ä»¶æ—¶ï¼Œä¸­æ–‡æ–‡ä»¶åä¹±ç æ˜¾ç¤ºæ•°å­—é—®é¢˜
 	git config --global core.quotepath false
-// gitÍ¼ĞÎ»¯½çÃægitkÀïÖĞÎÄÂÒÂë½â¾ö
+// gitå›¾å½¢åŒ–ç•Œé¢gitké‡Œä¸­æ–‡ä¹±ç è§£å†³
 	git config --global gui.encoding utf-8
-// git log ÈÕÖ¾ÂÒÂë µ½Git BashÃüÁî´°¿ÚÊäÈëÈçÏÂÉèÖÃÃüÁîÓï¾ä https://www.cnblogs.com/yanzige/p/9810333.html
-git config --global i18n.commitencoding utf-8  --×¢ÊÍ£º¸ÃÃüÁî±íÊ¾Ìá½»ÃüÁîµÄÊ±ºòÊ¹ÓÃutf-8±àÂë¼¯Ìá½»
-git config --global i18n.logoutputencoding utf-8 --×¢ÊÍ£º¸ÃÃüÁî±íÊ¾ÈÕÖ¾Êä³öÊ±Ê¹ÓÃutf-8±àÂë¼¯ÏÔÊ¾
-export LESSCHARSET=utf-8  --×¢ÊÍ£ºÉèÖÃLESS×Ö·û¼¯Îªutf-8
+// git log æ—¥å¿—ä¹±ç  åˆ°Git Bashå‘½ä»¤çª—å£è¾“å…¥å¦‚ä¸‹è®¾ç½®å‘½ä»¤è¯­å¥ https://www.cnblogs.com/yanzige/p/9810333.html
+git config --global i18n.commitencoding utf-8  --æ³¨é‡Šï¼šè¯¥å‘½ä»¤è¡¨ç¤ºæäº¤å‘½ä»¤çš„æ—¶å€™ä½¿ç”¨utf-8ç¼–ç é›†æäº¤
+git config --global i18n.logoutputencoding utf-8 --æ³¨é‡Šï¼šè¯¥å‘½ä»¤è¡¨ç¤ºæ—¥å¿—è¾“å‡ºæ—¶ä½¿ç”¨utf-8ç¼–ç é›†æ˜¾ç¤º
+export LESSCHARSET=utf-8  --æ³¨é‡Šï¼šè®¾ç½®LESSå­—ç¬¦é›†ä¸ºutf-8
 
-// remote unpack failed:error Missing commitÎÊÌâ½â¾ö
+// remote unpack failed:error Missing commité—®é¢˜è§£å†³
 git gc
 git pull --rebase
 git push
-»òÕß git push --no-thin origin HEAD:refs/for/release
+æˆ–è€… git push --no-thin origin HEAD:refs/for/release
 
-// git push ±¨´í£ºmissing Change-Id in commit message footer https://www.cnblogs.com/zndxall/p/9603834.html
-´ÓÉÏ¶øÏÂ£¬ÎÒÃÇÓÃcommitid1,commitid2,commitid3±íÊ¾½ØÍ¼ÖĞµÄÈı¸öÌá½»,ºÜÃ÷ÏÔ£¬µÚ¶ş¸öÌá½»commitid2Ã»ÓĞchange_id,Õâ¸öÊ±ºòÎÒÃÇ¿ÉÒÔgit reset --soft commitid3À´Èí»ØÍËµ½Òì³£½ÚµãµÄÇ°Ò»¸öÕı³£µÄ½Úµã£¬Õâ¸ö²Ù×÷Ïàµ±ÓÚ³·ÏúÁË×îºóµÄgit commit -sµÄ²Ù×÷£¬add¹ıµÄ´úÂë»¹ÔÚË÷Òı¿â£¨¿ÉÒÔÈ¥ÁË½âÏÂgit reset --soft£©,¾ßÌå²Ù×÷ÈçÏÂ£º
+// git push æŠ¥é”™ï¼šmissing Change-Id in commit message footer https://www.cnblogs.com/zndxall/p/9603834.html
+ä»ä¸Šè€Œä¸‹ï¼Œæˆ‘ä»¬ç”¨commitid1,commitid2,commitid3è¡¨ç¤ºæˆªå›¾ä¸­çš„ä¸‰ä¸ªæäº¤,å¾ˆæ˜æ˜¾ï¼Œç¬¬äºŒä¸ªæäº¤commitid2æ²¡æœ‰change_id,è¿™ä¸ªæ—¶å€™æˆ‘ä»¬å¯ä»¥git reset --soft commitid3æ¥è½¯å›é€€åˆ°å¼‚å¸¸èŠ‚ç‚¹çš„å‰ä¸€ä¸ªæ­£å¸¸çš„èŠ‚ç‚¹ï¼Œè¿™ä¸ªæ“ä½œç›¸å½“äºæ’¤é”€äº†æœ€åçš„git commit -sçš„æ“ä½œï¼Œaddè¿‡çš„ä»£ç è¿˜åœ¨ç´¢å¼•åº“ï¼ˆå¯ä»¥å»äº†è§£ä¸‹git reset --softï¼‰,å…·ä½“æ“ä½œå¦‚ä¸‹ï¼š
 (1) git reset --soft commitid3
-(2) git status ¿ÉÒÔ¿´µ½ÂÌÉ«µÄÒÑ¾­add¹ıµÄÎÄ¼ş£¨¼´commitid1ºÍcommitid2µÄ¸Ä¶¯£©
-(3) git commit -s #Ìí¼ÓÆÀÂÛ£¬±£´æÍË³öºó»áÉú³Échange_id
-(4) git log ¿ÉÒÔ¿´µ½ÒÑ¾­ÓĞÁËchange_id
-(5) git push origin HEAD:refs/for/¹¤×÷·ÖÖ§ ÀıÈç git push origin refs/heads/test:refs/for/test
+(2) git status å¯ä»¥çœ‹åˆ°ç»¿è‰²çš„å·²ç»addè¿‡çš„æ–‡ä»¶ï¼ˆå³commitid1å’Œcommitid2çš„æ”¹åŠ¨ï¼‰
+(3) git commit -s #æ·»åŠ è¯„è®ºï¼Œä¿å­˜é€€å‡ºåä¼šç”Ÿæˆchange_id
+(4) git log å¯ä»¥çœ‹åˆ°å·²ç»æœ‰äº†change_id
+(5) git push origin HEAD:refs/for/å·¥ä½œåˆ†æ”¯ ä¾‹å¦‚ git push origin refs/heads/test:refs/for/test
 
-// git status»áÓĞrebase in progress; onto https://www.it1352.com/711032.html
-ÓÃ¹ı git rebase£¬µ«ÉÏÒ»´ÎµÄ½ø³Ì»¹Ã»ÓĞÍê³É¡£½â¾öºÃÖ®ºó£¬git add .£¬È»ºó git rebase --continue ¾Í¿ÉÒÔ½øÈëÏÂÒ»²½¡£Èç¹ûÄã»¹ÓĞ³åÍ»Òª´¦Àí£¬¼ÌĞøÕâÑù×ö¾ÍºÃ¡£
-µ±È»£¬ÄãÒ²¿ÉÒÔÖ±½Ó git rebase --abort À´È¡ÏûÄ¿Ç°µÄ½ø³Ì¡£
+// git statusä¼šæœ‰rebase in progress; onto https://www.it1352.com/711032.html
+ç”¨è¿‡ git rebaseï¼Œä½†ä¸Šä¸€æ¬¡çš„è¿›ç¨‹è¿˜æ²¡æœ‰å®Œæˆã€‚è§£å†³å¥½ä¹‹åï¼Œgit add .ï¼Œç„¶å git rebase --continue å°±å¯ä»¥è¿›å…¥ä¸‹ä¸€æ­¥ã€‚å¦‚æœä½ è¿˜æœ‰å†²çªè¦å¤„ç†ï¼Œç»§ç»­è¿™æ ·åšå°±å¥½ã€‚
+å½“ç„¶ï¼Œä½ ä¹Ÿå¯ä»¥ç›´æ¥ git rebase --abort æ¥å–æ¶ˆç›®å‰çš„è¿›ç¨‹ã€‚
 
 
 

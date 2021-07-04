@@ -1,13 +1,13 @@
-// linuxÉ¾³ıÒÀÀµ
+// linuxåˆ é™¤ä¾èµ–
 yum remove xxx
 
-// ²é¿´ÊÇ·ñÓÃyumÖ¸Áî°²×°Èí¼ş
-yum list installed |grep java  ÔËĞĞ²é¿´Ò»ÏÂÊÇ·ñ°²×°ÁËjava
+// æŸ¥çœ‹æ˜¯å¦ç”¨yumæŒ‡ä»¤å®‰è£…è½¯ä»¶
+yum list installed |grep java  è¿è¡ŒæŸ¥çœ‹ä¸€ä¸‹æ˜¯å¦å®‰è£…äº†java
 
-// ²é¿´yum¿âÖĞµÄ°²×°°ü£¬ÊäÈëÃüÁî
+// æŸ¥çœ‹yumåº“ä¸­çš„å®‰è£…åŒ…ï¼Œè¾“å…¥å‘½ä»¤
 yum -y list java*
 
-// °²×°yum¿âÖĞµÄ°²×°°ü
+// å®‰è£…yumåº“ä¸­çš„å®‰è£…åŒ…
 yum -y install java-1.8.0-openjdk*
 
 

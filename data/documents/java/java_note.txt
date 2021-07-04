@@ -1,20 +1,20 @@
-JavaÄÚ²»Í¬½øÖÆµÄÊı¾İ±íÏÖ£º
-¶ş½øÖÆ£ºÓÉ0£¬1×é³É¡£ÒÔ0b¿ªÍ·¡£
-°Ë½øÖÆ£ºÓÉ0,1,...7×é³É¡£ÒÔ0¿ªÍ·¡£
-Ê®½øÖÆ£ºÓÉ0,1,...9×é³É¡£Ä¬ÈÏÕûÊıÊÇÊ®½øÖÆ¡£
-Ê®Áù½øÖÆ£ºÓÉ0,1,...9,a,b,c,d,e,f(´óĞ¡Ğ´¾ù¿É)×é³É¡£ÒÔ0x¿ªÍ·¡£
+Javaå†…ä¸åŒè¿›åˆ¶çš„æ•°æ®è¡¨ç°ï¼š
+äºŒè¿›åˆ¶ï¼šç”±0ï¼Œ1ç»„æˆã€‚ä»¥0bå¼€å¤´ã€‚
+å…«è¿›åˆ¶ï¼šç”±0,1,...7ç»„æˆã€‚ä»¥0å¼€å¤´ã€‚
+åè¿›åˆ¶ï¼šç”±0,1,...9ç»„æˆã€‚é»˜è®¤æ•´æ•°æ˜¯åè¿›åˆ¶ã€‚
+åå…­è¿›åˆ¶ï¼šç”±0,1,...9,a,b,c,d,e,f(å¤§å°å†™å‡å¯)ç»„æˆã€‚ä»¥0xå¼€å¤´ã€‚
 
-// linuxÏÂÆô¶¯jar°ü
+// linuxä¸‹å¯åŠ¨jaråŒ…
 setsid java -jar /sunyard/service/sunpls-service-hycf.jar >> /sunyard/service/sunpls-hycf.log &
-setsid java -jar -Dfile.encoding=UTF-8 jar°üµØÖ· >> ÈÕÖ¾µØÖ· &
-// linuxÏÂ²é¿´ÈÕÖ¾
+setsid java -jar -Dfile.encoding=UTF-8 jaråŒ…åœ°å€ >> æ—¥å¿—åœ°å€ &
+// linuxä¸‹æŸ¥çœ‹æ—¥å¿—
 tail -200f /sunyard/service/sunpls-hycf.log
 
 #------String.join(File.separator, ${value}.split(","))------
 encrypt.dir.organ=bill,organ,encrypt
 Stirng dir = String.join(File.separator, ResourceUtils.getSftpProperty("encrypt.dir.organ").split(","));
 
-// µü´úÆ÷Ê¹ÓÃ
+// è¿­ä»£å™¨ä½¿ç”¨
 Iterator<Entry<String, String>> iterator = new HashMap<String, String>() {
 		    {
 		        put("name", "test");  
@@ -27,52 +27,52 @@ Iterator<Entry<String, String>> iterator = new HashMap<String, String>() {
 			System.out.println(key);
 		}
 
-// StringUtilsÓÃorg.apache.commons.lang3.StringUtils
-// null»ò¿Õ´®»ò¿Õ¸ñÊÇtrue
+// StringUtilsç”¨org.apache.commons.lang3.StringUtils
+// nullæˆ–ç©ºä¸²æˆ–ç©ºæ ¼æ˜¯true
 StringUtils.isBlank()
-// null»ò¿Õ´®ÊÇtrue
+// nullæˆ–ç©ºä¸²æ˜¯true
 StringUtils.isEmpty()
 
-// java.math.BigDecimal.setScale(int newScale, int roundingMode)Ã¶¾ÙÖµËµÃ÷
-// 0.01 => 0.1, -0.01 => 0.1 ÉáÈëÔ¶ÀëÁãµÄÉáÈëÄ£Ê½
+// java.math.BigDecimal.setScale(int newScale, int roundingMode)æšä¸¾å€¼è¯´æ˜
+// 0.01 => 0.1, -0.01 => 0.1 èˆå…¥è¿œç¦»é›¶çš„èˆå…¥æ¨¡å¼
 setScale(0, BigDecimal.ROUND_UP);
-// 0.01 => 0.1, -0.01 => 0.0 ½Ó½üÕıÎŞÇî´óµÄÉáÈëÄ£Ê½
+// 0.01 => 0.1, -0.01 => 0.0 æ¥è¿‘æ­£æ— ç©·å¤§çš„èˆå…¥æ¨¡å¼
 setScale(1, BigDecimal.ROUND_CEILING)
-// 0.01 => 0.0, -0.01 => 0.0 ½Ó½üÁãµÄÉáÈëÄ£Ê½
+// 0.01 => 0.0, -0.01 => 0.0 æ¥è¿‘é›¶çš„èˆå…¥æ¨¡å¼
 setScale(1, BigDecimal.ROUND_DOWN)
-// 0.01 => 0.0, -0.01 => -0.1 ½Ó½ü¸ºÎŞÇî´óµÄÉáÈëÄ£Ê½
+// 0.01 => 0.0, -0.01 => -0.1 æ¥è¿‘è´Ÿæ— ç©·å¤§çš„èˆå…¥æ¨¡å¼
 setScale(1, BigDecimal.ROUND_FLOOR)
 // 0.04 => 0.0, 0.05 => 0.1, -0.04 => 0.0, -0.05 => -0.1
-// ËÄÉáÎåÈë,Ïò¡°×î½Ó½üµÄ¡±Êı×ÖÉáÈë£¬Èç¹ûÓëÁ½¸öÏàÁÚÊı×ÖµÄ¾àÀëÏàµÈ£¬ÔòÎªÏòÉÏÉáÈëµÄÉáÈëÄ£Ê½¡£
+// å››èˆäº”å…¥,å‘â€œæœ€æ¥è¿‘çš„â€æ•°å­—èˆå…¥ï¼Œå¦‚æœä¸ä¸¤ä¸ªç›¸é‚»æ•°å­—çš„è·ç¦»ç›¸ç­‰ï¼Œåˆ™ä¸ºå‘ä¸Šèˆå…¥çš„èˆå…¥æ¨¡å¼ã€‚
 setScale(1, BigDecimal.ROUND_HALF_UP)
 // 0.04 => 0.0,  0.05 => 0.0, 0.06 => 0.1, -0.04 => 0.0, -0.05 => 0.0, -0.06 => -0.1
-// ËÄÉáÎåÈë²»°üÀ¨5,5ÊÇÉá,Ïò¡°×î½Ó½üµÄ¡±Êı×ÖÉáÈë£¬Èç¹ûÓëÁ½¸öÏàÁÚÊı×ÖµÄ¾àÀëÏàµÈ£¬ÔòÎªÉÏÉáÈëµÄÉáÈëÄ£Ê½¡£
+// å››èˆäº”å…¥ä¸åŒ…æ‹¬5,5æ˜¯èˆ,å‘â€œæœ€æ¥è¿‘çš„â€æ•°å­—èˆå…¥ï¼Œå¦‚æœä¸ä¸¤ä¸ªç›¸é‚»æ•°å­—çš„è·ç¦»ç›¸ç­‰ï¼Œåˆ™ä¸ºä¸Šèˆå…¥çš„èˆå…¥æ¨¡å¼ã€‚
 setScale(1, BigDecimal.ROUND_HALF_DOWN)
 // 0.15 => 0.2, 0.25 => 0.2
-// ÊÇ5Ôò¿´Ç°1Î»ÊÇÆæÊıÔò½ø1,ÊÇÅ¼ÊıÔòÉáÈ¥,Ïò¡°×î½Ó½üµÄ¡±Êı×ÖÉáÈë£¬Èç¹ûÓëÁ½¸öÏàÁÚÊı×ÖµÄ¾àÀëÏàµÈ£¬ÔòÏòÏàÁÚµÄÅ¼ÊıÉáÈë¡£Èç¹ûÉáÆú²¿·Ö×ó±ßµÄÊı×ÖÎªÆæÊı£¬ÔòÉáÈëĞĞÎªÓë ROUND_HALF_UP ÏàÍ¬;Èç¹ûÎªÅ¼Êı£¬ÔòÉáÈëĞĞÎªÓë ROUND_HALF_DOWN ÏàÍ¬¡£
+// æ˜¯5åˆ™çœ‹å‰1ä½æ˜¯å¥‡æ•°åˆ™è¿›1,æ˜¯å¶æ•°åˆ™èˆå»,å‘â€œæœ€æ¥è¿‘çš„â€æ•°å­—èˆå…¥ï¼Œå¦‚æœä¸ä¸¤ä¸ªç›¸é‚»æ•°å­—çš„è·ç¦»ç›¸ç­‰ï¼Œåˆ™å‘ç›¸é‚»çš„å¶æ•°èˆå…¥ã€‚å¦‚æœèˆå¼ƒéƒ¨åˆ†å·¦è¾¹çš„æ•°å­—ä¸ºå¥‡æ•°ï¼Œåˆ™èˆå…¥è¡Œä¸ºä¸ ROUND_HALF_UP ç›¸åŒ;å¦‚æœä¸ºå¶æ•°ï¼Œåˆ™èˆå…¥è¡Œä¸ºä¸ ROUND_HALF_DOWN ç›¸åŒã€‚
 setScale(1, BigDecimal.ROUND_HALF_EVEN)
-// BigDecimal.ROUND_UNNECESSARY ¶ÏÑÔÇëÇóµÄ²Ù×÷¾ßÓĞ¾«È·µÄ½á¹û£¬Òò´Ë²»ĞèÒªÉáÈë¡£Èç¹û¶Ô»ñµÃ¾«È·½á¹ûµÄ²Ù×÷Ö¸¶¨´ËÉáÈëÄ£Ê½£¬ÔòÅ×³öArithmeticException¡£
+// BigDecimal.ROUND_UNNECESSARY æ–­è¨€è¯·æ±‚çš„æ“ä½œå…·æœ‰ç²¾ç¡®çš„ç»“æœï¼Œå› æ­¤ä¸éœ€è¦èˆå…¥ã€‚å¦‚æœå¯¹è·å¾—ç²¾ç¡®ç»“æœçš„æ“ä½œæŒ‡å®šæ­¤èˆå…¥æ¨¡å¼ï¼Œåˆ™æŠ›å‡ºArithmeticExceptionã€‚
 // 1 => 1.0, 0.1 => 0.1, 0.01 => java.lang.ArithmeticException: Rounding necessary
 setScale(1, BigDecimal.ROUND_UNNECESSARY)
 
-// ÊÖ¶¯½«jar°ü°²×°µ½maven²Ö¿â
+// æ‰‹åŠ¨å°†jaråŒ…å®‰è£…åˆ°mavenä»“åº“
 http://blog.csdn.net/two_people/article/details/62237554
 mvn install:install-file -Dfile=org.json.jar -DgroupId=org.json -DartifactId=org.json -Dversion=2.0 -Dpackaging=jar 
-// °²×°½âÃÜdemoµÄjar°ü,pomÎÄ¼şĞèÒª°ÑÑ¹Ëõ°üÀïµÄpom½âÑ¹³öÀ´Ö¸¶¨Ò»ÏÂÂ·¾¶
+// å®‰è£…è§£å¯†demoçš„jaråŒ…,pomæ–‡ä»¶éœ€è¦æŠŠå‹ç¼©åŒ…é‡Œçš„pomè§£å‹å‡ºæ¥æŒ‡å®šä¸€ä¸‹è·¯å¾„
 mvn install:install-file -Dfile=unionloan-encipher-sdk-1.0.0-SNAPSHOT.jar -DgroupId=com.baidu.unionloan -DartifactId=unionloan-encipher-sdk -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -DpomFile=META-INF/maven/com.baidu.unionloan/unionloan-encipher-sdk/pom.xml
 
-// PageHelper ·ÖÒ³ÖúÊÖ
+// PageHelper åˆ†é¡µåŠ©æ‰‹
 https://github.com/pagehelper/Mybatis-PageHelper
-// »ñÈ¡µÚ1Ò³£¬10ÌõÄÚÈİ£¬Ä¬ÈÏ²éÑ¯×ÜÊıcount
+// è·å–ç¬¬1é¡µï¼Œ10æ¡å†…å®¹ï¼Œé»˜è®¤æŸ¥è¯¢æ€»æ•°count
 PageHelper.startPage(1, 10);
-// ½ô¸ú×ÅµÄµÚÒ»¸öselect·½·¨»á±»·ÖÒ³
+// ç´§è·Ÿç€çš„ç¬¬ä¸€ä¸ªselectæ–¹æ³•ä¼šè¢«åˆ†é¡µ
 List<Country> list = countryMapper.selectIf(1);
 assertEquals(2, list.get(0).getId());
 assertEquals(10, list.size());
-// ·ÖÒ³Ê±£¬Êµ¼Ê·µ»ØµÄ½á¹ûlistÀàĞÍÊÇPage<E>£¬Èç¹ûÏëÈ¡³ö·ÖÒ³ĞÅÏ¢£¬ĞèÒªÇ¿ÖÆ×ª»»ÎªPage<E>
+// åˆ†é¡µæ—¶ï¼Œå®é™…è¿”å›çš„ç»“æœlistç±»å‹æ˜¯Page<E>ï¼Œå¦‚æœæƒ³å–å‡ºåˆ†é¡µä¿¡æ¯ï¼Œéœ€è¦å¼ºåˆ¶è½¬æ¢ä¸ºPage<E>
 assertEquals(182, ((Page) list).getTotal());
 
-// javax.servlet.http.HttpServletRequestĞÅÏ¢:
+// javax.servlet.http.HttpServletRequestä¿¡æ¯:
 String path = request.getPathInfo();
 			String path2 = request.getPathTranslated();
 			String path3 = request.getContextPath();
@@ -99,42 +99,42 @@ null
 D:\software\apache-tomcat-8.0.42\webapps\sunpls-gateway
 ---------------
 
-// È¡µÃ¿Í»§¶ËµÄÏµÍ³°æ±¾:Apache-HttpClient/4.5.2 (Java/1.8.0_91)
+// å–å¾—å®¢æˆ·ç«¯çš„ç³»ç»Ÿç‰ˆæœ¬:Apache-HttpClient/4.5.2 (Java/1.8.0_91)
 			String header = request.getHeader("User-Agent");
-			// È¡µÃ¿Í»§¶ËµÄIP:127.0.0.1
+			// å–å¾—å®¢æˆ·ç«¯çš„IP:127.0.0.1
 			String remoteAddr = request.getRemoteAddr();
-			// È¡µÃ¿Í»§¶ËµÄÖ÷»úÃû:127.0.0.1
+			// å–å¾—å®¢æˆ·ç«¯çš„ä¸»æœºå:127.0.0.1
 			String remoteHost = request.getRemoteHost();
-			// È¡µÃ¿Í»§¶ËµÄ¶Ë¿Ú:64921
+			// å–å¾—å®¢æˆ·ç«¯çš„ç«¯å£:64921
 			int remotePort = request.getRemotePort();
-			// È¡µÃ¿Í»§¶ËµÄÓÃ»§:null
+			// å–å¾—å®¢æˆ·ç«¯çš„ç”¨æˆ·:null
 			String remoteUser = request.getRemoteUser();
-			// È¡µÃ·şÎñÆ÷IP:127.0.0.1
+			// å–å¾—æœåŠ¡å™¨IP:127.0.0.1
 			String localAddr = request.getLocalAddr();
-			// È¡µÃ·şÎñÆ÷¶Ë¿Ú:8080
+			// å–å¾—æœåŠ¡å™¨ç«¯å£:8080
 			int localPort = request.getLocalPort();
 
-// javaÖĞ»ñÈ¡Àà¼ÓÔØÂ·¾¶ºÍÏîÄ¿¸ùÂ·¾¶µÄ5ÖÖ·½·¨
-// µÚÒ»ÖÖ£º»ñÈ¡Àà¼ÓÔØµÄ¸ùÂ·¾¶   D:\git\daotie\daotie\target\classes
+// javaä¸­è·å–ç±»åŠ è½½è·¯å¾„å’Œé¡¹ç›®æ ¹è·¯å¾„çš„5ç§æ–¹æ³•
+// ç¬¬ä¸€ç§ï¼šè·å–ç±»åŠ è½½çš„æ ¹è·¯å¾„   D:\git\daotie\daotie\target\classes
         File f = new File(this.getClass().getResource("/").getPath());
         System.out.println(f);
-        // »ñÈ¡µ±Ç°ÀàµÄËùÔÚ¹¤³ÌÂ·¾¶; Èç¹û²»¼Ó¡°/¡±  »ñÈ¡µ±Ç°ÀàµÄ¼ÓÔØÄ¿Â¼  D:\git\daotie\daotie\target\classes\my
+        // è·å–å½“å‰ç±»çš„æ‰€åœ¨å·¥ç¨‹è·¯å¾„; å¦‚æœä¸åŠ â€œ/â€  è·å–å½“å‰ç±»çš„åŠ è½½ç›®å½•  D:\git\daotie\daotie\target\classes\my
         File f2 = new File(this.getClass().getResource("").getPath());
         System.out.println(f2);
-        // µÚ¶şÖÖ£º»ñÈ¡ÏîÄ¿Â·¾¶    D:\git\daotie\daotie
-        File directory = new File("");// ²ÎÊıÎª¿Õ
+        // ç¬¬äºŒç§ï¼šè·å–é¡¹ç›®è·¯å¾„    D:\git\daotie\daotie
+        File directory = new File("");// å‚æ•°ä¸ºç©º
         String courseFile = directory.getCanonicalPath();
         System.out.println(courseFile);
-        // µÚÈıÖÖ£º  file:/D:/git/daotie/daotie/target/classes/
+        // ç¬¬ä¸‰ç§ï¼š  file:/D:/git/daotie/daotie/target/classes/
         URL xmlpath = this.getClass().getClassLoader().getResource("");
         System.out.println(xmlpath);
-        // µÚËÄÖÖ£º D:\git\daotie\daotie
+        // ç¬¬å››ç§ï¼š D:\git\daotie\daotie
         System.out.println(System.getProperty("user.dir"));
         /*
-         * ½á¹û£º C:\Documents and Settings\Administrator\workspace\projectName
-         * »ñÈ¡µ±Ç°¹¤³ÌÂ·¾¶
+         * ç»“æœï¼š C:\Documents and Settings\Administrator\workspace\projectName
+         * è·å–å½“å‰å·¥ç¨‹è·¯å¾„
          */
-        // µÚÎåÖÖ£º  »ñÈ¡ËùÓĞµÄÀàÂ·¾¶ °üÀ¨jar°üµÄÂ·¾¶
+        // ç¬¬äº”ç§ï¼š  è·å–æ‰€æœ‰çš„ç±»è·¯å¾„ åŒ…æ‹¬jaråŒ…çš„è·¯å¾„
         System.out.println(System.getProperty("java.class.path"));
         System.out.println("---------------");
 D:\Program%20Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes
@@ -145,100 +145,100 @@ D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo
 D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes;D:\Program Files\maven\repository\com\baidu\unionloan\unionloan-encipher-sdk\1.0.0-SNAPSHOT\unionloan-encipher-sdk-1.0.0-SNAPSHOT.jar;D:\Program Files\maven\repository\org\apache\commons\commons-lang3\3.7\commons-lang3-3.7.jar;D:\Program Files\maven\repository\commons-io\commons-io\2.6\commons-io-2.6.jar;D:\Program Files\maven\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;D:\Program Files\maven\repository\org\apache\commons\commons-compress\1.9\commons-compress-1.9.jar;D:\Program Files\maven\repository\com\jcraft\jsch\0.1.46\jsch-0.1.46.jar;D:\Program Files\maven\repository\com\alibaba\fastjson\1.2.47\fastjson-1.2.47.jar;D:\Program Files\maven\repository\junit\junit\4.12\junit-4.12.jar;D:\Program Files\maven\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Program Files\maven\repository\org\apache\httpcomponents\httpcore\4.4.6\httpcore-4.4.6.jar;D:\Program Files\maven\repository\org\apache\httpcomponents\httpclient\4.5.5\httpclient-4.5.5.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter-web\1.5.13.RELEASE\spring-boot-starter-web-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter\1.5.13.RELEASE\spring-boot-starter-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot\1.5.13.RELEASE\spring-boot-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-autoconfigure\1.5.13.RELEASE\spring-boot-autoconfigure-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter-logging\1.5.13.RELEASE\spring-boot-starter-logging-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\ch\qos\logback\logback-classic\1.1.11\logback-classic-1.1.11.jar;D:\Program Files\maven\repository\ch\qos\logback\logback-core\1.1.11\logback-core-1.1.11.jar;D:\Program Files\maven\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;D:\Program Files\maven\repository\org\slf4j\jcl-over-slf4j\1.7.25\jcl-over-slf4j-1.7.25.jar;D:\Program Files\maven\repository\org\slf4j\jul-to-slf4j\1.7.25\jul-to-slf4j-1.7.25.jar;D:\Program Files\maven\repository\org\slf4j\log4j-over-slf4j\1.7.25\log4j-over-slf4j-1.7.25.jar;D:\Program Files\maven\repository\org\springframework\spring-core\4.3.17.RELEASE\spring-core-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\yaml\snakeyaml\1.17\snakeyaml-1.17.jar;D:\Program Files\maven\repository\org\springframework\boot\spring-boot-starter-tomcat\1.5.13.RELEASE\spring-boot-starter-tomcat-1.5.13.RELEASE.jar;D:\Program Files\maven\repository\org\apache\tomcat\embed\tomcat-embed-core\8.5.31\tomcat-embed-core-8.5.31.jar;D:\Program Files\maven\repository\org\apache\tomcat\tomcat-annotations-api\8.5.31\tomcat-annotations-api-8.5.31.jar;D:\Program Files\maven\repository\org\apache\tomcat\embed\tomcat-embed-el\8.5.31\tomcat-embed-el-8.5.31.jar;D:\Program Files\maven\repository\org\apache\tomcat\embed\tomcat-embed-websocket\8.5.31\tomcat-embed-websocket-8.5.31.jar;D:\Program Files\maven\repository\org\hibernate\hibernate-validator\5.3.6.Final\hibernate-validator-5.3.6.Final.jar;D:\Program Files\maven\repository\javax\validation\validation-api\1.1.0.Final\validation-api-1.1.0.Final.jar;D:\Program Files\maven\repository\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;D:\Program Files\maven\repository\com\fasterxml\classmate\1.3.4\classmate-1.3.4.jar;D:\Program Files\maven\repository\com\fasterxml\jackson\core\jackson-databind\2.8.11.1\jackson-databind-2.8.11.1.jar;D:\Program Files\maven\repository\com\fasterxml\jackson\core\jackson-annotations\2.8.0\jackson-annotations-2.8.0.jar;D:\Program Files\maven\repository\com\fasterxml\jackson\core\jackson-core\2.8.11\jackson-core-2.8.11.jar;D:\Program Files\maven\repository\org\springframework\spring-web\4.3.17.RELEASE\spring-web-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-aop\4.3.17.RELEASE\spring-aop-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-beans\4.3.17.RELEASE\spring-beans-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-context\4.3.17.RELEASE\spring-context-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-webmvc\4.3.17.RELEASE\spring-webmvc-4.3.17.RELEASE.jar;D:\Program Files\maven\repository\org\springframework\spring-expression\4.3.17.RELEASE\spring-expression-4.3.17.RELEASE.jar
 ---------------
 
-// java½«Â·¾¶ÀïµÄ URLEncodeºÍURLDecodeÓÃÓÚÍê³ÉÆÕÍ¨×Ö·û´®ºÍ application/x-www-from-urlencoded MIME×Ö·û´®Ö®¼äµÄÏà»¥×ª»¯
+// javaå°†è·¯å¾„é‡Œçš„ URLEncodeå’ŒURLDecodeç”¨äºå®Œæˆæ™®é€šå­—ç¬¦ä¸²å’Œ application/x-www-from-urlencoded MIMEå­—ç¬¦ä¸²ä¹‹é—´çš„ç›¸äº’è½¬åŒ–
 import java.net.URLDecoder;
 // D:\Program%20Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes
     String resourcePath = FileCipherServiceDemo.class.getResource("/").getPath();
-// ½«application/x-www-from-urlencoded×Ö·û´®×ª»»³ÉÆÕÍ¨×Ö·û´®,D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes
+// å°†application/x-www-from-urlencodedå­—ç¬¦ä¸²è½¬æ¢æˆæ™®é€šå­—ç¬¦ä¸²,D:\Program Files\workspace_dxm\SDK&DEMO\SDK&DEMO\sdk_demo\target\classes
     resourcePath = URLDecoder.decode(resourcePath, "utf-8");
-// ½«ÆÕÍ¨×Ö·û´´×ª»»³Éapplication/x-www-from-urlencoded×Ö·û´®£¬Êä³ö%C4%E3%BA%C3
-    String urlString = URLEncoder.encode("ÄãºÃ", "GBK");
+// å°†æ™®é€šå­—ç¬¦åˆ›è½¬æ¢æˆapplication/x-www-from-urlencodedå­—ç¬¦ä¸²ï¼Œè¾“å‡º%C4%E3%BA%C3
+    String urlString = URLEncoder.encode("ä½ å¥½", "GBK");
 ---------------
 
 
-// JAVA×Ö·û´®¸ñÊ½»¯-String.format()µÄÊ¹ÓÃ
+// JAVAå­—ç¬¦ä¸²æ ¼å¼åŒ–-String.format()çš„ä½¿ç”¨
 http://blog.csdn.net/lonely_fireworks/article/details/7962171/
 // 1msg1
 String s = String.format("1%s1", "msg")
-×ª»»·û	ËµÃ÷			Ê¾Àı
-%s	×Ö·û´®ÀàĞÍ		"mingrisoft"
-%c	×Ö·ûÀàĞÍ		'm'
-%b	²¼¶ûÀàĞÍ		true
-%d	ÕûÊıÀàĞÍ(Ê®½øÖÆ)	99
-%x	ÕûÊıÀàĞÍ(Ê®Áù½øÖÆ)	FF
-%o	ÕûÊıÀàĞÍ(°Ë½øÖÆ)	77
-%f	¸¡µãÀàĞÍ		99.99
-%a	Ê®Áù½øÖÆ¸¡µãÀàĞÍ	FF.35AE
-%e	Ö¸ÊıÀàĞÍ	9.38e+5
-%g	Í¨ÓÃ¸¡µãÀàĞÍ(fºÍeÀàĞÍÖĞ½Ï¶ÌµÄ)
-%h	É¢ÁĞÂë
-%%	°Ù·Ö±ÈÀàĞÍ		%
-%n	»»ĞĞ·û
-%tx	ÈÕÆÚÓëÊµ¼ùÀàĞÍ(x´ú±í²»Í¬µÄÈÕÆÚÓëÊµ¼ù×ª»»·û)
+è½¬æ¢ç¬¦	è¯´æ˜			ç¤ºä¾‹
+%s	å­—ç¬¦ä¸²ç±»å‹		"mingrisoft"
+%c	å­—ç¬¦ç±»å‹		'm'
+%b	å¸ƒå°”ç±»å‹		true
+%d	æ•´æ•°ç±»å‹(åè¿›åˆ¶)	99
+%x	æ•´æ•°ç±»å‹(åå…­è¿›åˆ¶)	FF
+%o	æ•´æ•°ç±»å‹(å…«è¿›åˆ¶)	77
+%f	æµ®ç‚¹ç±»å‹		99.99
+%a	åå…­è¿›åˆ¶æµ®ç‚¹ç±»å‹	FF.35AE
+%e	æŒ‡æ•°ç±»å‹	9.38e+5
+%g	é€šç”¨æµ®ç‚¹ç±»å‹(få’Œeç±»å‹ä¸­è¾ƒçŸ­çš„)
+%h	æ•£åˆ—ç 
+%%	ç™¾åˆ†æ¯”ç±»å‹		%
+%n	æ¢è¡Œç¬¦
+%tx	æ—¥æœŸä¸å®è·µç±»å‹(xä»£è¡¨ä¸åŒçš„æ—¥æœŸä¸å®è·µè½¬æ¢ç¬¦)
 
-// Java ioÑ§Ï°Ö®java.nio.fileµÄPathÀàºÍFilesÀà
-1.Path Àà
-// ¶¨ÒåÒ»¸öPath¶ÔÏó
+// Java ioå­¦ä¹ ä¹‹java.nio.fileçš„Pathç±»å’ŒFilesç±»
+1.Path ç±»
+// å®šä¹‰ä¸€ä¸ªPathå¯¹è±¡
 	Path path= Paths.get("E:\\javaStudy\\src\\File\\a.txt");
 	System.out.println(path.toString());
-	// »ñµÃpathµÄ¸¸¼¶Â·¾¶
+	// è·å¾—pathçš„çˆ¶çº§è·¯å¾„
 	Path pParent=path.getParent();
 	System.out.println(pParent);
-	// Ê¹ÓÃpath»ñµÃÒ»¸öFile¶ÔÏó
+	// ä½¿ç”¨pathè·å¾—ä¸€ä¸ªFileå¯¹è±¡
 	File f=path.toFile();
 	System.out.println(f.toString());
-2.FilesÀà
-¶ÁĞ´£ºÊ¹ÓÃFilesÀàµÄ¾²Ì¬·½·¨£¬¿ÉÒÔÊÇ¶ÁÈ¡ÎÄ¼ş±äµÃ¼òµ¥¿ì½İ¡£
-	// ½«ÎÄ¼şÒÔ×Ö·û´®µÄĞÎÊ½¶Á³ö
+2.Filesç±»
+è¯»å†™ï¼šä½¿ç”¨Filesç±»çš„é™æ€æ–¹æ³•ï¼Œå¯ä»¥æ˜¯è¯»å–æ–‡ä»¶å˜å¾—ç®€å•å¿«æ·ã€‚
+	// å°†æ–‡ä»¶ä»¥å­—ç¬¦ä¸²çš„å½¢å¼è¯»å‡º
 	byte[] bytes= Files.readAllBytes(path);
 	String content=new String(bytes);
 	System.out.println(content);
-	// ½«ÎÄ¼şµ±×÷ĞĞĞòÁĞ¶ÁÈë
+	// å°†æ–‡ä»¶å½“ä½œè¡Œåºåˆ—è¯»å…¥
 	List<String> lines=Files.readAllLines(path);
 	System.out.println(lines);
-	// Ğ´³öÒ»¸ö×Ö·û´®µ½ÎÄ¼şÖĞ
+	// å†™å‡ºä¸€ä¸ªå­—ç¬¦ä¸²åˆ°æ–‡ä»¶ä¸­
 	Files.write(path,"this is write by nio write".getBytes());
-	// ÏòÖ¸¶¨ÎÄ¼şÖĞ×·¼ÓÄÚÈİ,µÚÈı¸ö²ÎÊı¹æ¶¨ÁË²Ù×÷ÊÇappend
+	// å‘æŒ‡å®šæ–‡ä»¶ä¸­è¿½åŠ å†…å®¹,ç¬¬ä¸‰ä¸ªå‚æ•°è§„å®šäº†æ“ä½œæ˜¯append
 	Files.write(path, "\n append something by nio".getBytes(),StandardOpenOption.APPEND);
-	// ½«Ò»¸öĞĞµÄ¼¯ºÏĞ´³öµ½ÎÄ¼ş
+	// å°†ä¸€ä¸ªè¡Œçš„é›†åˆå†™å‡ºåˆ°æ–‡ä»¶
 	Path path2=Paths.get("E:\\javaStudy\\src\\File\\b.txt");
 	Files.write(path2,lines);
-¸´ÖÆ£¬É¾³ı£¬ÒÆ¶¯£¬´´½¨ÎÄ¼ş
-	// ÒÆ¶¯ÎÄ¼ş
+å¤åˆ¶ï¼Œåˆ é™¤ï¼Œç§»åŠ¨ï¼Œåˆ›å»ºæ–‡ä»¶
+	// ç§»åŠ¨æ–‡ä»¶
 	Files.move(fromPath,toPath);
-	// ¸´ÖÆÎÄ¼ş
+	// å¤åˆ¶æ–‡ä»¶
 	Files.copy(fromPath,toPath);
-	// É¾³ıÎÄ¼ş
+	// åˆ é™¤æ–‡ä»¶
 	Files.delete(path);
-	// ´´½¨ÎÄ¼ş
+	// åˆ›å»ºæ–‡ä»¶
 	Files.createFile(path);
-	// ´´½¨ÎÄ¼ş¼Ğ
+	// åˆ›å»ºæ–‡ä»¶å¤¹
 	Files.createDirectory(path);
-±éÀúÄ¿Â¼
-	// ±éÀúÂ·¾¶ÏÂµÄÎÄ¼ş
+éå†ç›®å½•
+	// éå†è·¯å¾„ä¸‹çš„æ–‡ä»¶
 	Path dir=Paths.get("E:\\javaStudy\\src\\File");
 	try (DirectoryStream<Path> files=Files.newDirectoryStream(dir)){
 		for (Path file:files){
 			System.out.println(file.getFileName());
 		}
 	}
-	// Ê¹ÓÃÕıÔò±í´ïÊ½¹ıÂËÎÄ¼ş
+	// ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼è¿‡æ»¤æ–‡ä»¶
 	try (DirectoryStream<Path> files=Files.newDirectoryStream(dir,"*.java")){
 		for (Path file:files){
 			System.out.println(file.getFileName());
 		}
 	}
 
-// ¶ş½øÖÆ×ª16½øÖÆ
+// äºŒè¿›åˆ¶è½¬16è¿›åˆ¶
 org.apache.commons.codec.binary.Hex.encodeHexString(byte[] data)
 
-// ²Ù×÷listÁ÷
+// æ“ä½œlistæµ
 List<EnumRespVO> dataList = Arrays.stream(loanAfterWarningTypeEnums).map(loanAfterWarningTypeEnum -> EnumRespVO.builder()
                     .value(loanAfterWarningTypeEnum.getCode())
                     .label(loanAfterWarningTypeEnum.getMsg())
                     .build()).collect(Collectors.toList());
 
-// LocalDateÓëDate×ª»¯
+// LocalDateä¸Dateè½¬åŒ–
 // 01. java.util.Date --> java.time.LocalDateTime
 public void UDateToLocalDateTime() {
 java.util.Date date = new java.util.Date();
@@ -286,27 +286,27 @@ Instant instant = localDateTime.atZone(zone).toInstant();
 java.util.Date date = Date.from(instant);
 }
 
-// LocalDateTime ÈÕÆÚ¸ñÊ½»¯
+// LocalDateTime æ—¥æœŸæ ¼å¼åŒ–
 LocalDateTime.parse((String) map.get("forceTime"), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
 forceTimeLocalDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
 
-// ÎÄ¼şÏÂÔØ
+// æ–‡ä»¶ä¸‹è½½
 private void downloadFile(File file, HttpServletResponse resp) throws IOException {
 	OutputStream out;
 	InputStream in;
 
-	// »ñÈ¡ÎÄ¼şÁ÷
+	// è·å–æ–‡ä»¶æµ
 	in = new FileInputStream(file);
 	int length = in.available();
-	// ÉèÖÃ·µ»ØÏûÏ¢Í·²¿ĞÅÏ¢
+	// è®¾ç½®è¿”å›æ¶ˆæ¯å¤´éƒ¨ä¿¡æ¯
 	resp.setContentType("application/force-download");
 	resp.setHeader("Content-Length",String.valueOf(length));
 	String fileName = file.getName();
-	System.out.println("ÏÂÔØµÄÎÄ¼şÃû³Æ£º" + fileName);
+	System.out.println("ä¸‹è½½çš„æ–‡ä»¶åç§°ï¼š" + fileName);
 //        fileName = URLEncoder.encode(fileName, "UTF-8");
 	fileName= new String(fileName.getBytes("UTF-8"), "iso8859-1");
 	resp.setHeader("Content-Disposition", "attachment;filename=\"" + fileName + "\"");
-	// Êä³öÎÄ¼şµ½¿Í»§¶Ë
+	// è¾“å‡ºæ–‡ä»¶åˆ°å®¢æˆ·ç«¯
 	out = resp.getOutputStream();
 	int bytesend = 0 ;
 	byte[] buff = new byte[512];
@@ -317,13 +317,13 @@ private void downloadFile(File file, HttpServletResponse resp) throws IOExceptio
 	out.close();
 }
 
-// pomÎÄ¼şÖĞµÄdependencyµÄscope×÷ÓÃÓòÏê½â
-1¡¢test·¶Î§Ö¸µÄÊÇ²âÊÔ·¶Î§ÓĞĞ§£¬ÔÚ±àÒëºÍ´ò°üÊ±¶¼²»»áÊ¹ÓÃÕâ¸öÒÀÀµ
-2¡¢compile·¶Î§Ö¸µÄÊÇ±àÒë·¶Î§ÓĞĞ§£¬ÔÚ±àÒëºÍ´ò°üÊ±¶¼»á½«ÒÀÀµ´æ´¢½øÈ¥
-3¡¢providedÒÀÀµ£ºÔÚ±àÒëºÍ²âÊÔµÄ¹ı³ÌÓĞĞ§£¬×îºóÉú³Éwar°üÊ±²»»á¼ÓÈë£¬ÖîÈç£ºservlet-api£¬ÒòÎªservlet-api£¬tomcatµÈweb·şÎñÆ÷ÒÑ¾­´æÔÚÁË£¬Èç¹ûÔÙ´ò°ü»á³åÍ»?
-4¡¢runtimeÔÚÔËĞĞµÄÊ±ºòÒÀÀµ£¬ÔÚ±àÒëµÄÊ±ºò²»ÒÀÀµ?
-Ä¬ÈÏµÄÒÀÀµ·¶Î§ÊÇcompile?
-Ê¾Àı:
+// pomæ–‡ä»¶ä¸­çš„dependencyçš„scopeä½œç”¨åŸŸè¯¦è§£
+1ã€testèŒƒå›´æŒ‡çš„æ˜¯æµ‹è¯•èŒƒå›´æœ‰æ•ˆï¼Œåœ¨ç¼–è¯‘å’Œæ‰“åŒ…æ—¶éƒ½ä¸ä¼šä½¿ç”¨è¿™ä¸ªä¾èµ–
+2ã€compileèŒƒå›´æŒ‡çš„æ˜¯ç¼–è¯‘èŒƒå›´æœ‰æ•ˆï¼Œåœ¨ç¼–è¯‘å’Œæ‰“åŒ…æ—¶éƒ½ä¼šå°†ä¾èµ–å­˜å‚¨è¿›å»
+3ã€providedä¾èµ–ï¼šåœ¨ç¼–è¯‘å’Œæµ‹è¯•çš„è¿‡ç¨‹æœ‰æ•ˆï¼Œæœ€åç”ŸæˆwaråŒ…æ—¶ä¸ä¼šåŠ å…¥ï¼Œè¯¸å¦‚ï¼šservlet-apiï¼Œå› ä¸ºservlet-apiï¼Œtomcatç­‰webæœåŠ¡å™¨å·²ç»å­˜åœ¨äº†ï¼Œå¦‚æœå†æ‰“åŒ…ä¼šå†²çª?
+4ã€runtimeåœ¨è¿è¡Œçš„æ—¶å€™ä¾èµ–ï¼Œåœ¨ç¼–è¯‘çš„æ—¶å€™ä¸ä¾èµ–?
+é»˜è®¤çš„ä¾èµ–èŒƒå›´æ˜¯compile?
+ç¤ºä¾‹:
 <dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -333,32 +333,32 @@ private void downloadFile(File file, HttpServletResponse resp) throws IOExceptio
 		</dependency>
 </dependencies>
 
-// ¶¨ÒåÒ»Ğ©¿ÉÒÔÓÃ${value}»ñÈ¡µÄÖµ
+// å®šä¹‰ä¸€äº›å¯ä»¥ç”¨${value}è·å–çš„å€¼
 <properties>
 		<junit_version>4.12</junit_version>
 </properties>
 
-// JAXBContext xml±¨ÎÄ¸ñÊ½×ª»» ¼¯ºÏÀàĞÍĞèÒª¼ÓÒÔÏÂ±êÇ©
+// JAXBContext xmlæŠ¥æ–‡æ ¼å¼è½¬æ¢ é›†åˆç±»å‹éœ€è¦åŠ ä»¥ä¸‹æ ‡ç­¾
 @XmlElementWrapper(name = "itemList")
 @XmlElement(name = "item")
 
-// Ò»¸öµ¥´ÊÆ¥Åä0-10´Î
+// ä¸€ä¸ªå•è¯åŒ¹é…0-10æ¬¡
 (\d,){0,10}
 
 
 
-(page-1) * pagesize ·ÖÒ³¹«Ê½mysql (4-1)*10=30, limit (page-1) * pagesize, pagesize ´ÓµÚ31¸ö¿ªÊ¼µ½40.
+(page-1) * pagesize åˆ†é¡µå…¬å¼mysql (4-1)*10=30, limit (page-1) * pagesize, pagesize ä»ç¬¬31ä¸ªå¼€å§‹åˆ°40.
 
-// »ñÈ¡ÓÃ»§IP²¢²éÑ¯ËùÔÚµØÀíÎ»ÖÃ£¨¸½¼¸¸öµÚÈı·½Ãâ·Ñ¿ª·ÅAPI£©
+// è·å–ç”¨æˆ·IPå¹¶æŸ¥è¯¢æ‰€åœ¨åœ°ç†ä½ç½®ï¼ˆé™„å‡ ä¸ªç¬¬ä¸‰æ–¹å…è´¹å¼€æ”¾APIï¼‰
 https://blog.csdn.net/weixin_42686556/article/details/81948418
 API:http://ip.taobao.com/service/getIpInfo.php?ip=202.85.208.14
 
-rdÊÇÑĞ·¢£¨ÑĞ¾¿Óë¿ª·¢£©£¬feÇ°¶ËÑĞ·¢£¬qaÊÇ²âÊÔ£¬ueÓÃ»§ÌåÑé£¬opÊÇÔËÎ¬¡£
-ÁíÍâ£¬ui ¾ÍÊÇÓÃ»§Éè¼Æ£¬dbÊı¾İ¿â£¬pm²úÆ·¾­Àí
-1.PM: Product Manager£¬²úÆ·¾­Àí£¬ÓÖ³ÆÆ·ÅÆ¾­Àí£¨Brand Manager£©¡£
-2.RD: Research and Development engineer£¬ÑĞ·¢¹¤³ÌÊ¦£¬
-3.FE: FEÓĞ¶àÖÖ½âÊÍ£¬ÔÚÊµÌå¾­¼ÃÖĞ£¬FE¿ÉÒÔÖ¸Facility Engineer£¬³§Îñ¹¤³ÌÊ¦£¬Ö÷Òª¸ºÔğ¹¤³§µÄÍâÎ§µÄÒ»Ğ©Ö§³ÖÏµÍ³¡£ÔÚÍøÂç¾­¼ÃÖĞ£¬FE¿ÉÒÔÖ¸Front-End Development£¬Ç°¶Ë¿ª·¢£¬ĞÂĞÂÖ°Òµ¡£
-4.QA: Qualtiy Assurance£¬Æ·ÖÊ±£Ö¤¡£QAµÄÖ÷ÒªÖ°Ôğ¾ÍÊÇÖÊÁ¿±£Ö¤¹¤×÷¡£
-5.OP: Operator£¬²Ù×÷Ô±£¬¹ÜÀíÔ±¡£
+rdæ˜¯ç ”å‘ï¼ˆç ”ç©¶ä¸å¼€å‘ï¼‰ï¼Œfeå‰ç«¯ç ”å‘ï¼Œqaæ˜¯æµ‹è¯•ï¼Œueç”¨æˆ·ä½“éªŒï¼Œopæ˜¯è¿ç»´ã€‚
+å¦å¤–ï¼Œui å°±æ˜¯ç”¨æˆ·è®¾è®¡ï¼Œdbæ•°æ®åº“ï¼Œpmäº§å“ç»ç†
+1.PM: Product Managerï¼Œäº§å“ç»ç†ï¼Œåˆç§°å“ç‰Œç»ç†ï¼ˆBrand Managerï¼‰ã€‚
+2.RD: Research and Development engineerï¼Œç ”å‘å·¥ç¨‹å¸ˆï¼Œ
+3.FE: FEæœ‰å¤šç§è§£é‡Šï¼Œåœ¨å®ä½“ç»æµä¸­ï¼ŒFEå¯ä»¥æŒ‡Facility Engineerï¼Œå‚åŠ¡å·¥ç¨‹å¸ˆï¼Œä¸»è¦è´Ÿè´£å·¥å‚çš„å¤–å›´çš„ä¸€äº›æ”¯æŒç³»ç»Ÿã€‚åœ¨ç½‘ç»œç»æµä¸­ï¼ŒFEå¯ä»¥æŒ‡Front-End Developmentï¼Œå‰ç«¯å¼€å‘ï¼Œæ–°æ–°èŒä¸šã€‚
+4.QA: Qualtiy Assuranceï¼Œå“è´¨ä¿è¯ã€‚QAçš„ä¸»è¦èŒè´£å°±æ˜¯è´¨é‡ä¿è¯å·¥ä½œã€‚
+5.OP: Operatorï¼Œæ“ä½œå‘˜ï¼Œç®¡ç†å‘˜ã€‚
 
 

@@ -1,4 +1,4 @@
-web.xmlÖĞclasspath:ºÍclasspath*:  ÓĞÊ²Ã´Çø±ğ? 
-  classpath£ºÖ»»áµ½ÄãµÄclassÂ·¾¶ÖĞ²éÕÒÕÒÎÄ¼ş; 
-  classpath*£º²»½ö°üº¬classÂ·¾¶£¬»¹°üÀ¨jarÎÄ¼şÖĞ(classÂ·¾¶)½øĞĞ²éÕÒ.
+web.xmlä¸­classpath:å’Œclasspath*:  æœ‰ä»€ä¹ˆåŒºåˆ«? 
+  classpathï¼šåªä¼šåˆ°ä½ çš„classè·¯å¾„ä¸­æŸ¥æ‰¾æ‰¾æ–‡ä»¶; 
+  classpath*ï¼šä¸ä»…åŒ…å«classè·¯å¾„ï¼Œè¿˜åŒ…æ‹¬jaræ–‡ä»¶ä¸­(classè·¯å¾„)è¿›è¡ŒæŸ¥æ‰¾.
 

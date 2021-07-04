@@ -1,32 +1,32 @@
-// linuxÏÂ°²×°chromeºÍchromedriverÒÔÊ¹ÓÃselenium
-1¡¢°²×°chrome, ²é¿´°æ±¾ºÅ:google-chrome --version
-ÓÃÏÂÃæµÄÃüÁî°²×°Google Chrome
+// linuxä¸‹å®‰è£…chromeå’Œchromedriverä»¥ä½¿ç”¨selenium
+1ã€å®‰è£…chrome, æŸ¥çœ‹ç‰ˆæœ¬å·:google-chrome --version
+ç”¨ä¸‹é¢çš„å‘½ä»¤å®‰è£…Google Chrome
 yum install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-Ò²¿ÉÒÔÏÈÏÂÔØÖÁ±¾µØ£¬È»ºó°²×°
+ä¹Ÿå¯ä»¥å…ˆä¸‹è½½è‡³æœ¬åœ°ï¼Œç„¶åå®‰è£…
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 yum install ./google-chrome-stable_current_x86_64.rpm
-°²×°±ØÒªµÄ¿â
+å®‰è£…å¿…è¦çš„åº“
 yum install mesa-libOSMesa-devel gnu-free-sans-fonts wqy-zenhei-fonts
-2¡¢°²×° chromedriver£¨Ä©Î²¸½chromeºÍchromedriverµÄ¶ÔÓ¦°æ±¾£©
-chrome¹ÙÍø:wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
-ÌÔ±¦Ô´£¨ÍÆ¼ö£©:wget http://npm.taobao.org/mirrors/chromedriver/2.41/chromedriver_linux64.zip
-½«ÏÂÔØµÄÎÄ¼ş½âÑ¹£¬·ÅÔÚÈçÏÂÎ»ÖÃ
+2ã€å®‰è£… chromedriverï¼ˆæœ«å°¾é™„chromeå’Œchromedriverçš„å¯¹åº”ç‰ˆæœ¬ï¼‰
+chromeå®˜ç½‘:wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+æ·˜å®æºï¼ˆæ¨èï¼‰:wget http://npm.taobao.org/mirrors/chromedriver/2.41/chromedriver_linux64.zip
+å°†ä¸‹è½½çš„æ–‡ä»¶è§£å‹ï¼Œæ”¾åœ¨å¦‚ä¸‹ä½ç½®
 unzip chromedriver_linux64.zip
 mv chromedriver /usr/bin/
-¸øÓèÖ´ĞĞÈ¨ÏŞ
+ç»™äºˆæ‰§è¡Œæƒé™
 chmod +x /usr/bin/chromedriver
-3¡¢ÔËĞĞ´úÂë£¬²é¿´ÊÇ·ñ³É¹¦
+3ã€è¿è¡Œä»£ç ï¼ŒæŸ¥çœ‹æ˜¯å¦æˆåŠŸ
 
-// linux°²×°java»·¾³ https://jingyan.baidu.com/article/5d6edee2e63aca99eadeec36.html
-²é¿´CentOS×Ô´øJDKÊÇ·ñÒÑ°²×°£¬ÊäÈë£º
-yum list installed |grep java  ÔËĞĞ²é¿´Ò»ÏÂÊÇ·ñ°²×°ÁËjava
-²é¿´yum¿âÖĞµÄJava°²×°°ü£¬ÊäÈëÃüÁî
+// linuxå®‰è£…javaç¯å¢ƒ https://jingyan.baidu.com/article/5d6edee2e63aca99eadeec36.html
+æŸ¥çœ‹CentOSè‡ªå¸¦JDKæ˜¯å¦å·²å®‰è£…ï¼Œè¾“å…¥ï¼š
+yum list installed |grep java  è¿è¡ŒæŸ¥çœ‹ä¸€ä¸‹æ˜¯å¦å®‰è£…äº†java
+æŸ¥çœ‹yumåº“ä¸­çš„Javaå®‰è£…åŒ…ï¼Œè¾“å…¥å‘½ä»¤
 yum -y list java*
-ÓĞ¸÷ÖÖ°æ±¾ÎÒÃÇÒ»1.8µÄ°æ±¾ÎªÀı£¬ÎÒÃÇÊÇ64Î»ÏµÍ³ 
-yum -y install java-1.8.0-openjdk*  ÔËĞĞÃüÁî°²×°java
-°²×°Íê³ÉÒÔºóÎÒÃÇÀ´²é¿´javaµÄ°æ±¾ºÅ£¬ÊäÈë java -version
+æœ‰å„ç§ç‰ˆæœ¬æˆ‘ä»¬ä¸€1.8çš„ç‰ˆæœ¬ä¸ºä¾‹ï¼Œæˆ‘ä»¬æ˜¯64ä½ç³»ç»Ÿ 
+yum -y install java-1.8.0-openjdk*  è¿è¡Œå‘½ä»¤å®‰è£…java
+å®‰è£…å®Œæˆä»¥åæˆ‘ä»¬æ¥æŸ¥çœ‹javaçš„ç‰ˆæœ¬å·ï¼Œè¾“å…¥ java -version
 
-// rabbitmq linux °²×°
+// rabbitmq linux å®‰è£…
 https://blog.csdn.net/yangliangliang2011/article/details/81043896
 
 

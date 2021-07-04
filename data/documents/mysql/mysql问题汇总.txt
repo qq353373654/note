@@ -1,78 +1,78 @@
 
-// ÍêÈ«Ğ¶ÔØmysql
+// å®Œå…¨å¸è½½mysql
 https://jingyan.baidu.com/article/f96699bbaa8fc1894f3c1b5a.html
 
-// mysql5.7µÄ°²×°
+// mysql5.7çš„å®‰è£…
 http://www.jb51.net/article/119335.htm
 
-¼ÇÂ¼ÁËmysql 5.7.19 winx64½âÑ¹Ëõ°æ°²×°½Ì³Ì£¬¾ßÌåÄÚÈİÈçÏÂ
+è®°å½•äº†mysql 5.7.19 winx64è§£å‹ç¼©ç‰ˆå®‰è£…æ•™ç¨‹ï¼Œå…·ä½“å†…å®¹å¦‚ä¸‹
 
-ÏµÍ³»·¾³£ºWin7 x64
-Èí¼ş×¼±¸£ºMySQL 5.7.19 winx64
-ÏÂÔØÍøÖ·£ºhttps://dev.mysql.com/downloads/mysql/
+ç³»ç»Ÿç¯å¢ƒï¼šWin7 x64
+è½¯ä»¶å‡†å¤‡ï¼šMySQL 5.7.19 winx64
+ä¸‹è½½ç½‘å€ï¼šhttps://dev.mysql.com/downloads/mysql/
 
-ÅäÖÃ°²×°Á÷³Ì
+é…ç½®å®‰è£…æµç¨‹
 
-¾ßÌå°²×°ÈçÏÂ£º
-1¡¢°Ñ mysql-5.7.19-winx64.zip Ñ¹ËõÎÄ¼ş½âÑ¹µ½ C:\MySQL\ Ä¿Â¼ÏÂ£»
-2¡¢ÔÚ C:\MySQL\ Ä¿Â¼ÏÂĞÂ½¨ my.ini ÅäÖÃÎÄ¼ş£»
-3¡¢ÓÃÎÄ±¾±à¼­Æ÷»òÆäËû±à¼­Æ÷´ò¿ª my.ini ÎÄ¼ş£¬°ÑÒÔÏÂ´úÂë¸´ÖÆÕ³Ìù½øÈ¥£¬±£´æÍË³ö£»
-#´úÂë¿ªÊ¼
+å…·ä½“å®‰è£…å¦‚ä¸‹ï¼š
+1ã€æŠŠ mysql-5.7.19-winx64.zip å‹ç¼©æ–‡ä»¶è§£å‹åˆ° C:\MySQL\ ç›®å½•ä¸‹ï¼›
+2ã€åœ¨ C:\MySQL\ ç›®å½•ä¸‹æ–°å»º my.ini é…ç½®æ–‡ä»¶ï¼›
+3ã€ç”¨æ–‡æœ¬ç¼–è¾‘å™¨æˆ–å…¶ä»–ç¼–è¾‘å™¨æ‰“å¼€ my.ini æ–‡ä»¶ï¼ŒæŠŠä»¥ä¸‹ä»£ç å¤åˆ¶ç²˜è´´è¿›å»ï¼Œä¿å­˜é€€å‡ºï¼›
+#ä»£ç å¼€å§‹
 [Client]
-#ÉèÖÃ3306¶Ë¿Ú
+#è®¾ç½®3306ç«¯å£
 port = 3306
  
 [mysqld]
-#ÉèÖÃ3306¶Ë¿Ú
+#è®¾ç½®3306ç«¯å£
 port = 3306
-# ÉèÖÃmysqlµÄ°²×°Ä¿Â¼
+# è®¾ç½®mysqlçš„å®‰è£…ç›®å½•
 basedir=C:\mysql
-# ÉèÖÃmysqlÊı¾İ¿âµÄÊı¾İµÄ´æ·ÅÄ¿Â¼
+# è®¾ç½®mysqlæ•°æ®åº“çš„æ•°æ®çš„å­˜æ”¾ç›®å½•
 datadir=C:\mysql\data
-# ÔÊĞí×î´óÁ¬½ÓÊı
+# å…è®¸æœ€å¤§è¿æ¥æ•°
 max_connections=200
-# ·şÎñ¶ËÊ¹ÓÃµÄ×Ö·û¼¯Ä¬ÈÏÎª8±ÈÌØ±àÂëµÄlatin1×Ö·û¼¯
+# æœåŠ¡ç«¯ä½¿ç”¨çš„å­—ç¬¦é›†é»˜è®¤ä¸º8æ¯”ç‰¹ç¼–ç çš„latin1å­—ç¬¦é›†
 character-set-server=utf8
-# ´´½¨ĞÂ±íÊ±½«Ê¹ÓÃµÄÄ¬ÈÏ´æ´¢ÒıÇæ
+# åˆ›å»ºæ–°è¡¨æ—¶å°†ä½¿ç”¨çš„é»˜è®¤å­˜å‚¨å¼•æ“
 default-storage-engine=INNODB
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
  
 [mysql]
-# ÉèÖÃmysql¿Í»§¶ËÄ¬ÈÏ×Ö·û¼¯
+# è®¾ç½®mysqlå®¢æˆ·ç«¯é»˜è®¤å­—ç¬¦é›†
 default-character-set=utf8
-#´úÂë½áÊø
-4¡¢ÅäÖÃ»·¾³±äÁ¿£»
-4.1¡¢ĞÂ½¨ÏµÍ³±äÁ¿ MYSQL_HOME £¬²¢ÅäÖÃ±äÁ¿ÖµÎª C:\mysql £»
-4.2¡¢±à¼­ÏµÍ³±äÁ¿ Path £¬½« ;%MYSQL_HOME%\bin Ìí¼Óµ½ Path ±äÁ¿ÖµºóÃæ¡£
+#ä»£ç ç»“æŸ
+4ã€é…ç½®ç¯å¢ƒå˜é‡ï¼›
+4.1ã€æ–°å»ºç³»ç»Ÿå˜é‡ MYSQL_HOME ï¼Œå¹¶é…ç½®å˜é‡å€¼ä¸º C:\mysql ï¼›
+4.2ã€ç¼–è¾‘ç³»ç»Ÿå˜é‡ Path ï¼Œå°† ;%MYSQL_HOME%\bin æ·»åŠ åˆ° Path å˜é‡å€¼åé¢ã€‚
 
-5¡¢ÒÔ¹ÜÀíÔ±Éí·İÔËĞĞÃüÁîÌáÊ¾·ûcmd£¨Ò»¶¨ÒªÓÃ¹ÜÀíÔ±Éí·İÔËĞĞ£¬²»È»È¨ÏŞ²»¹»£©£»
-5.1¡¢Ê¹ÓÃdosÖ¸Áî£¬½øÈëC:\mysql Ä¿Â¼£¬ÔËĞĞÒÔÏÂÖ¸Áî
+5ã€ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œå‘½ä»¤æç¤ºç¬¦cmdï¼ˆä¸€å®šè¦ç”¨ç®¡ç†å‘˜èº«ä»½è¿è¡Œï¼Œä¸ç„¶æƒé™ä¸å¤Ÿï¼‰ï¼›
+5.1ã€ä½¿ç”¨dosæŒ‡ä»¤ï¼Œè¿›å…¥C:\mysql ç›®å½•ï¼Œè¿è¡Œä»¥ä¸‹æŒ‡ä»¤
 mysqld --defaults-file=my.ini --initialize-insecure
 mysqld --install
 net start mysql
-5.2¡¢ÉèÖÃ mysql µÄ root ÃÜÂë£¬ÔËĞĞÒÔÏÂÖ¸Áî
+5.2ã€è®¾ç½® mysql çš„ root å¯†ç ï¼Œè¿è¡Œä»¥ä¸‹æŒ‡ä»¤
 mysql -u root -p
 use mysql;
-update user set authentication_string=password('ÄúµÄÃÜÂë') where user='root';
+update user set authentication_string=password('æ‚¨çš„å¯†ç ') where user='root';
 flush privileges;
 exit
-ÖÁ´Ë£¬Mysql 5.7.19 winx64 ½âÑ¹Ëõ°æÅäÖÃ°²×°ÒÑ¾­Íê³É£¡×£Äú³É¹¦£¡
+è‡³æ­¤ï¼ŒMysql 5.7.19 winx64 è§£å‹ç¼©ç‰ˆé…ç½®å®‰è£…å·²ç»å®Œæˆï¼ç¥æ‚¨æˆåŠŸï¼
 
 
-// MySQL ³öÏÖ 2006 - MySQL server has gone away ÎÊÌâµÄ½â¾ö·½·¨
-ÔÚ my.ini ÎÄ¼şÖĞ£¨MySQL µÄ°²×°Ä¿Â¼ÏÂ£¬Èç¹û²»´´½¨¾ÍĞÂ½¨Ò»¸ö£©£¬ĞÂÔöÒÔÏÂÉèÖÃ£º
+// MySQL å‡ºç° 2006 - MySQL server has gone away é—®é¢˜çš„è§£å†³æ–¹æ³•
+åœ¨ my.ini æ–‡ä»¶ä¸­ï¼ˆMySQL çš„å®‰è£…ç›®å½•ä¸‹ï¼Œå¦‚æœä¸åˆ›å»ºå°±æ–°å»ºä¸€ä¸ªï¼‰ï¼Œæ–°å¢ä»¥ä¸‹è®¾ç½®ï¼š
 max_allowed_packet=500M
 https://blog.csdn.net/deniro_li/article/details/79274954
 
 
-// Á¬½ÓÊı¾İ¿âConnection is read-onlyÎÊÌâµÄ²úÉúÔ­ÒòÓë½â¾ö·½·¨
+// è¿æ¥æ•°æ®åº“Connection is read-onlyé—®é¢˜çš„äº§ç”ŸåŸå› ä¸è§£å†³æ–¹æ³•
 http://blog.csdn.net/jinwufeiyang/article/details/52213457
 
 // ERROR 1267 (HY000): Illegal mix of collations (utf8_general_ci,IMPLICIT) and (utf8_unicode_ci,IMPLICIT) for operation '='
-½â¾ö·½·¨£º½«±È½ÏµÈÊ½Ò»±ß½øĞĞ×Ö·û´®×ª»»£¬Èç¸ÄÎª¡°CONVERT(b.fullCode USING utf8) COLLATE utf8_unicode_ci¡±
+è§£å†³æ–¹æ³•ï¼šå°†æ¯”è¾ƒç­‰å¼ä¸€è¾¹è¿›è¡Œå­—ç¬¦ä¸²è½¬æ¢ï¼Œå¦‚æ”¹ä¸ºâ€œCONVERT(b.fullCode USING utf8) COLLATE utf8_unicode_ciâ€
 https://blog.csdn.net/hellostory/article/details/7266447
 
-// ¡¾´íÎó½â¾ö¡¿±¾µØ¼ÆËã»úÉÏµÄmysql·şÎñÆô¶¯Í£Ö¹ºó,Ä³Ğ©·şÎñÔÚÎ´ÓÉÆäËû·şÎñ»ò³ÌĞòÊ¹ÓÃÊ±½«×Ô¶¯Í£Ö¹
-mysqld --remove mysql É¾³ıdataÎÄ¼ş¼Ğ ÖØĞÂ°²×°
+// ã€é”™è¯¯è§£å†³ã€‘æœ¬åœ°è®¡ç®—æœºä¸Šçš„mysqlæœåŠ¡å¯åŠ¨åœæ­¢å,æŸäº›æœåŠ¡åœ¨æœªç”±å…¶ä»–æœåŠ¡æˆ–ç¨‹åºä½¿ç”¨æ—¶å°†è‡ªåŠ¨åœæ­¢
+mysqld --remove mysql åˆ é™¤dataæ–‡ä»¶å¤¹ é‡æ–°å®‰è£…
 
 

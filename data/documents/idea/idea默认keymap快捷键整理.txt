@@ -1,52 +1,52 @@
-F2 | Shift+F2 // ��������򾯸���ٶ�λ
-Alt+F1 // ����ѡ��ǰ�༭��Ԫ��
-Alt+Enter // ������ʾ��
-Shift+Enter // �������ӿ���
-Shift+F6 // �Ա�������������
-Ctrl+F7 // ���Բ�ѯ��ǰԪ���ڵ�ǰ�ļ��е����ã�Ȼ�� F3 ����ѡ��
-Ctrl+F12 // ������ʾ��ǰ�ļ��Ľṹ
-Ctrl+[ | ] // �����ܵ������ŵĿ�ͷ���β
-Ctrl+B // ����|����
-Ctrl+D // ���Ƶ�ǰ��
-Ctrl+E // ������ļ�
-Ctrl+F // ��ǰ�ļ�������
-Ctrl+G // ��λ��
-Ctrl+H // �鿴���ӿڵļ̳й�ϵ
-Ctrl+I // ʵ�ֽӿڷ���
-Ctrl+N // ���ѯ��
-Ctrl+O // ��д���෽��
-Ctrl+P // չʾ���÷�������Ч�����б�
-Ctrl+Q // ��ʾע���ĵ�
-Ctrl+R // ��ǰ�ļ����滻
-Ctrl+W // ��չѡ��,ѡ���괦��һ�����ӻ��ַ�����
-Ctrl+Y // ɾ����ǰ��
-Ctrl+/ // ��ǰ��ע��/ȡ��ע��
-Ctrl+Shift+B // ���ҽӿڵ�ʵ����
-Ctrl+Shift+F // ȫ������
-Ctrl+Shift+R // ȫ���滻
-Ctrl+Shift+U // ��Сдת��
-Ctrl+Shift+space // ��ʾ�����βο��Լ�����Щ����
-Ctrl+Shift+Backspace // ��ת���ϴα༭�ĵط�
-Ctrl+Shift+��/�� | Alt+Shift+��/�� // �ƶ���ǰ��
-Ctrl+Alt+�� | �� // �ص��ϴ���������λ��
-Ctrl+Alt+M // ���ٷ�װ����
-Ctrl+Alt+T // ���뻷��,ѡ��Test//catch
-Ctrl+Alt+V // �ع�����,��ȡ����
-Ctrl+space // ������ʾ
+F2 | Shift+F2 // 高亮错误或警告快速定位
+Alt+F1 // 快速选择当前编辑的元素
+Alt+Enter // 代码提示键
+Shift+Enter // 向下添加空行
+Shift+F6 // 对变量快速重命名
+Ctrl+F7 // 可以查询当前元素在当前文件中的引用，然后按 F3 可以选择
+Ctrl+F12 // 可以显示当前文件的结构
+Ctrl+[ | ] // 可以跑到大括号的开头与结尾
+Ctrl+B // 导航|声明
+Ctrl+D // 复制当前行
+Ctrl+E // 最近的文件
+Ctrl+F // 当前文件内搜索
+Ctrl+G // 定位行
+Ctrl+H // 查看类或接口的继承关系
+Ctrl+I // 实现接口方法
+Ctrl+N // 类查询器
+Ctrl+O // 重写基类方法
+Ctrl+P // 展示调用方法的有效参数列表
+Ctrl+Q // 显示注释文档
+Ctrl+R // 当前文件内替换
+Ctrl+W // 扩展选择,选择光标处的一个单子或字符串等
+Ctrl+Y // 删除当前行
+Ctrl+/ // 当前行注释/取消注释
+Ctrl+Shift+B // 查找接口的实现类
+Ctrl+Shift+F // 全局搜索
+Ctrl+Shift+R // 全局替换
+Ctrl+Shift+U // 大小写转化
+Ctrl+Shift+space // 提示方法形参可以加入哪些变量
+Ctrl+Shift+Backspace // 跳转到上次编辑的地方
+Ctrl+Shift+↑/↓ | Alt+Shift+↑/↓ // 移动当前行
+Ctrl+Alt+← | → // 回到上次浏览代码的位置
+Ctrl+Alt+M // 快速封装方法
+Ctrl+Alt+T // 代码环绕,选择Test//catch
+Ctrl+Alt+V // 重构因子,提取变量
+Ctrl+space // 代码提示
 
-�����:��סAlt+��ס�������϶����
+块操作:按住Alt+按住鼠标左键拖动光标
 
-�������ɹ��캯��/get/set/toString:��סAlt+Insert,��ѡ����ѡ��
+快速生成构造函数/get/set/toString:按住Alt+Insert,点选弹出选项
 
-����Eclipse��Alt+Shift+J���ɷ���ע��: �ڷ���������/**
+类似Eclipse的Alt+Shift+J生成方法注释: 在方法上输入/**
 
-git�汾����,�����ļ�:�ҵ��༭���·��� version control ������revert��delete
+git版本控制,忽略文件:找到编辑器下方的 version control 在里面revert或delete
 
-���ٹر�С����:����С�������ֵ������ּ�����Shift+���
+快速关闭小窗口:对着小窗口名字单击滑轮键，或Shift+左键
 
-�κι��ߴ����е�ESC���������Ƶ��༭��.
+任何工具窗口中的ESC键将焦点移到编辑器.
 
-Shift+ESC�������Ƶ��༭���������ص�ǰ(�����һ���)���ߴ���.
+Shift+ESC将焦点移到编辑器，并隐藏当前(或最后一个活动)工具窗口.
 
-F12��������ӱ༭���ƶ������һ���۽����ߴ���.
+F12键将焦点从编辑器移动到最后一个聚焦工具窗口.
 

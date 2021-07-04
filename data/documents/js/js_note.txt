@@ -1,11 +1,11 @@
-// js���� ������:
-readonly ֻ������
-disabled ������ ����ֵ�޷��޸����޷��ύ
+// js代码 下拉框:
+readonly 只读属性
+disabled 不可用 参数值无法修改且无法提交
 
-// jsˢ�µ�ǰҳ�� 
+// js刷新当前页面 
 http://www.jb51.net/article/44764.htm
-�﷨��location.reload([bForceGet])
-������bForceGet�� ��ѡ������ Ĭ��Ϊ false���ӿͻ��˻�����ȡ��ǰҳ��true, ���� GET ��ʽ���ӷ����ȡ���µ�ҳ��, �൱�ڿͻ��˵�� F5("ˢ��")
+语法：location.reload([bForceGet])
+参数：bForceGet， 可选参数， 默认为 false，从客户端缓存里取当前页。true, 则以 GET 方式，从服务端取最新的页面, 相当于客户端点击 F5("刷新")
 
 
 
